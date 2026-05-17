@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FTVR — The Footvolley Resistance Club</title>
+<meta name="description" content="Connecting you to The Footvolley Resistance Club on the permanent web.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#CE1126;--green:#009736;--yellow:#FFC300;--bg:#000;--text:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.container{text-align:center;padding:2rem;max-width:600px;position:relative;z-index:2}
+h1{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--yellow);margin-bottom:0.5rem}
+.sub{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:2.5rem;line-height:1.6}
+.status{font-size:0.95rem;margin-bottom:1.5rem;min-height:1.5rem;transition:all 0.3s}
+.spinner{display:inline-block;width:20px;height:20px;border:2px solid rgba(255,255,255,0.15);border-top:2px solid var(--yellow);border-radius:50%;animation:spin 0.8s linear infinite;vertical-align:middle;margin-right:0.5rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.progress{width:300px;max-width:80vw;height:3px;background:rgba(255,255,255,0.08);border-radius:3px;margin:0 auto 2rem;overflow:hidden}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--yellow));border-radius:3px;transition:width 0.3s}
+.gateways{display:none;margin-top:1.5rem}
+.gw-btn{display:block;width:100%;padding:0.8rem 1rem;margin:0.4rem 0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.85rem;cursor:pointer;text-decoration:none;transition:all 0.2s;text-align:left}
+.gw-btn:hover{background:rgba(255,255,255,0.08);border-color:var(--yellow)}
+.gw-btn .speed{float:right;font-size:0.75rem;opacity:0.5}
+.gw-btn.primary{border-color:var(--green);background:rgba(0,150,54,0.08)}
+.gw-btn.primary:hover{background:rgba(0,150,54,0.15)}
+.cancel{background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:0.5rem 1.5rem;border-radius:8px;cursor:pointer;font-size:0.78rem;margin-top:1rem;font-family:'Inter',sans-serif;transition:all 0.2s}
+.cancel:hover{border-color:var(--red);color:var(--red)}
+.footer{position:fixed;bottom:1rem;font-size:0.65rem;color:rgba(255,255,255,0.2);text-align:center}
+.hashtags{font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:1.5rem;word-spacing:0.3rem}
+@media(max-width:480px){h1{font-size:1.3rem}.sub{font-size:0.78rem}}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>The Footvolley Resistance Club</h1>
+  <p class="sub">For anyone who loves Footvolley and stands with humanity</p>
+  <p class="status" id="status"><span class="spinner"></span>Verifying you stand with humanity...</p>
+  <div class="progress"><div class="progress-bar" id="bar"></div></div>
+  <div class="gateways" id="gateways"></div>
+  <p class="hashtags">#FTVR #FootvolleyResistance #FTVResistance</p>
+</div>
+<div class="footer">Permanently stored on Arweave · Accessible through hundreds of gateways worldwide</div>
+
+<script>
+const UNDERNAME = 'ftvr_rufuswiena';
+const PRIMARY = [
+  {host:'ar.io',label:'ar.io (Primary)'},
+  {host:'arweave.net',label:'arweave.net'},
+  {host:'ardrive.net',label:'ardrive.net'}
+];
+const BACKUP = [
+  {host:'arweave.developerdao.com',label:'Developer DAO'},
+  {host:'permagate.io',label:'Permagate'},
+  {host:'g8way.0rbit.co',label:'0rbit'},
+  {host:'vilenarios.com',label:'Vilenarios'}
+];
+
+const status = document.getElementById('status');
+const bar = document.getElementById('bar');
+const gwDiv = document.getElementById('gateways');
+let cancelled = false;
+let redirectTimer = null;
+
+async function testGateway(gw) {
+  const url = `https://${UNDERNAME}.${gw.host}`;
+  const start = Date.now();
+  try {
+    // Phase 1: Quick liveness check
+    const controller1 = new AbortController();
+    const timeout1 = setTimeout(() => controller1.abort(), 5000);
+    await fetch(url, {method:'HEAD', mode:'no-cors', signal:controller1.signal});
+    clearTimeout(timeout1);
+    const phase1ms = Date.now() - start;
+
+    // Phase 2: Content validation — verify actual FTVR content loads
+    const controller2 = new AbortController();
+    const timeout2 = setTimeout(() => controller2.abort(), 8000);
+    const resp = await fetch(url, {signal:controller2.signal});
+    clearTimeout(timeout2);
+    const body = await resp.text();
+    const ms = Date.now() - start;
+
+    // Check that the page contains FTVR-specific content (not a landing/parking page)
+    const isReal = body.includes('Footvolley Resistance') || body.includes('FTVR');
+    if (!isReal) return {gw, url, ms:9999, ok:false};
+
+    return {gw, url, ms, ok:true};
+  } catch(e) {
+    return {gw, url, ms:9999, ok:false};
+  }
+}
+
+async function run() {
+  bar.style.width = '15%';
+  
+  // Phase 1: Test primary gateways
+  status.innerHTML = '<span class="spinner"></span>Checking primary gateways...';
+  const primaryResults = await Promise.all(PRIMARY.map(testGateway));
+  bar.style.width = '50%';
+  
+  const working = primaryResults.filter(r => r.ok).sort((a,b) => a.ms - b.ms);
+  
+  if (working.length > 0 && !cancelled) {
+    // Found a working primary — auto-redirect in 3 seconds
+    const best = working[0];
+    bar.style.width = '80%';
+    status.innerHTML = `<span class="spinner"></span>Connecting to ${best.gw.label}...`;
+    
+    // Test backups in background
+    const backupResults = await Promise.all(BACKUP.map(testGateway));
+    const allWorking = [...working, ...backupResults.filter(r => r.ok)].sort((a,b) => a.ms - b.ms);
+    bar.style.width = '100%';
+    
+    if (!cancelled) {
+      status.innerHTML = `✅ Connected! Redirecting to <strong>${best.gw.label}</strong>...`;
+      let countdown = 3;
+      redirectTimer = setInterval(() => {
+        countdown--;
+        if (countdown <= 0 && !cancelled) {
+          clearInterval(redirectTimer);
+          window.location.href = best.url;
+        }
+      }, 1000);
+      
+      // Show cancel + alternatives
+      showGateways(allWorking, best);
+    }
+  } else {
+    // No primary worked, try backups
+    status.innerHTML = '<span class="spinner"></span>Trying backup gateways...';
+    bar.style.width = '70%';
+    const backupResults = await Promise.all(BACKUP.map(testGateway));
+    const allWorking = [...working, ...backupResults.filter(r => r.ok)].sort((a,b) => a.ms - b.ms);
+    bar.style.width = '100%';
+    
+    if (allWorking.length > 0 && !cancelled) {
+      const best = allWorking[0];
+      status.innerHTML = `✅ Found gateway! Redirecting to <strong>${best.gw.label}</strong>...`;
+      let countdown = 3;
+      redirectTimer = setInterval(() => {
+        countdown--;
+        if (countdown <= 0 && !cancelled) {
+          clearInterval(redirectTimer);
+          window.location.href = best.url;
+        }
+      }, 1000);
+      showGateways(allWorking, best);
+    } else if (!cancelled) {
+      status.innerHTML = '⚠️ No gateways responding. Try again later or choose manually:';
+      showGateways([], null);
+    }
+  }
+}
+
+function showGateways(working, best) {
+  gwDiv.style.display = 'block';
+  let html = '';
+  
+  if (working.length > 0) {
+    working.forEach(r => {
+      const isPrimary = r === best ? ' primary' : '';
+      html += `<a class="gw-btn${isPrimary}" href="${r.url}">${r.gw.label}<span class="speed">${r.ms}ms</span></a>`;
+    });
+  } else {
+    // Show all as clickable even if test failed
+    [...PRIMARY, ...BACKUP].forEach(gw => {
+      html += `<a class="gw-btn" href="https://${UNDERNAME}.${gw.host}">${gw.label}</a>`;
+    });
+  }
+  
+  html += `<button class="cancel" onclick="cancelRedirect()">Cancel auto-redirect</button>`;
+  gwDiv.innerHTML = html;
+}
+
+function cancelRedirect() {
+  cancelled = true;
+  if (redirectTimer) clearInterval(redirectTimer);
+  status.innerHTML = '🛑 Auto-redirect cancelled. Choose a gateway below:';
+  document.querySelector('.cancel').style.display = 'none';
+}
+
+run();
+</script>
+</body>
+</html>
