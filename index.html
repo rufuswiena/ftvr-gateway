@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>FTVR — The Footvolley Resistance Club</title>
 <meta name="description" content="The Footvolley Resistance Club. For anyone who loves Footvolley and stands with humanity and the oppressed. Est. 15 May 2026 — Nakba Day.">
+<meta property="og:title" content="Footvolley Resistance Club — FTVR">
+<meta property="og:description" content="For anyone who loves Footvolley and stands with humanity. Free, decentralized, open to all.">
+<meta property="og:image" content="https://ftvresistance.com/ftvrlogov1.webp">
+<meta property="og:url" content="https://ftvresistance.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Footvolley Resistance Club — FTVR">
+<meta name="twitter:description" content="For anyone who loves Footvolley and stands with humanity. Free, decentralized, open to all.">
+<meta name="twitter:image" content="https://ftvresistance.com/ftvrlogov1.webp">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -597,6 +606,37 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     font-size: 1.15rem;
   }
 }
+
+/* Mobile header centering fix */
+@media (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .header-logo {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 15px auto 10px auto;
+  }
+  .header-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .header-glass {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  .header-glass h1 {
+    text-align: center;
+  }
+}
 </style>
 </head>
 <body>
@@ -672,7 +712,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   <div class="section" id="about">
     <h2 class="section-title">About</h2>
     <p><strong>Created in 2026</strong>, Footvolley Resistance was formed as an <strong>urgent initiative</strong> to <strong>protect</strong> our community, our players, and the spirit of the sport itself.</p>
-    <button class="collapsible open" onclick="toggle(this)">Read more</button>
+    
     <div class="collapse-content open"><div class="collapse-inner">
       <div style="background:#222;color:#eee;padding:1.2rem 1.5rem;border-radius:8px;margin-bottom:1.5rem;font-style:italic;line-height:1.7;font-size:0.95rem">
         <p style="color:var(--yellow);font-weight:500;font-style:normal;line-height:1.7">Footvolley was built by passionate people, local communities, friendships, neighborhoods, training groups, and human connection. Across the world, it remains a deeply welcoming and kind environment where people from different cultures meet through sport. <strong style="color:var(--yellow)">That space must be protected!</strong></p>
@@ -684,7 +724,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       <div class="featured-pair">
         <div>
           <div class="photo-card"><img src="ftvbomb.webp" alt="Signed bomb with footvolley message"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)" style="margin-top:0.5rem;width:100%;justify-content:center">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)" style="margin-top:0.5rem;width:100%;justify-content:center">Read more</button>
           <div class="collapse-content"><div class="collapse-inner">
             <p>Posted on Instagram by the Israeli account <strong>@mikasa.tu.kasa</strong> — a bomb casing signed with Hebrew text and <strong>"Footvolley ❤️"</strong>. The inscriptions translate as follows:</p>
             <p style="margin-top:0.5rem"><strong>Printed text:</strong> "That the whole world knew — In memory of Dor Malka" (שכל העולם ידע — לזכר דור מלכה)</p>
@@ -694,7 +734,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         </div>
         <div>
           <div class="video-embed"><video src="zionistsplayingaltinha.mp4" controls preload="metadata"></video></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)" style="margin-top:0.5rem;width:100%;justify-content:center">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)" style="margin-top:0.5rem;width:100%;justify-content:center">Read more</button>
           <div class="collapse-content"><div class="collapse-inner">
             <p>Video posted by <strong>@nadav__navon</strong> (9 January 2024) of Israeli footvolley players playing altinha inside a raided Palestinian home — while serving the IDF during the ongoing genocide in Gaza. Caption in Hebrew: <em>"קצת מהחוויה שלי בשלושה חודשים האחרונים שלא הייתי בוחר לעבור אחרת 🇮🇱"</em> — Translation: <em>"A bit of my experience from the last three months — I wouldn't have chosen to go through it any differently 🇮🇱"</em></p>
           </div></div>
@@ -705,32 +745,32 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       <div class="photo-grid-4">
         <div class="grid-item">
           <div class="photo-card"><img src="grid-1.webp" alt="Evidence: david_bpt"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
           <div class="collapse-content"><div class="collapse-inner"><p><strong>DavidBuz (@david_bpt)</strong> — Israeli footvolley player. Messages include: "Israeli Mossad hunts the people on the evil side, be careful what you say or do", "May all Gaza turns into hell after what they did to us, they deserve nothing more. Everyone there is involved. Stop being blind", "Israel will conquer it eventually. And then we will take care of Turkey (for you, the Greek people) because they host Hamas terrorist now."</p></div></div>
         </div>
         <div class="grid-item">
           <div class="photo-card"><img src="grid-2.webp" alt="Evidence: liderfranko14"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
           <div class="collapse-content"><div class="collapse-inner"><p><strong>Lidor Franko (@liderfranko14)</strong> — Israeli footvolley player. Messages include: "From now on you are in trouble, no Jew will support you anymore, if you are all for them, go live in Gaza and Inshallah they will rape you there", "F**k you", "<strong>You are f**king dead</strong>" — direct death threats against a footvolley player for sharing information about civilian casualties in Gaza.</p></div></div>
         </div>
         <div class="grid-item">
           <div class="photo-card"><img src="grid-3.webp" alt="Evidence: ronbenishai.ftv"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
           <div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.ftv)</strong> — Israeli footvolley player (verified account). Messages include: "I will personally take care no one from Israel will ever train/work/pay/collaborate anything with you. Good luck. Keep supporting terror organisations and delegitimise Israel people." — economic threats and intimidation against a player who posted about Palestinian casualties.</p></div></div>
         </div>
         <div class="grid-item">
           <div class="photo-card"><img src="grid-4.webp" alt="Evidence: shahaflavi512"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
           <div class="collapse-content"><div class="collapse-inner"><p><strong>Shahaf Lavi (@shahaflavi512)</strong> — Account associated with Israel. Message: "<strong>We understand that you want to come to Israel, if we see you in Israel we will kill you! Don't go near the State of Israel, you anti-Semite, we will murder you like the children in Gaza.</strong>" — explicit death threats and a shocking admission referencing the killing of children in Gaza. (Hebrew account name: שחף לביא קוסמטיקה)</p></div></div>
         </div>
         <div class="grid-item">
           <div class="photo-card"><img src="grid-5.webp" alt="Evidence: shaulinbal7"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
           <div class="collapse-content"><div class="collapse-inner"><p><strong>Shaul Inbal (@shaulinbal7)</strong> — Israeli footvolley player. Messages include: "This one is going to be like people in Palestine — Dead 💀", "I have my people in Greece that can help me cut down your business in a legal way", "Be careful on your business", "Retard", "Bitch" — death threats, business intimidation, and abusive language.</p></div></div>
         </div>
         <div class="grid-item">
           <div class="photo-card"><img src="grid-6.webp" alt="Evidence: yinon.amir"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
           <div class="collapse-content"><div class="collapse-inner"><p><strong>Yinon Amir (@yinon.amir)</strong> — Israeli footvolley player. Messages include death threats, rape threats against family members, and Holocaust references. English: "You f**king b**ch all you know it's thanks to us", "F**k you", "And f**k your family", "And I wish that your kids will be raped by terrorists like you", "Yanis sharmuta ben sharmuta" (Yanis, whore son of a whore).</p><p><strong>Hebrew messages translated:</strong></p><ul><li>"יא מקריח יא בן של שרמוטה שיאנסו את אמא שלך" — <em>"You baldy, you son of a whore, may they rape your mother"</em></li><li>"שיעשו לך שואה יבן שרמוטה" — <em>"May they give you a Holocaust, you son of a whore"</em></li><li>"שיאנסו את האמא הזונה שלך ימכוער בפנים" — <em>"May they rape your whore mother, you ugly face"</em></li><li>"אמא שלך שרמוטה" — <em>"Your mother is a whore"</em></li></ul></div></div>
         </div>
       </div>
@@ -859,7 +899,6 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 
   <div class="section" id="join">
     <h2 class="section-title">Join FTVR</h2>
-
     <div class="box box-welcome">
       <h3>✊ WELCOME</h3>
       <p>Anyone who stands with humanity, shows respect and good behavior is welcome — both religious and non-religious people. (See specifics in our policy in footer)</p>
@@ -877,7 +916,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     </div>
     <p><strong>FTVR</strong> is a fully <strong>decentralized footvolley club</strong> open to <strong>ANYONE*</strong> worldwide (<em>*provided you follow our community policy</em>). It's completely <strong>free</strong> to become a member. We exist to play footvolley and share our passion for the sport. Let's have fun and play!</p>
       <p style="margin-top:0.8rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.06);border-radius:8px;font-size:0.88rem">📢 <strong>Important:</strong> Since FTVR is a decentralized club, we do not have any official social media accounts yet! For now, please share our website directly and tag us using our hashtags. #FTVR #FootvolleyResistance #FTVResistance</p>
-    <button class="collapsible open" onclick="toggle(this)">Read more</button>
+    
     <div class="collapse-content open"><div class="collapse-inner">
       <p>FTVR functions as a decentralized global movement, with The Footvolley Resistance Club serving as our official entity, incorporated under a Swedish company umbrella.</p>
       <p><strong>How to participate:</strong></p>
