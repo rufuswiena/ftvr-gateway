@@ -4,186 +4,1088 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>FTVR — The Footvolley Resistance Club</title>
-<meta name="description" content="Connecting you to The Footvolley Resistance Club on the permanent web.">
+<meta name="description" content="The Footvolley Resistance Club. For anyone who loves Footvolley and stands with humanity and the oppressed. Est. 15 May 2026 — Nakba Day.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#CE1126;--green:#009736;--yellow:#FFC300;--bg:#000;--text:#fff}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
-.container{text-align:center;padding:2rem;max-width:600px;position:relative;z-index:2}
-h1{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--yellow);margin-bottom:0.5rem}
-.sub{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:2.5rem;line-height:1.6}
-.status{font-size:0.95rem;margin-bottom:1.5rem;min-height:1.5rem;transition:all 0.3s}
-.spinner{display:inline-block;width:20px;height:20px;border:2px solid rgba(255,255,255,0.15);border-top:2px solid var(--yellow);border-radius:50%;animation:spin 0.8s linear infinite;vertical-align:middle;margin-right:0.5rem}
-@keyframes spin{to{transform:rotate(360deg)}}
-.progress{width:300px;max-width:80vw;height:3px;background:rgba(255,255,255,0.08);border-radius:3px;margin:0 auto 2rem;overflow:hidden}
-.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--yellow));border-radius:3px;transition:width 0.3s}
-.gateways{display:none;margin-top:1.5rem}
-.gw-btn{display:block;width:100%;padding:0.8rem 1rem;margin:0.4rem 0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.85rem;cursor:pointer;text-decoration:none;transition:all 0.2s;text-align:left}
-.gw-btn:hover{background:rgba(255,255,255,0.08);border-color:var(--yellow)}
-.gw-btn .speed{float:right;font-size:0.75rem;opacity:0.5}
-.gw-btn.primary{border-color:var(--green);background:rgba(0,150,54,0.08)}
-.gw-btn.primary:hover{background:rgba(0,150,54,0.15)}
-.cancel{background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:0.5rem 1.5rem;border-radius:8px;cursor:pointer;font-size:0.78rem;margin-top:1rem;font-family:'Inter',sans-serif;transition:all 0.2s}
-.cancel:hover{border-color:var(--red);color:var(--red)}
-.footer{position:fixed;bottom:1rem;font-size:0.65rem;color:rgba(255,255,255,0.2);text-align:center}
-.hashtags{font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:1.5rem;word-spacing:0.3rem}
-@media(max-width:480px){h1{font-size:1.3rem}.sub{font-size:0.78rem}}
+:root {
+  --green: #009736;
+  --red: #CE1126;
+  --black: #111;
+  --white: #fff;
+  --yellow: #FFC300;
+  --yellow-dark: #E5AD00;
+  --text: #111;
+  --text-dim: #444;
+  --radius: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--yellow);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
+
+/* ═══ HEADER: Animated Mesh Gradient ═══ */
+.header {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    #006B28 0%, #009736 20%,
+    #CE1126 35%, #8B0A1A 50%,
+    #111 65%, #333 80%,
+    #ddd 90%, #fff 100%);
+  z-index: 0;
+}
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.7;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+.blob-green {
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, #00C853 0%, #009736 40%, transparent 70%);
+  top: -10%; left: -10%;
+  animation: drift1 8s ease-in-out infinite alternate;
+}
+.blob-red {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #FF4444 0%, #CE1126 40%, transparent 70%);
+  top: 10%; right: -5%;
+  animation: drift2 10s ease-in-out infinite alternate;
+}
+.blob-dark {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #333 0%, #000 40%, transparent 70%);
+  bottom: -15%; left: 30%;
+  animation: drift3 9s ease-in-out infinite alternate;
+  mix-blend-mode: multiply; opacity: 0.5;
+}
+.blob-white {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 40%, transparent 70%);
+  bottom: 0%; right: -5%;
+  animation: drift4 7s ease-in-out infinite alternate;
+  mix-blend-mode: overlay;
+}
+.blob-green2 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #2DB553 0%, transparent 60%);
+  top: 50%; left: 10%;
+  animation: drift5 11s ease-in-out infinite alternate;
+}
+.blob-red2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, #E8344A 0%, transparent 60%);
+  top: 20%; left: 40%;
+  animation: drift6 12s ease-in-out infinite alternate;
+}
+@keyframes drift1 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(80px,60px) scale(1.15)} }
+@keyframes drift2 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-70px,50px) scale(1.1)} }
+@keyframes drift3 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(50px,-40px) scale(1.2)} }
+@keyframes drift4 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-60px,-50px) scale(1.15)} }
+@keyframes drift5 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(40px,-60px) scale(1.1)} }
+@keyframes drift6 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-50px,40px) scale(1.2)} }
+
+.header-logo {
+  position: absolute;
+  top: 16px; left: 60px;
+  z-index: 5;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+  background: transparent;
+}
+.header-bomb-wrap {
+  position: absolute;
+  top: 16px; right: 40px;
+  z-index: 5;
+  width: 200px;
+  text-align: center;
+}
+.header-bomb-wrap img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  cursor: zoom-in;
+}
+.header-bomb-caption {
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0.5rem 0.6rem;
+  margin-top: -4px;
+  font-size: 0.62rem;
+  line-height: 1.4;
+  color: var(--white);
+  text-align: left;
+}
+.header-bomb-caption strong { color: var(--red); }
+.header-content {
+  position: relative; z-index: 3;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  max-width: 600px;
+}
+.header-glass {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 2rem 2.5rem;
+}
+.header-glass h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  line-height: 1.15;
+}
+.header-sub {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-top: 0.6rem;
+  color: rgba(255,255,255,0.9);
+}
+.header-tags {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.header-tags span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ═══ Supporters ═══ */
+.supporters {
+  background: var(--black);
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+.sup-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  text-decoration: none; opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.sup-item:hover { opacity: 1; }
+.sup-item img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.2); }
+.sup-item span { color: var(--white); font-family: 'Oswald', sans-serif; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.sup-item:hover span { color: var(--yellow); }
+.sup-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.15); }
+
+/* ═══ Nav ═══ */
+.nav {
+  background: var(--yellow-dark);
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: sticky; top: 0; z-index: 50;
+}
+.nav a {
+  color: var(--black); text-decoration: none;
+  font-size: 0.85rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.nav a:hover { color: var(--red); }
+
+/* ═══ Main ═══ */
+.main { max-width: 920px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+.section { margin-bottom: 3rem; }
+.section-title {
+  font-size: 1.5rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--black);
+  margin-bottom: 0.8rem; padding-bottom: 0.4rem;
+  border-bottom: 4px solid var(--black);
+  display: inline-block;
+}
+.section p, .section li { font-size: 0.92rem; line-height: 1.75; color: var(--text); margin-bottom: 0.5rem; }
+.section ul { padding-left: 1.3rem; }
+
+/* ═══ Collapsible ═══ */
+.collapsible {
+  background: none; border: 2px solid var(--black); color: var(--black);
+  font-family: 'Oswald', sans-serif; font-size: 0.82rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  cursor: pointer; padding: 0.45rem 1.2rem; border-radius: 4px;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: all 0.2s; margin-top: 0.4rem;
+}
+.collapsible:hover { background: var(--black); color: var(--yellow); }
+.collapsible::after { content: '▾'; font-size: 0.75rem; transition: transform 0.3s; vertical-align: middle; line-height: 1; display: inline-flex; align-items: center; }
+.collapsible.open::after { transform: rotate(180deg); }
+.collapsible.open { background: var(--black); color: var(--yellow); }
+.collapse-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.collapse-content.open { max-height: none; }
+.collapse-inner { padding-top: 1rem; padding-bottom: 0.5rem; }
+.collapse-inner p { margin-bottom: 1rem; }
+.collapse-inner .photo-grid-4 { margin: 1.5rem 0; }
+.collapse-inner .featured-pair { margin: 1.5rem 0; }
+.collapse-inner .tl-item { margin-bottom: 1.2rem; }
+.collapse-inner h3 { margin-top: 1.5rem; margin-bottom: 0.8rem; }
+.collapsible { margin-top: 0.8rem; }
+
+/* ═══ Welcome / Not Welcome ═══ */
+.box { border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-bottom: 1rem; }
+.box-welcome { background: rgba(0,0,0,0.06); border-left: 5px solid var(--black); }
+.box-welcome h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--black); }
+.box-not-welcome { background: rgba(206,17,38,0.08); border-left: 5px solid var(--red); }
+.box-not-welcome h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--red); }
+.box-not-welcome p { color: var(--red); font-weight: 500; }
+
+/* ═══ Photo Grid 4x4 ═══ */
+.photo-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+.featured-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.featured-pair .photo-card,
+.featured-pair .video-embed {
+  aspect-ratio: 9/16;
+  height: auto;
+}
+.featured-pair .video-embed {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featured-pair .video-embed video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.grid-item { display: flex; flex-direction: column; }
+.grid-item .photo-card { aspect-ratio: 1; height: auto; }
+.grid-btn {
+  font-size: 0.62rem !important;
+  padding: 0.3rem 0.5rem !important;
+  margin-top: 0.4rem;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.photo-grid .photo-card {
+  height: 320px;
+}
+.photo-grid .photo-card img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* ═══ Placeholder cards ═══ */
+.photo-card.placeholder {
+  background: rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: 2px dashed rgba(0,0,0,0.15);
+}
+.photo-card.placeholder span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(0,0,0,0.2);
+}
+
+/* ═══ Video placeholders ═══ */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin: 1rem 0 1.5rem;
+}
+.video-placeholder {
+  background: rgba(0,0,0,0.08);
+  border: 2px dashed rgba(0,0,0,0.15);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16/9;
+}
+.video-placeholder span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.25);
+}
+
+/* ═══ Logo kit ═══ */
+.logo-kit {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.logo-kit a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--black);
+  color: var(--yellow);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+.logo-kit a:hover { opacity: 0.85; }
+.photo-card {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+.photo-card:hover { transform: scale(1.02); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+
+/* ═══ Lightbox ═══ */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.92);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 16px; right: 24px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 10001;
+}
+.photo-caption { text-align: center; font-size: 0.72rem; color: var(--text-dim); margin-top: 0.4rem; font-style: italic; }
+
+/* ═══ Timeline ═══ */
+.timeline { position: relative; margin: 2rem 0; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; background: var(--red); border-radius: 2px; }
+.tl-item { position: relative; margin-bottom: 1.8rem; }
+.tl-item::before { content: ''; position: absolute; left: -2rem; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); border: 2px solid var(--yellow); }
+.tl-item h4 { font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.3rem; }
+.tl-item p { font-size: 0.82rem; line-height: 1.5; }
+.tl-item a { color: var(--red); font-weight: 600; text-decoration: underline; }
+.tl-item .tl-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; background: var(--black); color: var(--yellow); padding: 0.15rem 0.5rem; border-radius: 3px; margin-top: 0.3rem; }
+
+/* ═══ Tags ═══ */
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+.tag { background: var(--black); color: var(--yellow); padding: 0.3rem 0.8rem; border-radius: 20px; font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 600; }
+
+/* ═══ Donate ═══ */
+.donate-block { background: var(--yellow-dark); border-radius: var(--radius); padding: 1.2rem 1.4rem; margin-top: 0.8rem; }
+
+/* ═══ Modal Popup ═══ */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--yellow);
+  border-radius: 16px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn {
+  0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-close {
+  position: absolute;
+  top: 12px; right: 16px;
+  background: var(--black); color: var(--yellow);
+  border: none; border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+}
+.modal-close:hover { transform: scale(1.1); }
+
+/* ═══ Footer ═══ */
+.footer {
+  background: var(--black);
+  padding: 1.3rem;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  font-family: 'Oswald', sans-serif; font-size: 0.78rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  transition: color 0.2s; cursor: pointer;
+}
+.footer-links a:hover { color: var(--yellow); }
+
+/* ═══ Long text block ═══ */
+.long-text {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-top: 1rem;
+}
+.long-text p { margin-bottom: 0.8rem; }
+.long-text blockquote {
+  border-left: 4px solid var(--red);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* ═══ Tablet (768px) ═══ */
+@media (max-width: 768px) {
+  .header { min-height: 480px; }
+  .header-logo { width: 120px; height: 120px; top: 10px; left: 10px; }
+  .header-bomb-wrap { width: 110px; top: 10px; right: 10px; }
+  .header-bomb-caption { font-size: 0.48rem; padding: 0.25rem 0.35rem; }
+  .header-glass { padding: 1.5rem 1.2rem; max-width: 55%; }
+  .header-glass h1 { font-size: 1.8rem; }
+  .mesh-blob { filter: blur(60px); }
+  .blob-green,.blob-red { width: 300px; height: 300px; }
+  .blob-dark,.blob-white,.blob-green2,.blob-red2 { width: 200px; height: 200px; }
+}
+
+/* ═══ Mobile (700px) ═══ */
+@media (max-width: 700px) {
+  .header { min-height: 420px; }
+  .header-logo { width: 80px; height: 80px; top: 8px; left: 8px; }
+  .header-bomb-wrap { width: 90px; top: 8px; right: 8px; }
+  .header-bomb-caption { font-size: 0.42rem; padding: 0.2rem 0.3rem; max-width: 80px; }
+  .header-glass { padding: 1.2rem 1rem; max-width: 70%; }
+  .header-glass h1 { font-size: 1.6rem; }
+  .supporters { gap: 0.8rem; padding: 0.5rem 0.6rem; flex-wrap: wrap; }
+  .sup-item img { width: 20px; height: 20px; }
+  .sup-item span { font-size: 0.62rem; }
+  .main { padding: 1.5rem 1rem 2rem; }
+  .nav { gap: 1rem; flex-wrap: wrap; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .featured-pair { grid-template-columns: 1fr; }
+  .featured-pair .photo-card,
+  .featured-pair .video-embed { aspect-ratio: auto; height: auto; }
+  .video-grid { grid-template-columns: 1fr; }
+  .modal-box { padding: 1.5rem 1.2rem; max-height: 85vh; }
+  /* More breathing room in About section */
+  .collapse-inner { padding: 0.8rem 0; }
+  .collapse-inner p { margin-bottom: 0.8rem; }
+  .section-title { font-size: 1.1rem; }
+}
+
+/* ═══ Small Mobile (480px) ═══ */
+@media (max-width: 480px) {
+  .header { min-height: 380px; }
+  .header-logo { width: 60px; height: 60px; top: 6px; left: 6px; }
+  .header-bomb-wrap { width: 70px; right: 5px; top: 5px; }
+  .header-glass { padding: 1rem 0.8rem; max-width: 80%; }
+  .header-glass h1 { font-size: 1.3rem; }
+  .header-sub { font-size: 0.72rem; }
+  .header-tags { font-size: 0.45rem; }
+  .main { padding: 1rem 0.8rem 2rem; }
+  .nav a { font-size: 0.75rem; }
+  .photo-grid-4 { grid-template-columns: 1fr; gap: 0.6rem; }
+}
+
+/* ═══ Extra Small (375px) ═══ */
+@media (max-width: 375px) {
+  .header { min-height: 340px; }
+  .header-logo { width: 50px; height: 50px; }
+  .header-bomb-wrap { width: 55px; }
+  .header-glass h1 { font-size: 1.15rem; letter-spacing: 0.02em; }
+  .header-sub { font-size: 0.65rem; }
+  .supporters { gap: 0.5rem; }
+  .sup-item span { font-size: 0.55rem; }
+}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>The Footvolley Resistance Club</h1>
-  <p class="sub">For anyone who loves Footvolley and stands with humanity</p>
-  <p class="status" id="status"><span class="spinner"></span>Verifying you stand with humanity...</p>
-  <div class="progress"><div class="progress-bar" id="bar"></div></div>
-  <div class="gateways" id="gateways"></div>
-  <p class="hashtags">#FTVR #FootvolleyResistance #FTVResistance</p>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="mesh-blob blob-green"></div>
+  <div class="mesh-blob blob-red"></div>
+  <div class="mesh-blob blob-dark"></div>
+  <div class="mesh-blob blob-white"></div>
+  <div class="mesh-blob blob-green2"></div>
+  <div class="mesh-blob blob-red2"></div>
+  <img class="header-logo" src="ftvrlogov1.webp" alt="FTVR Logo">
+  <div class="header-bomb-wrap">
+    <img src="ftvbomb-x.webp" alt="Bomb signed with Footvolley" onclick="openLightbox(this.src)">
+    <div class="header-bomb-caption">🇮🇱 <strong>A bomb casing signed "Footvolley" with a heart symbol</strong> — posted by Israeli account @mikasa.tu.kasa. <em>Read more under About.</em></div>
+  </div>
+  <div class="header-content">
+    <div class="header-glass">
+      <h1>Footvolley<br>Resistance Club</h1>
+      <p class="header-sub">For anyone who loves Footvolley and stands with humanity!</p>
+      <div class="header-tags">
+        <span>#FTVR</span>
+        <span>#FootvolleyResistance</span>
+        <span>#FTVResistance</span>
+        <span>#FutevôleiResistance</span>
+        <span>#TheFootvolleyResistanceClub</span>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="footer">Permanently stored on Arweave · Accessible through hundreds of gateways worldwide</div>
+
+<!-- Supporters -->
+<div class="supporters">
+  <a class="sup-item" href="https://hindrajabfoundation.org" target="_blank" rel="noopener">
+    <img src="hind-rajab-logo.webp" alt="Hind Rajab Foundation">
+    <span>Hind Rajab</span>
+  </a>
+  <div class="sup-divider"></div>
+  <a class="sup-item" href="https://rufuswiena.com" target="_blank" rel="noopener">
+    <img src="rw-logo.webp" alt="RufusWiena">
+    <span>RufusWiena</span>
+  </a>
+  <div class="sup-divider"></div>
+  <a class="sup-item" href="https://watermeloncrimes.com" target="_blank" rel="noopener">
+    <img src="watermeloncrimeslogo.webp" alt="Watermelon Crimes">
+    <span>Watermelon Crimes</span>
+  </a>
+  <div class="sup-divider"></div>
+  <a class="sup-item" href="https://masjidalaqsa.com/" target="_blank" rel="noopener">
+    <img src="masjid-logo.svg" alt="Masjid Al-Aqsa">
+    <span>Masjid Al-Aqsa</span>
+  </a>
+  <a class="sup-item" href="https://globalsumudflotilla.org/" target="_blank" rel="noopener">
+    <img src="globalsumudflotilla-logo.webp" alt="Global Sumud Flotilla">
+    <span>Global Sumud Flotilla</span>
+  </a>
+  <div class="sup-divider"></div>
+  <a class="sup-item" href="https://gazasunbirds.org/" target="_blank" rel="noopener">
+    <img src="gazasunbirds-logo.webp" alt="Gaza Sunbirds">
+    <span>Gaza Sunbirds</span>
+  </a>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <a href="#home">Home</a>
+  <a href="#join">Join FTVR</a>
+  <a href="#about">About</a>
+  <a href="#support">Support</a>
+</div>
+
+<!-- ═══ SCROLLABLE CONTENT ═══ -->
+<div class="main">
+
+  <!-- HOME -->
+  <div class="section" id="home">
+    <div class="box box-welcome">
+      <h3>✊ WELCOME</h3>
+      <p>Anyone who stands with humanity, shows respect and good behavior is welcome — both religious and non-religious people. (See specifics in our policy in footer)</p>
+    </div>
+    <div class="box box-not-welcome">
+      <h3>✋ NOT WELCOMED</h3>
+      <p>You are not welcome in this community if you:</p>
+      <ul style="color:var(--red);font-weight:500;margin-top:0.4rem">
+        <li>Threaten, intimidate, harass, or behave aggressively toward footvolley players, their families, friends, or communities</li>
+        <li>Support — explicitly or implicitly — the actions, policies, or military operations of the IDF</li>
+        <li>Support, enable, justify, or participate in genocide, war crimes, apartheid, ethnic cleansing, or crimes against humanity — including the ongoing atrocities in Gaza</li>
+        <li>Promote or support Zionism, Nazism, fascism or other ethno-supremacist and dehumanizing ideologies including those of the illegal apartheid state of Israel</li>
+        <li>Fail to comply with our community behavior and ethical standards policy (detailed below)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JOIN -->
+  <div class="section" id="join">
+    <h2 class="section-title">Join the Footvolley Resistance</h2>
+    <p><strong>FTVR</strong> is a fully <strong>decentralized footvolley club</strong> open to <strong>ANYONE*</strong> worldwide (<em>*provided you follow our community policy</em>). It's completely <strong>free</strong> to become a member. We exist to play footvolley and share our passion for the sport. Let's have fun and play!</p>
+      <p style="margin-top:0.8rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.06);border-radius:8px;font-size:0.88rem">📢 <strong>Important:</strong> Since FTVR is a decentralized club, we do not have any official social media accounts yet! For now, please share our website directly and tag us using our hashtags. #FTVR #FootvolleyResistance #FTVResistance</p>
+    <button class="collapsible" onclick="toggle(this)">Read more</button>
+    <div class="collapse-content"><div class="collapse-inner">
+      <p>FTVR functions as a decentralized global movement, with The Footvolley Resistance Club serving as our official entity, incorporated under a Swedish company umbrella.</p>
+      <p><strong>How to participate:</strong></p>
+      <ul>
+        <li>Represent Footvolley Resistance directly in your area</li>
+        <li>If local regulations prevent this, create your own FTVR branch (e.g., "Footvolley Resistance Helsinki") using our materials <em>(free to copy and use)</em></li>
+        <li>Use our logo on clothes, accessories, and equipment <em>(free to copy and use)</em></li>
+        <li>Share our content and hashtags on social media</li>
+        <li>Print and display our tags anywhere footvolley is played <em>(free to copy and use)</em></li>
+      </ul>
+      <div class="tags">
+        <span class="tag">#FTVR</span>
+        <span class="tag">#FootvolleyResistance</span>
+        <span class="tag">#FTVResistance</span>
+        <span class="tag">#FutevôleiResistance</span>
+        <span class="tag">#TheFootvolleyResistanceClub</span>
+        <span class="tag">#FootvolleyResistanceClub</span>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <h2 class="section-title">About</h2>
+    <p><strong>Created in 2026</strong>, Footvolley Resistance was formed as an <strong>urgent initiative</strong> to <strong>protect</strong> our community, our players, and the spirit of the sport itself.</p>
+    <button class="collapsible" onclick="toggle(this)">Read more</button>
+    <div class="collapse-content"><div class="collapse-inner">
+      <div style="background:#222;color:#eee;padding:1.2rem 1.5rem;border-radius:8px;margin-bottom:1.5rem;font-style:italic;line-height:1.7;font-size:0.95rem">
+        <p style="color:var(--yellow);font-weight:500;font-style:normal;line-height:1.7">Footvolley was built by passionate people, local communities, friendships, neighborhoods, training groups, and human connection. Across the world, it remains a deeply welcoming and kind environment where people from different cultures meet through sport. <strong style="color:var(--yellow)">That space must be protected!</strong></p>
+      </div>
+      <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem"><strong>Why did we create FTVR?</strong></p>
+      <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">FIRST</strong> Because the footvolley community can no longer ignore behaviors and realities that directly threaten the <strong>safety</strong>, <strong>dignity</strong>, and <strong>humanity</strong> of players and people around them. This includes <strong>death threats</strong> against players and their families, public and private harassment, open support for <strong>genocide</strong> and <strong>war crimes</strong>, normalization of hatred, and the growing acceptance of <strong>blood-money</strong> and political laundering inside the global footvolley environment. We must be absolutely clear about what is <strong>unacceptable</strong>. The overwhelming majority of these incidents have involved players from or associated with the <strong>apartheid ethno-supremacist state of Israel</strong> and their <strong>supporters</strong> — and in most cases the <strong>Israel Footvolley Association (IFA)</strong> was very well aware of, or even igniting them. It is important to state this <strong>clearly</strong> and <strong>honestly</strong>. At the same time, any similar behavior from any person, group, or country would be <strong>equally unacceptable</strong>.</p>
+
+      <!-- Featured pair: bomb photo + video side by side -->
+      <div class="featured-pair">
+        <div>
+          <div class="photo-card"><img src="ftvbomb.webp" alt="Signed bomb with footvolley message"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)" style="margin-top:0.5rem;width:100%;justify-content:center">Info</button>
+          <div class="collapse-content"><div class="collapse-inner">
+            <p>Posted on Instagram by the Israeli account <strong>@mikasa.tu.kasa</strong> — a bomb casing signed with Hebrew text and <strong>"Footvolley ❤️"</strong>. The inscriptions translate as follows:</p>
+            <p style="margin-top:0.5rem"><strong>Printed text:</strong> "That the whole world knew — In memory of Dor Malka" (שכל העולם ידע — לזכר דור מלכה)</p>
+            <p><strong>Handwritten text:</strong> "The whole world knew — Dor Malka — Footvolley ❤️" (כל העולם ידע — דור מלכה — Footvolley ❤️)</p>
+            <p style="margin-top:0.5rem">The post was tagged with: @footvolleytlv, @worldfootvolley, @israel_footvolley, @arenasclub_ftv, @paulinhoftv, @bruno_foks.</p>
+          </div></div>
+        </div>
+        <div>
+          <div class="video-embed"><video src="zionistsplayingaltinha.mp4" controls preload="metadata"></video></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)" style="margin-top:0.5rem;width:100%;justify-content:center">Info</button>
+          <div class="collapse-content"><div class="collapse-inner">
+            <p>Video posted by <strong>@nadav__navon</strong> (9 January 2024) of Israeli footvolley players playing altinha inside a raided Palestinian home — while serving the IDF during the ongoing genocide in Gaza. Caption in Hebrew: <em>"קצת מהחוויה שלי בשלושה חודשים האחרונים שלא הייתי בוחר לעבור אחרת 🇮🇱"</em> — Translation: <em>"A bit of my experience from the last three months — I wouldn't have chosen to go through it any differently 🇮🇱"</em></p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- 3x2 Evidence Grid -->
+      <div class="photo-grid-4">
+        <div class="grid-item">
+          <div class="photo-card"><img src="grid-1.webp" alt="Evidence: david_bpt"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <div class="collapse-content"><div class="collapse-inner"><p><strong>DavidBuz (@david_bpt)</strong> — Israeli footvolley player. Messages include: "Israeli Mossad hunts the people on the evil side, be careful what you say or do", "May all Gaza turns into hell after what they did to us, they deserve nothing more. Everyone there is involved. Stop being blind", "Israel will conquer it eventually. And then we will take care of Turkey (for you, the Greek people) because they host Hamas terrorist now."</p></div></div>
+        </div>
+        <div class="grid-item">
+          <div class="photo-card"><img src="grid-2.webp" alt="Evidence: liderfranko14"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <div class="collapse-content"><div class="collapse-inner"><p><strong>Lidor Franko (@liderfranko14)</strong> — Israeli footvolley player. Messages include: "From now on you are in trouble, no Jew will support you anymore, if you are all for them, go live in Gaza and Inshallah they will rape you there", "F**k you", "<strong>You are f**king dead</strong>" — direct death threats against a footvolley player for sharing information about civilian casualties in Gaza.</p></div></div>
+        </div>
+        <div class="grid-item">
+          <div class="photo-card"><img src="grid-3.webp" alt="Evidence: ronbenishai.ftv"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.ftv)</strong> — Israeli footvolley player (verified account). Messages include: "I will personally take care no one from Israel will ever train/work/pay/collaborate anything with you. Good luck. Keep supporting terror organisations and delegitimise Israel people." — economic threats and intimidation against a player who posted about Palestinian casualties.</p></div></div>
+        </div>
+        <div class="grid-item">
+          <div class="photo-card"><img src="grid-4.webp" alt="Evidence: shahaflavi512"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <div class="collapse-content"><div class="collapse-inner"><p><strong>Shahaf Lavi (@shahaflavi512)</strong> — Account associated with Israel. Message: "<strong>We understand that you want to come to Israel, if we see you in Israel we will kill you! Don't go near the State of Israel, you anti-Semite, we will murder you like the children in Gaza.</strong>" — explicit death threats and a shocking admission referencing the killing of children in Gaza. (Hebrew account name: שחף לביא קוסמטיקה)</p></div></div>
+        </div>
+        <div class="grid-item">
+          <div class="photo-card"><img src="grid-5.webp" alt="Evidence: shaulinbal7"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <div class="collapse-content"><div class="collapse-inner"><p><strong>Shaul Inbal (@shaulinbal7)</strong> — Israeli footvolley player. Messages include: "This one is going to be like people in Palestine — Dead 💀", "I have my people in Greece that can help me cut down your business in a legal way", "Be careful on your business", "Retard", "Bitch" — death threats, business intimidation, and abusive language.</p></div></div>
+        </div>
+        <div class="grid-item">
+          <div class="photo-card"><img src="grid-6.webp" alt="Evidence: yinon.amir"></div>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Info</button>
+          <div class="collapse-content"><div class="collapse-inner"><p><strong>Yinon Amir (@yinon.amir)</strong> — Israeli footvolley player. Messages include death threats, rape threats against family members, and Holocaust references. English: "You f**king b**ch all you know it's thanks to us", "F**k you", "And f**k your family", "And I wish that your kids will be raped by terrorists like you", "Yanis sharmuta ben sharmuta" (Yanis, whore son of a whore).</p><p><strong>Hebrew messages translated:</strong></p><ul><li>"יא מקריח יא בן של שרמוטה שיאנסו את אמא שלך" — <em>"You baldy, you son of a whore, may they rape your mother"</em></li><li>"שיעשו לך שואה יבן שרמוטה" — <em>"May they give you a Holocaust, you son of a whore"</em></li><li>"שיאנסו את האמא הזונה שלך ימכוער בפנים" — <em>"May they rape your whore mother, you ugly face"</em></li><li>"אמא שלך שרמוטה" — <em>"Your mother is a whore"</em></li></ul></div></div>
+        </div>
+      </div>
+
+      <p style="margin-top:2.5rem;font-size:1.15rem;line-height:1.6;text-align:center;color:var(--red)"><strong>...this goes on and on, and this is just the tip of the iceberg.</strong> Similar incidents and <strong>threats of death and rape</strong> aimed at various footvolley players, their <strong>families</strong> and <strong>friends</strong> have been made both <strong>publicly</strong> and <strong>privately</strong>...</p>
+
+      <p style="margin-top:2.5rem;font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">SECOND</strong> To show that there are <strong>players</strong>, <strong>organizers</strong>, <strong>coaches</strong>, and <strong>communities</strong> who <strong>stand with humanity</strong> and <strong>stand with each other</strong>. People who refuse to normalize <strong>genocide</strong>, <strong>apartheid</strong>, <strong>war crimes</strong>, <strong>crimes against humanity</strong>, <strong>racism</strong>, <strong>intimidation</strong>, or the use of <strong>blood-money</strong> to buy silence and legitimacy — both on and off the footvolley court.</p>
+
+      <!-- Two photos with buttons -->
+      <div class="photo-grid" style="margin-top:1.5rem">
+        <div class="grid-item">
+          <div class="photo-card"><img src="palestine3athens.webp" alt="Palestine 3 Athens"></div>
+          <button class="collapsible" onclick="toggle(this)" style="margin-top:0.5rem">Voices from FTVR Community</button>
+          <div class="collapse-content"><div class="collapse-inner long-text">
+            <p>Footvolley taught me many things: respect, unity, connection, community. But in times like these, sport cannot exist outside society. "No politics" has never truly existed — especially when human lives are being destroyed in front of our eyes.</p>
+            <p>Across Europe and beyond, wars, occupation, forced displacement, and mass civilian suffering are realities of our time. And in Gaza, the Palestinian people continue to endure a brutal offensive that has already taken the lives of thousands of civilians, including athletes, coaches, journalists, medical personnel, humanitarian aid workers, and children.</p>
+            <p>Many people inside sports remain silent out of fear, pressure, or convenience. Others speak despite restrictions and consequences. From Pep Guardiola to Eric Cantona, Lamine Yamal, Karim Benzema, Lewis Hamilton, and many others, prominent voices in sports have publicly supported Palestine and reminded the world that humanity comes before politics.</p>
+            <blockquote>As Guardiola said: "When people are dying, you have to help. Never in human history have we had everything so clearly in front of our eyes."</blockquote>
+            <p>This post is not against people because of nationality, religion, or ethnicity. It is against genocide, apartheid, dehumanization, and the normalization of mass suffering. Some still want sport to be an escape from reality. But sport reflects society. And the values we speak about every day — respect, unity, dignity — must apply to everyone, including Palestinians.</p>
+            <p>Big respect and solidarity to all humanitarian initiatives, activists, and civilians raising their voices and taking action — including <a href="https://instagram.com/marchtogaza_greece" target="_blank" rel="noopener" style="color:var(--red)">@marchtogaza_greece</a> and organizations like <a href="https://instagram.com/gazasunbirds" target="_blank" rel="noopener" style="color:var(--red)">@gazasunbirds</a>, who continue to represent resilience, dignity, and humanity under unimaginable conditions.</p>
+            <p><strong>There is no more room for comfortable neutrality.<br>No more pretending not to know.<br>Humanity before everything.</strong></p>
+            <p>As a community, we continue our original statement clearly and publicly:</p>
+            <p><strong style="color:var(--red);font-size:1.05rem">🇵🇸 We stand against genocide. Always.</strong></p>
+            <p style="font-style:italic;font-size:0.88rem">Yiannis, Thodoris, Rufus,<br>Team FVA</p>
+          </div></div>
+        </div>
+        <div class="grid-item">
+          <div class="photo-card"><img src="me-yiannis.webp" alt="Standing with Yiannis Tsiouris"></div>
+          <button class="collapsible" onclick="toggle(this)" style="margin-top:0.5rem">Watch Video: No Time To Stay Silent</button>
+          <div class="collapse-content"><div class="collapse-inner">
+            <p>▶ <a href="https://odysee.com/@rufuswiena:4/no-time-to-stay-silent:7?r=Cq5sY9usG2UA1bsMTzrv8LmGubGHTzWL" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">Watch on Odysee</a></p>
+            <p style="margin-top:0.8rem">📄 <a href="rufus-article-nordic-champion.pdf" target="_blank" style="color:var(--red);font-weight:600">Read the full article (PDF)</a></p>
+            <h4 style="margin-top:1rem;font-family:'Oswald',sans-serif;font-size:0.95rem">Nordic &amp; Swedish Footvolley Champion 2025!<br><span style="font-weight:400;font-size:0.85rem">But what is this "achievement" worth? — right now, it's worth nothing.</span></h4>
+            <div style="max-height:350px;overflow-y:auto;padding:0.8rem;background:rgba(0,0,0,0.04);border-radius:8px;font-size:0.82rem;line-height:1.7;margin-top:0.5rem">
+              <p>2025 marks one of the darkest chapters in modern human history.</p>
+              <p>For 22 months now, the ongoing genocide and ethnic cleansing of Palestinians by Zionists of the Apartheid State of Israel — supported by the United States, the European Union, and several Arab oil states — have continued unabated.</p>
+              <p>Just a few days ago, Suleiman Al-Obeid, a star of the Palestinian national football team, was shot in the head while waiting for aid in Rafah. Murdered while standing in a bread line — searching for something to feed his family so they wouldn't starve to death.</p>
+              <p>The Footvolley player Yiannis Tsiouris from Footvolley Athens (@footvolley.athens) was not only harassed but also received death threats directed at him and his family after a post on Instagram, July 15, 2025, in which he simply stated that he stands with humanity.</p>
+              <p>These threats came from pro-genocide Zionists — many of them Footvolley players themselves — supported and protected by the Israeli Footvolley Community and its partners, including the EFVL (European Footvolley League).</p>
+              <p>My anger is also directed toward the global Footvolley Community, where ALMOST no one has dared to speak up or take a CLEAR stand AGAINST these atrocities — actions celebrated by Zionists, the Footvolley players of Israel, the former IDF soldiers and their "genocidal gangs" who cheer on the murder and rape of children and women in Occupied Palestine.</p>
+              <p><strong>Footvolley in the EU is currently the most "Pro-Genocidal" Sport on Earth</strong></p>
+              <p>Footvolley in Europe has, unfortunately, become the most pro-genocidal sport on Earth — second only to the IDF's "sport" of sniping children and raping women in Gaza. This is largely due to a spineless Footvolley Community that allowed the Zionist Propaganda Machine to infiltrate our sport.</p>
+              <p>Futevôlei, once born in Brazil — by and for the poor, the oppressed, and the marginalized — bringing peace, joy, and unity across classes — has been hijacked.</p>
+              <p>Now, this beautiful sport is being stained with children's blood by the involvement of the Israeli apartheid regime, the EU, and even some of the world's top Brazilian Footvolley players, who knowingly and "unknowingly" contribute to the sport's association with atrocities.</p>
+              <p>Mark my words — this is happening right now! And people won't forget that this sport is becoming connected with "children's blood money," funnelled through former IDF soldiers who now play Footvolley under the banner of the Israel Footvolley Association/Federation.</p>
+              <p>This is really disturbing to me because I love the true sport of origin, Futevôlei. And yes — there are still a FEW players who have stood up against this genocidal machine Israel, who dare to speak out and who want to play in a Humane Footvolley Community.</p>
+              <p>But when Israeli Footvolley players and their community openly share hateful, violent messages and threaten a Greek Footvolley player and his family with death and rape — without any consequences — and are actively backed and protected by both the Israel and European Footvolley communities, I must make my position absolutely clear: <strong>I want to take our sport of origin back!</strong></p>
+              <p style="margin-top:0.8rem"><strong>The messages below, sent via Instagram DM, are just a small collection — JUST A FRACTION:</strong></p>
+              <p><strong>Yuval Aharfi</strong> from labola_ftvschool: <em>"Go fuck yourself you are one piece of shit. You need to die!"</em></p>
+              <p><strong>Yinon Amir:</strong> <em>"Fuck you, Fuck your Family and wish that your kids will be raped by terrorists..."</em> Continuing in Hebrew: <em>"May they do a Holocaust to you. Son of a whore. May they rape your whore mother."</em></p>
+              <p><strong>@lidorfrank14:</strong> <em>"You are fucking dead! From now on you are in trouble... go and live in Gaza and inshallah they will rape you there."</em></p>
+              <p><strong>@Shaulinbal7:</strong> <em>"This one is going to be like people in Palestine, DEAD. I have my people in Greece that can help me cut down your business."</em></p>
+              <p><strong>@Shahaflavi512:</strong> <em>"If we see you in Israel we will kill you! We will murder you like the children in Gaza!"</em></p>
+              <p style="margin-top:0.8rem">In what world of sport are you allowed to threaten someone and their family with death and rape — without any repercussions? Well, in the EU Footvolley Community, apparently.</p>
+              <p><strong>— Where is the moral compass of the Footvolley Players?!</strong><br><strong>— Where is humanity?</strong><br><strong>— Are there only spineless cowards left out there?</strong></p>
+              <p style="margin-top:0.8rem">So yes, on paper, I may represent Sweden in Footvolley in the future. But my heart and soul will always, ALWAYS, represent Palestine.</p>
+              <p><strong>From now on, I play for the murdered children who never got a chance to live, to play, to dream.</strong></p>
+              <p style="margin-top:0.5rem;font-weight:700;color:var(--red)">#FREEPALESTINE</p>
+              <p style="font-style:italic;font-size:0.78rem;margin-top:0.5rem">Written 11/08/2025 — Rufus Wiena</p>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;margin-top:2.5rem;color:var(--red)">Timeline of Events</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <h4>15 July 2025 — Yiannis Tsiouris posts on Instagram</h4>
+          <p>Shortly after three stories posted on Instagram about globally recognised war crimes and horrors in Gaza, the Greek footvolley player Yiannis (<strong>@footvolley.athens</strong>) posts: <em>"No Time to Stay Silent. In these dark and painful times, I feel a deep responsibility to speak up. What is happening in Gaza is not a conflict—it is devastation. I stand firmly against war crimes, the mass killing of civilians, and the forced starvation of a people under siege."</em></p>
+          <button class="collapsible grid-btn" onclick="toggle(this)">Read full post</button>
+          <div class="collapse-content"><div class="collapse-inner" style="font-size:0.82rem;line-height:1.6">
+            <p>"I have followed the situation in the Middle East closely since 2005, not from a position of ideology or government support—I am an anarchist—but from human connection. I have friends in both Tel Aviv and Palestine, including Greek doctors and humanitarian workers who witness and report the unimaginable suffering of the Palestinian people.</p>
+            <p>The last couple of months, I've been sharing my thoughts against the massacres happening in Gaza—calling out the war crimes and atrocities committed by the Israeli military. My message was simple: killing children, destroying hospitals, and starving civilians is not defense. It's not justice. It's not human.</p>
+            <p>For this, I've received a flood of hate: aggressive, sadistic, and even (life) threatening messages. Not just from strangers, but mostly from people within the footvolley community I've spent years helping to grow. And yet, I have never responded in the same tone. That can easily be proven—there are more than 150 conversations across Instagram and WhatsApp that show my approach.</p>
+            <p>Let me be clear: I do not support Hamas or any state or militia. My stance is rooted in the belief that no human being deserves to be treated as disposable.</p>
+            <p>Together with our local community, we've decided to take a stand. We will boycott any soldier or open supporter of this genocide. This is not about religion, ethnicity, or nationality. It's not about being against Israelis or Jews. It's about being against atrocities. Against oppression. And for humanity.</p>
+            <p>This is not the time for neutrality. Silence allows injustice to continue. We all must choose what kind of world we want to live in.</p>
+            <p>🇵🇸 Palestine will always be free and this has nothing to do with Hamas or any government. It's about the people."</p>
+            <p style="font-style:italic;font-size:0.78rem">— @footvolley.athens, 15 July 2025</p>
+          </div></div>
+          <span class="tl-tag">The post that started it all</span>
+        </div>
+        <div class="tl-item">
+          <h4>Death and rape threats from Israeli players</h4>
+          <p>Multiple dozens of Israeli footvolley players and their supporters send <strong>death threats</strong>, <strong>rape threats</strong> against him, his family and friends, Holocaust references, and business intimidation — just a fraction documented in the evidence grid above.</p>
+        </div>
+        <div class="tl-item">
+          <h4>11 August 2025 — Rufus shows support, publishes video and article</h4>
+          <p>Rufus Wiena publicly supports Yiannis in the community, releases the video <a href="https://odysee.com/@rufuswiena:4/no-time-to-stay-silent:7?r=Cq5sY9usG2UA1bsMTzrv8LmGubGHTzWL" target="_blank" rel="noopener">"No Time To Stay Silent"</a>, and writes the article <em>"Nordic &amp; Swedish Footvolley Champion 2025 — But what is this achievement worth?"</em></p>
+          <p><a href="rufus-article-nordic-champion.pdf" target="_blank">📄 Read the full article (PDF)</a></p>
+          <span class="tl-tag">Article + Video</span>
+        </div>
+        <div class="tl-item">
+          <h4>Israel files a complaint — EFVL (European Footvolley League) targets Yiannis</h4>
+          <p>Instead of addressing the death threats, the EFVL president wants to "discuss Yiannis' behaviour" — not the Israelis who made the threats. The complaint focuses on silencing the victim, not the aggressors.</p>
+          <p><a href="israel-complaint.pdf" target="_blank">📄 View the Israel complaint (PDF)</a></p>
+          <span class="tl-tag">Documented</span>
+        </div>
+        <div class="tl-item">
+          <h4>15 August 2025 — Rufus writes an urgent letter to the Swedish Footvolley Board</h4>
+          <p>A formal letter is sent to the Swedish footvolley federation. The response: <strong>no response, no communication, complete silence</strong>. Deeply disturbing — but sadly, not unexpected.</p>
+          <p><a href="urgent-letter-sweden.pdf" target="_blank">📄 Read the urgent letter to Sweden (PDF)</a></p>
+          <span class="tl-tag">No response</span>
+        </div>
+        <div class="tl-item">
+          <h4>Blood money enters the footvolley community</h4>
+          <p><strong>Blood money</strong> directly connected to the apartheid state of Israel and linked to the IDF is offered to various footvolley players globally — many accept, even though they know where it comes from.</p>
+          <span class="tl-tag">Blood money</span>
+        </div>
+        <div class="tl-item">
+          <h4>March 2026 — TAFC Israel is announced</h4>
+          <p>A footvolley tournament (TAFC World Cup Red Sea) is planned in Eilat, Israel — originally for March 19–21, 2026, then rescheduled to May 6–9, 2026 — later cancelled and postponed due to the US-Israel vs. Iran conflict. Many professional international footvolley players sign up without hesitation, accepting the money offered, showing no moral objection, and by participating openly endorsing the <strong>ethno-supremacist apartheid state of Israel</strong> which has its so-called "most moral army in the world" committing an <strong>active genocide</strong> in front of the eyes of the world.</p>
+        </div>
+        <div class="tl-item">
+          <h4 style="color:var(--red)">⚡ 15 May 2026 (Nakba Day) — The Footvolley Resistance Club is created</h4>
+          <p>With <strong>crystal clear</strong> guidelines to stand with humanity. In times like these, sport cannot exist outside society. <strong>"Do not mix politics with sport"</strong> has never truly existed — especially when human lives are being destroyed in front of our eyes. This is not even about politics anymore — it is about <strong>humanity</strong>. And unfortunately, the global footvolley community is now <strong>deeply involved</strong>.</p>
+          <span class="tl-tag">FTVR Founded · 15 May 2026 · Nakba Day</span>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- LOGO KIT -->
+  <div class="section" id="logokit">
+    <h2 class="section-title">Logo Kit</h2>
+    <p>The official FTVR logo for your clothes, social media, or branch materials. Free for all members and supporters.</p>
+    <div style="text-align:center;margin-top:1.5rem">
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="ftvrlogov1.webp" download="FTVR-Logo-Full.png" style="display:inline-block;background:var(--black);color:var(--yellow);padding:0.6rem 1.4rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85rem">⬇ Full Logo</a>
+        <a href="ftvrlogov1-circle.webp" download="FTVR-Logo-Circle.png" style="display:inline-block;background:var(--black);color:var(--yellow);padding:0.6rem 1.4rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85rem">⬇ Circular Logo</a>
+      </div>
+      <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center">
+        <span style="background:var(--black);color:var(--yellow);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.8rem;font-weight:600">#FTVR</span>
+        <span style="background:var(--black);color:var(--yellow);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.8rem;font-weight:600">#FootvolleyResistance</span>
+        <span style="background:var(--black);color:var(--yellow);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.8rem;font-weight:600">#FTVResistance</span>
+        <span style="background:var(--black);color:var(--yellow);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.8rem;font-weight:600">#FootvolleyResistanceClub</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORT<!-- SUPPORT -->
+  <div class="section" id="support">
+    <h2 class="section-title">Support</h2>
+    <p>Donate to Gaza and the Oppressed or show support by <strong>spreading the word</strong>, <strong>standing with humanity</strong>, and <strong>speaking out</strong> about the disturbing realities inside and outside the global footvolley community — both on and off the court. Do what you can, do your best!</p>
+    <div style="margin-top:1.5rem;text-align:center">
+      <div class="photo-card" style="max-width:480px;margin:0 auto;position:relative;cursor:pointer" onclick="this.querySelector('.blur-overlay').style.display='none';this.querySelector('img').style.filter='none'">
+        <img src="idf-snipe-children.webp" alt="Warning: graphic content" style="filter:blur(15px);transition:filter 0.3s">
+        <div class="blur-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);border-radius:var(--radius);flex-direction:column;gap:0.5rem">
+          <span style="font-size:1.5rem">⚠️</span>
+          <span style="color:#fff;font-weight:700;font-size:0.9rem">Warning: Graphic Content</span>
+          <span style="color:#ccc;font-size:0.75rem">Click to reveal</span>
+        </div>
+      </div>
+      <p style="font-size:0.78rem;margin-top:0.5rem;font-weight:600;color:var(--red)">IDF soldier says he snipes children in head and chest for fun ("The world's most moral army!")</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-links">
+    <a onclick="openModal('modal-policy')">Policy</a>
+    <a onclick="openModal('modal-contact')">Contact</a>
+    <a onclick="openModal('modal-faq')">FAQ</a>
+  </div>
+</div>
+
+<!-- ═══ MODALS ═══ -->
+
+<!-- Policy Modal -->
+<div class="modal-overlay" id="modal-policy" onclick="closeModal(event,'modal-policy')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalById('modal-policy')">✕</button>
+    <h2 class="section-title" style="font-family:'Oswald',sans-serif">FTVR Policy</h2>
+    <p style="margin-top:0.5rem;font-style:italic;font-size:0.82rem">Clear. Simple. Non-negotiable.</p>
+
+    <ul style="font-size:0.88rem;line-height:1.75;padding-left:1.2rem;margin-top:0.8rem">
+      <li><strong>No genocide.</strong> No ethnic cleansing. No war crimes. No crimes against humanity.</li>
+      <li><strong>No blood money.</strong> We do not associate with anyone who supports, funds, or profits from the above.</li>
+      <li><strong>Protect each other.</strong> We stand behind each other and speak out for each other.</li>
+      <li><strong>Protect children.</strong> Any form of child exploitation, abuse, or harm is non-negotiable.</li>
+      <li><strong>Free speech.</strong> No censorship.</li>
+      <li><strong>Respect.</strong> Respect each other in the FTVR community. Show integrity, and always defend each other — verbally, in writing, and physically if the situation demands it.</li>
+      <li><strong>Insurance:</strong> Each player is responsible for their own sports insurance and liability.</li>
+      <li><strong>Open membership.</strong> Anyone can join at any time. Free and decentralized. Need an official document? <a style="color:var(--red);font-weight:600;cursor:pointer" onclick="closeModalById('modal-policy');openModal('modal-contact')">Contact us</a>.</li>
+    </ul>
+
+    <div style="margin-top:0.8rem;padding:0.8rem 1rem;background:rgba(0,0,0,0.04);border-left:4px solid #333;border-radius:6px;font-size:0.86rem;line-height:1.7">
+      <p><strong>Brand &amp; Community Responsibility</strong></p>
+      <p>FTVR is a decentralised global community. We <strong>condemn</strong> and do <strong>not accept</strong> any wrongdoing, bad behaviour, or misuse of our club name, brand, or hashtags. While we cannot take responsibility for any individual in a decentralised movement, we take a <strong>crystal clear</strong> stand against <strong>any behaviour</strong> that contradicts our community guidelines. Anyone acting outside these guidelines does not represent FTVR.</p>
+    </div>
+
+    <div style="margin-top:0.8rem;padding:0.8rem 1rem;background:rgba(0,0,0,0.04);border-left:4px solid #666;border-radius:6px;font-size:0.86rem;line-height:1.7">
+      <p><strong>Addressing the elephant in the room</strong></p>
+      <p>We must be transparent: so far, almost <strong>exclusively</strong> people from, associated with, or supporters of <strong>Israel</strong> have been behaving extremely aggressively and hostile within the global footvolley community. That is <strong>UNACCEPTABLE</strong> for FTVR. However, we remind everyone that this applies to <strong>anybody, anywhere</strong> — any bad behaviour from any corner of the world is equally unacceptable. On that important note:</p>
+    </div>
+
+    <div style="margin-top:0.8rem;padding:0.8rem 1rem;background:rgba(0,150,54,0.08);border-left:4px solid var(--green);border-radius:6px;font-size:0.86rem;line-height:1.7">
+      <p><strong>🇮🇱 Israeli passport holders</strong></p>
+      <p>You cannot be guilty by association simply because you were born in Israel. If you hold an Israeli passport, stand behind our policies, do not <strong>Support — explicitly or implicitly — the actions, policies, or military operations of the IDF</strong>, and stand against Israel's war crimes and genocide — you are <strong>MORE THAN WELCOME</strong> to play under FTVR. In fact, we would be glad to see Israelis who stand with humanity showing the way for other Israelis in the global footvolley community.</p>
+    </div>
+
+    <div style="margin-top:0.8rem;padding:0.8rem 1rem;background:rgba(206,17,38,0.08);border-left:4px solid var(--red);border-radius:6px;font-size:0.86rem;line-height:1.7">
+      <p><strong>Where do we stand?</strong></p>
+      <p>Against the current government of Israel. Against the ongoing genocide in Gaza. For equal human rights. For peace. We do not promote violence or hate — but we <strong>strongly encourage</strong> everyone in FTVR to <strong>defend and protect</strong> themselves and others in any justifiable way. We advocate only for <strong>lawful</strong> self-defense and protection.</p>
+      <p style="margin-top:0.4rem"><strong>Have you served IDF?</strong> The IDF — founded in 1948 from organisations classified as terrorist (Irgun, Lehi/Stern Gang) and the paramilitary Haganah — has current and former soldiers under investigation for war crimes. Some "soldiers" have chosen not to participate. Where do you stand?</p>
+    <div style="margin-top:1.2rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.03);border-radius:6px;font-size:0.78rem;line-height:1.6;font-style:italic;color:#555">
+      <p>All claims on this website are supported by documented evidence including screenshots, public social media posts, and official correspondence. FTVR reserves the right to update or correct any information. This website expresses the opinions and documented experiences of the FTVR community.</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="modal-contact" onclick="closeModal(event,'modal-contact')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalById('modal-contact')">✕</button>
+    <h2 class="section-title" style="font-family:'Oswald',sans-serif">Contact</h2>
+    <p style="margin-top:0.5rem">Email: <a href="mailto:ftvr.outcast165@passmail.net" style="color:var(--red);font-weight:600">ftvr.outcast165@passmail.net</a></p>
+  </div>
+</div>
+
+<!-- FAQ Modal -->
+<div class="modal-overlay" id="modal-faq" onclick="closeModal(event,'modal-faq')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalById('modal-faq')">✕</button>
+    <h2 class="section-title" style="font-family:'Oswald',sans-serif">FAQ</h2>
+    <div style="margin-top:0.5rem">
+      <button class="collapsible" onclick="toggle(this)">How do I join?</button>
+      <div class="collapse-content"><div class="collapse-inner">
+        <p>Simply stand with humanity, follow our policy, and represent FTVR. That's it. No registration, no fees. Anyone, anywhere, anytime. That is why FTVR is a <strong>decentralized</strong> footvolley club! 🙂</p>
+      </div></div>
+      <br>
+      <button class="collapsible" onclick="toggle(this)">Can I compete under FTVR?</button>
+      <div class="collapse-content"><div class="collapse-inner">
+        <p>Yes, if your local rules allow it. If not, you can still represent FTVR through our tags, logo, and community presence. You choose what place you want to represent.</p>
+      </div></div>
+      <br>
+      <button class="collapsible" onclick="toggle(this)">Can I start my own branch?</button>
+      <div class="collapse-content"><div class="collapse-inner">
+        <p>Yes! Feel free to start a branch in your city or country — e.g. "Footvolley Resistance Helsinki" or "FTVR Brazil". Download our logo and use our hashtags. The beauty of this decentralised club.</p>
+      </div></div>
+      <br>
+      <button class="collapsible" onclick="toggle(this)">What is the difference between Zionism and Judaism?</button>
+      <div class="collapse-content"><div class="collapse-inner">
+        <p><strong>Zionism is a political ideology, not a religion.</strong> Judaism is a faith; Zionism is a nationalist movement founded by Theodor Herzl in the late 19th century. Many Jewish scholars, rabbis, and activists around the world voice their criticism of Zionism and Israeli government policies.</p>
+        <p style="margin-top:0.6rem"><strong>Important facts:</strong></p>
+        <ul style="font-size:0.85rem;line-height:1.7">
+          <li>Palestinians are Semitic people — opposing <strong>genocide</strong> against them is <strong>NOT</strong> antisemitic</li>
+          <li>Many Jewish scholars, rabbis, and activists voice their criticism of Zionism and Israeli policies</li>
+        </ul>
+        <p style="margin-top:0.8rem"><strong>Some key concepts and terms:</strong></p>
+        <ul style="font-size:0.85rem;line-height:1.7">
+          <li><strong>Theodor Herzl (1860–1904)</strong> — Founder of political Zionism, the nationalist ideology advocating for a Jewish homeland in Palestine</li>
+          <li><strong>Balfour Declaration (1917)</strong> — A letter from British Foreign Secretary Arthur Balfour to Lord Walter Rothschild (honorary president of the Zionist Federation of Great Britain and Ireland), promising British support for a "national home for the Jewish people" in Palestine — issued without consulting the indigenous Palestinian population</li>
+          <li><strong>Haavara Agreement (1933)</strong> — Transfer agreement between Nazi Germany and Zionist German Jews facilitating Jewish emigration to Palestine; a controversial and debated collaboration</li>
+          <li><strong>Plan Dalet (1948)</strong> — Zionist military plan that included operations of ethnic cleansing and resulting in killings and the expulsion of Palestinian civilians</li>
+          <li><strong>Nakba (1948)</strong> — "The Catastrophe": Ethnic cleansing and displacement of more than 750,000 Palestinians</li>
+          <li><strong>IDF Origins (1948)</strong> — Founded May 26, 1948, incorporating the Haganah and elements of Irgun and Lehi (groups that had conducted attacks against British and Arab targets during the Mandate period)</li>
+          <li><strong>Sabra and Shatila Massacre (1982)</strong> — Mass killing of Palestinian and Lebanese civilians by Phalangist militias in Beirut refugee camps while Israeli military forces surrounded the area; estimates of casualties range from 2,000 to 3,500</li>
+          <li><strong>AIPAC</strong> — A prominent pro-Israel lobbying organization in the United States that advocates for U.S. military and diplomatic support for Israel</li>
+        </ul>
+        <p style="margin-top:0.8rem"><strong>Other things to understand and research:</strong></p>
+        <ul style="font-size:0.85rem;line-height:1.7">
+          <li>"Goyim &amp; Amalek"</li>
+          <li>"Scofield Bible"</li>
+          <li>"Epstein Network &amp; Files"</li>
+          <li>...</li>
+        </ul>
+        <p style="margin-top:0.8rem">For in-depth education and third-party resources: <a href="https://masjidalaqsa.com/" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">masjidalaqsa.com</a> — an excellent resource covering the history of occupied Palestine, key concepts, and documented facts.</p>
+        <p style="margin-top:0.5rem;font-style:italic;font-size:0.82rem">...the list goes on and on. Educate yourself. The truth is available to anyone willing to look.</p>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Zoomed photo">
+</div>
 
 <script>
-const UNDERNAME = 'ftvr_rufuswiena';
-const PRIMARY = [
-  {host:'ar.io',label:'ar.io (Primary)'},
-  {host:'arweave.net',label:'arweave.net'},
-  {host:'ardrive.net',label:'ardrive.net'}
-];
-const BACKUP = [
-  {host:'arweave.developerdao.com',label:'Developer DAO'},
-  {host:'permagate.io',label:'Permagate'},
-  {host:'g8way.0rbit.co',label:'0rbit'},
-  {host:'vilenarios.com',label:'Vilenarios'}
-];
-
-const status = document.getElementById('status');
-const bar = document.getElementById('bar');
-const gwDiv = document.getElementById('gateways');
-let cancelled = false;
-let redirectTimer = null;
-
-async function testGateway(gw) {
-  const url = `https://${UNDERNAME}.${gw.host}`;
-  const start = Date.now();
-  try {
-    // Phase 1: Quick liveness check
-    const controller1 = new AbortController();
-    const timeout1 = setTimeout(() => controller1.abort(), 5000);
-    await fetch(url, {method:'HEAD', mode:'no-cors', signal:controller1.signal});
-    clearTimeout(timeout1);
-    const phase1ms = Date.now() - start;
-
-    // Phase 2: Content validation — verify actual FTVR content loads
-    const controller2 = new AbortController();
-    const timeout2 = setTimeout(() => controller2.abort(), 8000);
-    const resp = await fetch(url, {signal:controller2.signal});
-    clearTimeout(timeout2);
-    const body = await resp.text();
-    const ms = Date.now() - start;
-
-    // Check that the page contains FTVR-specific content (not a landing/parking page)
-    const isReal = body.includes('Footvolley Resistance') || body.includes('FTVR');
-    if (!isReal) return {gw, url, ms:9999, ok:false};
-
-    return {gw, url, ms, ok:true};
-  } catch(e) {
-    return {gw, url, ms:9999, ok:false};
-  }
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
 }
-
-async function run() {
-  bar.style.width = '15%';
-  
-  // Phase 1: Test primary gateways
-  status.innerHTML = '<span class="spinner"></span>Checking primary gateways...';
-  const primaryResults = await Promise.all(PRIMARY.map(testGateway));
-  bar.style.width = '50%';
-  
-  const working = primaryResults.filter(r => r.ok).sort((a,b) => a.ms - b.ms);
-  
-  if (working.length > 0 && !cancelled) {
-    // Found a working primary — auto-redirect in 3 seconds
-    const best = working[0];
-    bar.style.width = '80%';
-    status.innerHTML = `<span class="spinner"></span>Connecting to ${best.gw.label}...`;
-    
-    // Test backups in background
-    const backupResults = await Promise.all(BACKUP.map(testGateway));
-    const allWorking = [...working, ...backupResults.filter(r => r.ok)].sort((a,b) => a.ms - b.ms);
-    bar.style.width = '100%';
-    
-    if (!cancelled) {
-      status.innerHTML = `✅ Connected! Redirecting to <strong>${best.gw.label}</strong>...`;
-      let countdown = 3;
-      redirectTimer = setInterval(() => {
-        countdown--;
-        if (countdown <= 0 && !cancelled) {
-          clearInterval(redirectTimer);
-          window.location.href = best.url;
-        }
-      }, 1000);
-      
-      // Show cancel + alternatives
-      showGateways(allWorking, best);
-    }
-  } else {
-    // No primary worked, try backups
-    status.innerHTML = '<span class="spinner"></span>Trying backup gateways...';
-    bar.style.width = '70%';
-    const backupResults = await Promise.all(BACKUP.map(testGateway));
-    const allWorking = [...working, ...backupResults.filter(r => r.ok)].sort((a,b) => a.ms - b.ms);
-    bar.style.width = '100%';
-    
-    if (allWorking.length > 0 && !cancelled) {
-      const best = allWorking[0];
-      status.innerHTML = `✅ Found gateway! Redirecting to <strong>${best.gw.label}</strong>...`;
-      let countdown = 3;
-      redirectTimer = setInterval(() => {
-        countdown--;
-        if (countdown <= 0 && !cancelled) {
-          clearInterval(redirectTimer);
-          window.location.href = best.url;
-        }
-      }, 1000);
-      showGateways(allWorking, best);
-    } else if (!cancelled) {
-      status.innerHTML = '⚠️ No gateways responding. Try again later or choose manually:';
-      showGateways([], null);
-    }
-  }
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
-
-function showGateways(working, best) {
-  gwDiv.style.display = 'block';
-  let html = '';
-  
-  if (working.length > 0) {
-    working.forEach(r => {
-      const isPrimary = r === best ? ' primary' : '';
-      html += `<a class="gw-btn${isPrimary}" href="${r.url}">${r.gw.label}<span class="speed">${r.ms}ms</span></a>`;
-    });
-  } else {
-    // Show all as clickable even if test failed
-    [...PRIMARY, ...BACKUP].forEach(gw => {
-      html += `<a class="gw-btn" href="https://${UNDERNAME}.${gw.host}">${gw.label}</a>`;
-    });
-  }
-  
-  html += `<button class="cancel" onclick="cancelRedirect()">Cancel auto-redirect</button>`;
-  gwDiv.innerHTML = html;
+function closeModal(e, id) {
+  if (e.target === e.currentTarget) closeModalById(id);
 }
-
-function cancelRedirect() {
-  cancelled = true;
-  if (redirectTimer) clearInterval(redirectTimer);
-  status.innerHTML = '🛑 Auto-redirect cancelled. Choose a gateway below:';
-  document.querySelector('.cancel').style.display = 'none';
+function closeModalById(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = '';
 }
-
-run();
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+// Make all grid and featured photo-card images clickable
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.photo-card img').forEach(function(img) {
+    img.addEventListener('click', function() { openLightbox(this.src); });
+  });
+});
 </script>
+
 </body>
 </html>
