@@ -699,10 +699,10 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 
 <!-- Nav -->
 <div class="nav">
-  <a href="#home">Home</a>
-  <a href="#join">Join FTVR</a>
   <a href="#about">About</a>
+  <a href="#join">Join FTVR</a>
   <a href="#support">Support</a>
+  <a href="#" onclick="openModal('policyModal');return false">Policy</a>
 </div>
 
 <!-- ═══ SCROLLABLE CONTENT ═══ -->
@@ -714,7 +714,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     <p><strong>Created in 2026</strong>, Footvolley Resistance was formed as an <strong>urgent initiative</strong> to <strong>protect</strong> our community, our players, and the spirit of the sport itself.</p>
     
     <div class="collapse-content open"><div class="collapse-inner">
-      <div style="background:#222;color:#eee;padding:1.2rem 1.5rem;border-radius:8px;margin-bottom:1.5rem;font-style:italic;line-height:1.7;font-size:0.95rem">
+      <div style="background:#222;color:var(--yellow);padding:1.2rem 1.5rem;border-radius:8px;margin-bottom:1.5rem;font-style:italic;line-height:1.7;font-size:0.95rem">
         <p style="color:var(--yellow);font-weight:500;font-style:normal;line-height:1.7">Footvolley was built by passionate people, local communities, friendships, neighborhoods, training groups, and human connection. Across the world, it remains a deeply welcoming and kind environment where people from different cultures meet through sport. <strong style="color:var(--yellow)">That space must be protected!</strong></p>
       </div>
       <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem"><strong>Why did we create FTVR?</strong></p>
@@ -899,7 +899,19 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 
   <div class="section" id="join">
     <h2 class="section-title">Join FTVR</h2>
-    <div class="box box-welcome">
+
+    <div style="background:#222;color:var(--yellow);padding:1.2rem 1.5rem;border-radius:8px;margin-bottom:1.5rem;line-height:1.7;font-size:0.95rem">
+      <p style="color:var(--yellow);font-weight:600;font-size:1.05rem;margin-bottom:0.8rem">What is FTVR?</p>
+      <p style="color:var(--yellow)"><strong>FTVR is more than a footvolley club — it is a movement.</strong> A global community that stands with humanity, resists oppression, and refuses to normalize genocide, war crimes, and the disturbing realities we have witnessed in the footvolley community — both on and off the footvolley court.</p>
+      <p style="margin-top:0.8rem;color:var(--yellow)">FTVR is <strong>open and decentralized</strong> — meaning there is no single point of failure. Anyone can build on top of this, expand it, and grow the community. Only your imagination is the limit.</p>
+    </div>
+
+    <p style="font-size:1.05rem;line-height:1.7"><strong>ANYONE*</strong> can join FTVR — as a <strong>member</strong> or a <strong>supporter</strong> — anywhere in the world, at any time. It is completely <strong>free</strong>. No registration, no fees. Simply stand with humanity, follow our <strong>policy</strong>, and represent FTVR. That's it.</p>
+    <p style="margin-top:0.3rem;font-size:0.82rem;font-style:italic;color:var(--text-dim)">*Provided you follow our community policy.</p>
+
+    <p style="margin-top:1.2rem;font-size:1rem;line-height:1.7">Also (if you want), you can even expand the movement by <strong>creating your own branch</strong> — like <em>"FTVR Brazil"</em>, <em>"Footvolley Resistance Helsinki"</em>, or <em>"FTVR Athens"</em> — and grow a healthy community that <strong>protects each other</strong> and <strong>stands up for each other</strong>.</p>
+
+    <div class="box box-welcome" style="margin-top:1.5rem">
       <h3>✊ WELCOME</h3>
       <p>Anyone who stands with humanity, shows respect and good behavior is welcome — both religious and non-religious people. (See specifics in our policy in footer)</p>
     </div>
@@ -914,28 +926,30 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <li>Fail to comply with our community behavior and ethical standards policy (detailed below)</li>
       </ul>
     </div>
-    <p><strong>FTVR</strong> is a fully <strong>decentralized footvolley club</strong> open to <strong>ANYONE*</strong> worldwide (<em>*provided you follow our community policy</em>). It's completely <strong>free</strong> to become a member. We exist to play footvolley and share our passion for the sport. Let's have fun and play!</p>
-      <p style="margin-top:0.8rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.06);border-radius:8px;font-size:0.88rem">📢 <strong>Important:</strong> Since FTVR is a decentralized club, we do not have any official social media accounts yet! For now, please share our website directly and tag us using our hashtags. #FTVR #FootvolleyResistance #FTVResistance</p>
-    
-    <div class="collapse-content open"><div class="collapse-inner">
-      <p>FTVR functions as a decentralized global movement, with The Footvolley Resistance Club serving as our official entity, incorporated under a Swedish company umbrella.</p>
-      <p><strong>How to participate:</strong></p>
-      <ul>
-        <li>Represent Footvolley Resistance directly in your area</li>
-        <li>If local regulations prevent this, create your own FTVR branch (e.g., "Footvolley Resistance Helsinki") using our materials <em>(free to copy and use)</em></li>
-        <li>Use our logo on clothes, accessories, and equipment <em>(free to copy and use)</em></li>
-        <li>Share our content and hashtags on social media</li>
-        <li>Print and display our tags anywhere footvolley is played <em>(free to copy and use)</em></li>
-      </ul>
-      <div class="tags">
-        <span class="tag">#FTVR</span>
-        <span class="tag">#FootvolleyResistance</span>
-        <span class="tag">#FTVResistance</span>
-        <span class="tag">#FutevôleiResistance</span>
-        <span class="tag">#TheFootvolleyResistanceClub</span>
-        <span class="tag">#FootvolleyResistanceClub</span>
-      </div>
-    </div></div>
+
+    <p style="margin-top:1rem;font-size:0.95rem;line-height:1.7"><strong>How to participate:</strong></p>
+    <ul style="font-size:0.92rem;line-height:1.8">
+      <li>Represent <strong>Footvolley Resistance</strong> directly in your area</li>
+      <li>Use our logo on clothes, accessories, and equipment <em>(free to copy and use)</em></li>
+      <li>Share our content and hashtags on social media</li>
+      <li>Print and display our tags anywhere footvolley is played</li>
+      <li>Create your own local branch using our materials <em>(free to copy and use)</em></li>
+      <li><strong>Defend and protect</strong> each other — on and off the court</li>
+      <li><strong>Spread the word</strong> — speak up, stand together</li>
+    </ul>
+
+    <p style="margin-top:1.2rem;font-size:0.95rem;line-height:1.7">FTVR functions as a decentralized global movement, with <strong>The Footvolley Resistance Club</strong> serving as our official entity, incorporated under a Swedish company umbrella.</p>
+
+    <p style="margin-top:1rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.06);border-radius:8px;font-size:0.88rem">📢 <strong>Important:</strong> Since FTVR is a decentralized club, we do not have any official social media accounts yet! For now, please share our website directly and tag us using our hashtags.</p>
+
+    <div class="tags" style="margin-top:1rem">
+      <span class="tag">#FTVR</span>
+      <span class="tag">#FootvolleyResistance</span>
+      <span class="tag">#FTVResistance</span>
+      <span class="tag">#FutevôleiResistance</span>
+      <span class="tag">#TheFootvolleyResistanceClub</span>
+      <span class="tag">#FootvolleyResistanceClub</span>
+    </div>
   </div>
 
   <!-- ABOUT -->
