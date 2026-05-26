@@ -895,6 +895,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   <!-- Latest Updates (inline box, no modal) -->
   <div class="latest-box">
     <h3>📌 LATEST UPDATES</h3>
+    <p style="margin-bottom:0.8rem;font-weight:600;color:var(--yellow)">WOW, thank you all worldwide for your support! 🌍</p>
+    <p style="margin-bottom:0.8rem"><span style="color:#fff">And in response to your most frequent questions:</span> <a href="#" onclick="openModal('modal-contact');return false" style="color:var(--red);text-decoration:underline">see contact</a> →</p>
     <ul>
       <li><span class="date-tag">26 May 2026</span> Sections renamed: PROTECT / RESIST / EXPOSE</li>
       <li><span class="date-tag">26 May 2026</span> EXPOSE rewritten — IFA, EFVL, sportswashing strategy, TAFC Connection highlight → <a href="#third" style="color:var(--red)">See Expose</a></li>
@@ -1136,9 +1138,9 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <p style="font-style:italic;font-size:0.78rem">— @footvolley.athens, 15 July 2025</p>
         </div></div>
         <div style="display:flex;gap:0.5rem;margin-top:0.8rem;flex-wrap:wrap">
-          <a href="img-1280.webp" target="_blank" style="flex:0 0 auto"><img src="img-1280.webp" alt="IG Story 1" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer"></a>
-          <a href="img-1281.webp" target="_blank" style="flex:0 0 auto"><img src="img-1281.webp" alt="IG Story 2" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer"></a>
-          <a href="img-1282.webp" target="_blank" style="flex:0 0 auto"><img src="img-1282.webp" alt="IG Story 3" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer"></a>
+          <img src="img-1280.webp" alt="IG Story 1" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';">
+          <img src="img-1281.webp" alt="IG Story 2" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';">
+          <img src="img-1282.webp" alt="IG Story 3" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';">
         </div>
         <p style="font-size:0.72rem;color:#888;margin-top:0.3rem">The three Instagram stories about globally recognised war crimes in Gaza that preceded the post</p>
         <span class="tl-tag">The post that started it all</span>
@@ -1187,7 +1189,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   </div>
   <!-- ═══ THIRD SECTION ═══ -->
   <div class="section" id="third">
-    <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">EXPOSE</strong> "No politics in sport" doesn't exist!</p>
+    <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">EXPOSE</strong> <strong>"No politics in sport" doesn't exist!</strong></p>
 
     <p style="margin-top:0.8rem">Sport has never been separate from society. Every major social movement in history has played out on the field, on the court, and in the arena. From Jesse Owens to Muhammad Ali, from Tommie Smith's raised fist to Colin Kaepernick's knee &mdash; sport is where injustice becomes visible and where courage becomes contagious.</p>
     <p style="margin-top:0.8rem">Today, the footvolley community is no exception. While the <strong>Israel Footvolley Association (IFA)</strong> and its supporters aggressively demand &ldquo;no politics in sport&rdquo; from European players and organizers, they simultaneously engage in overt political sportswashing themselves &mdash; a stance that the <strong>European Footvolley League (EFVL)</strong> has largely normalized without critical judgement.</p>
@@ -1195,8 +1197,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     <p style="margin-top:0.8rem">When <strong>players accept money</strong> from a state accused of committing an <strong>active genocide</strong> &mdash; while federations ignore intimidation and death threats directed at those who object &mdash; sport itself becomes complicit. Silence is not neutrality. Neutrality is a political choice.</p>
 
     <div class="third-box" style="margin-top:1.5rem">
-      <p style="color:var(--yellow)"><strong>The TAFC Connection:</strong> <strong>Anderson &Aacute;guia</strong>, a World Champion and arguably the most influential figure in global footvolley, has lent his brand and credibility to TAFC Israel by organizing tournaments in Eilat while the <strong>International Court of Justice (ICJ)</strong> has ruled Israel's occupation illegal and UN experts have called for Israel's suspension from international sport. At the same time, hundreds of Palestinian athletes have been killed and more than two hundred sports venues destroyed in Gaza alone. As the world's largest footvolley tournament series, TAFC has become one of the primary vehicles through which Israel gains international sporting legitimacy inside the footvolley community.</p>
-      <div style="margin-top:0.8rem;text-align:center"><img src="aguiaronmaorisrael.webp" alt="Anderson Águia with Ron Ben Ishai and Maor holding Israeli flag at TAFC" style="max-width:100%;border-radius:6px;cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden'"></div>
+      <p style="color:var(--yellow)"><strong>The TAFC Connection:</strong> <strong>Anderson &Aacute;guia</strong>, a World Champion and arguably the most influential figure in global footvolley, has lent his brand and credibility to TAFC Israel by organizing tournaments in Eilat while the <strong>International Court of Justice (ICJ)</strong> has ruled Israel's occupation illegal and UN experts have called for Israel's suspension from international sport. At the same time, hundreds of Palestinian athletes have been killed and more than two hundred sports venues destroyed in Gaza alone. As the world's largest footvolley tournament series, TAFC has become one of the <strong>primary vehicles</strong> through which Israel gains international sporting legitimacy inside the footvolley community.</p>
+      <div style="margin-top:0.8rem;text-align:center"><img src="aguiaronmaorisrael.webp" alt="Anderson Águia with Ron Ben Ishai and Maor holding Israeli flag at TAFC" style="max-width:50%;border-radius:6px;cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden'"></div>
     </div>
 
     <p style="margin-top:1rem">The <strong>contradiction</strong> is obvious: <strong>politics are considered &ldquo;unacceptable&rdquo;</strong> only when players <strong>challenge oppression</strong> &mdash; never when sport is used to normalize it.</p>
@@ -1428,7 +1430,16 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   <div class="modal-box" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModalById('modal-contact')">✕</button>
     <h2 class="section-title" style="font-family:'Oswald',sans-serif">Contact</h2>
-    <p style="margin-top:0.5rem">Email: <a href="mailto:ftvr.outcast165@passmail.net" style="color:var(--red);font-weight:600">ftvr.outcast165@passmail.net</a></p>
+    <p style="margin-bottom:0.8rem"><strong style="color:#222">Email: <a href="mailto:ftvr.outcast165@passmail.net" style="color:#222">ftvr.outcast165@passmail.net</a></strong></p>
+    <h3 style="font-family:'Oswald',sans-serif;margin-top:1.5rem;margin-bottom:0.8rem;color:#222">A Message to Our Global FTVR Community &amp; Those Who Stand Against Injustice</h3>
+    <p style="margin-bottom:0.8rem"><strong>To our supporters worldwide:</strong> Your solidarity fuels this movement.</p>
+    <p style="margin-bottom:0.8rem"><strong>To those who threaten, harass, or enable violence:</strong> We see you, and we will not be silenced.</p>
+    <p style="margin-bottom:0.8rem"><strong>In response to your most frequent questions:</strong></p>
+    <p style="margin-bottom:0.8rem">We encourage all individuals who have received threats of violence, sexual assault, or other criminal behavior to <strong>file formal police reports</strong> in your jurisdiction. For those with evidence of war crimes or crimes against humanity, we recommend contacting appropriate international legal bodies like the <strong>ICC</strong> or organizations such as <strong>Hind Rajab Foundation</strong>.</p>
+    <p style="margin-bottom:0.8rem"><strong>Our commitment to transparency:</strong></p>
+    <p style="margin-bottom:0.8rem">FTVR will continue systematically releasing verified evidence of violations and misconduct. We maintain a secure channel for whistleblowers to submit documentation through our website's contact section. Each submission contributes to building an undeniable record of accountability.</p>
+    <p style="margin-bottom:0.5rem;font-weight:600;color:var(--yellow)">Stay vigilant. Stay engaged.</p>
+    <p style="margin-bottom:1.5rem"><a href="https://www.ftvresistance.com" target="_blank" rel="noopener" style="color:var(--red)">https://www.ftvresistance.com</a></p>
   </div>
 </div>
 
@@ -1451,6 +1462,20 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       <button class="collapsible" onclick="toggle(this)">Can I start my own branch?</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p>Yes! Feel free to start a branch in your city or country — e.g. "Footvolley Resistance Helsinki" or "FTVR Brazil". Download our logo and use our hashtags. The beauty of this decentralised club.</p>
+      </div></div>
+      <br>
+      <button class="collapsible" onclick="toggle(this)">Who are we?</button>
+      <div class="collapse-content"><div class="collapse-inner">
+        <p><strong>OUR TEAM</strong> — For one year, FTVR has been in closed-door meetings across borders.</p>
+        <p style="margin-top:0.8rem">We are now a <strong>fully decentralized footvolley club</strong> — linked to government entities, investigative journalists, cybersecurity experts, hackers, and human rights advocates working inside and outside the global footvolley community. Many of them. Everywhere.</p>
+        <p style="margin-top:0.8rem;font-weight:600">We will NEVER forget.</p>
+        <p style="margin-top:0.8rem">Cases are being filed. Evidence is secured. Financial trails are mapped. The decentralized machinery turns — regardless of threats, deletions, or distance.</p>
+        <p style="margin-top:0.8rem">If you have threatened, harassed, or enabled crimes against humanity — if you or your organization have taken blood money, sportwashed genocide, or believed your uniform protects you: <strong>we see you, and we will expose you.</strong></p>
+        <p style="margin-top:0.8rem">There is no neutrality. There is no hiding.</p>
+        <p style="margin-top:0.8rem;font-style:italic;color:#aaa">"If you are neutral in situations of injustice, you have chosen the side of the oppressor." — Desmond Tutu</p>
+        <p style="margin-top:0.8rem;font-weight:600">Justice will prevail. It is not optional. It is inevitable.</p>
+        <p style="margin-top:0.8rem"><strong>Which side of history — and humanity — do you stand on?</strong></p>
+        <p style="margin-top:0.8rem"><a href="#join" onclick="closeModalById('modal-faq')" style="color:var(--red);font-weight:600">Join Footvolley Resistance</a></p>
       </div></div>
       <br>
       <button class="collapsible" onclick="toggle(this)">What is the difference between Zionism and Judaism?</button>
