@@ -117,7 +117,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 
 .header-logo {
   position: absolute;
-  top: 16px; left: 60px;
+  top: 50%; left: 60px;
+  transform: translateY(-50%);
   z-index: 5;
   width: 280px; height: 280px;
   border-radius: 50%;
@@ -402,15 +403,15 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 }
 .lightbox-close {
   position: absolute;
-  top: 16px; right: 24px;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
   cursor: pointer;
-  background: none;
-  border: none;
   z-index: 10001;
+  line-height: 1;
 }
+.lightbox-close:hover { color: var(--red); }
 .photo-caption { text-align: center; font-size: 0.72rem; color: var(--text-dim); margin-top: 0.4rem; font-style: italic; }
 
 /* ═══ Timeline ═══ */
@@ -530,7 +531,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   .main { padding: 1.5rem 1rem 2rem; }
   .nav { gap: 1rem; flex-wrap: wrap; }
   .photo-grid { grid-template-columns: 1fr; }
-  .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid-4 { grid-template-columns: repeat(3, 1fr); }
   .featured-pair { grid-template-columns: 1fr; }
   .featured-pair .photo-card,
   .featured-pair .video-embed { aspect-ratio: auto; height: auto; }
@@ -552,7 +553,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   .header-tags { font-size: 0.45rem; }
   .main { padding: 1rem 0.8rem 2rem; }
   .nav a { font-size: 0.75rem; }
-  .photo-grid-4 { grid-template-columns: 1fr; gap: 0.6rem; }
+  .photo-grid-4 { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
 }
 
 /* ═══ Extra Small (375px) ═══ */
@@ -575,6 +576,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   .header-logo {
     position: relative;
     top: auto; left: auto;
+    transform: none;
     width: 200px; height: 200px;
     margin-bottom: 10px;
   }
@@ -620,6 +622,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     position: relative;
     top: auto;
     left: auto;
+    transform: none;
     margin: 15px auto 10px auto;
   }
   .header-content {
@@ -637,6 +640,178 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     text-align: center;
   }
 }
+
+/* ═══ HEADER SLOGAN CIRCLE ═══ */
+.hero-slogan-circle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  background: rgba(0,0,0,0.85);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  padding: 1.2rem;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.hero-slogan-circle p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+.hero-slogan-circle .slogan-red { color: var(--red); }
+
+/* ═══ LATEST UPDATES BOX ═══ */
+.latest-box {
+  background: #1a1a1a;
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 1rem 1.4rem;
+  margin-bottom: 2rem;
+}
+.latest-box h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+}
+.latest-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.latest-box li {
+  font-size: 0.8rem;
+  color: #ccc;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  line-height: 1.5;
+}
+.latest-box li:last-child { border-bottom: none; }
+.latest-box .date-tag {
+  font-size: 0.65rem;
+  color: #888;
+  margin-right: 0.4rem;
+}
+
+/* ═══ INSTAGRAM-STYLE GRID CARDS ═══ */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+.ig-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.ig-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.ig-card-info {
+  padding: 0.5rem 0.6rem;
+  min-height: 70px;
+}
+.ig-card-info .ig-handle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--black);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.ig-card-info .ig-desc {
+  font-size: 0.68rem;
+  color: #555;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ig-card .grid-btn {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  margin: 0 0.5rem 0.5rem;
+  width: calc(100% - 1rem);
+}
+.ig-card .collapse-content {
+  max-width: 100%;
+  overflow: hidden;
+}
+.ig-card .collapse-inner {
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* ═══ THIRD SECTION BOX ═══ */
+.third-box {
+  background: #222;
+  color: #eee;
+  padding: 1.4rem 1.6rem;
+  border-radius: 8px;
+  margin-top: 2.5rem;
+  line-height: 1.7;
+}
+.third-box h4 {
+  font-family: 'Oswald', sans-serif;
+  color: var(--yellow);
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+
+/* Slogan circle responsive */
+@media (max-width: 768px) {
+  .hero-slogan-circle {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 200px;
+    height: 200px;
+    margin: 1rem auto 2.5rem;
+  }
+  .hero-slogan-circle p { font-size: 0.65rem; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .ig-card img { height: 200px; }
+  .ig-card-info { padding: 0.4rem 0.5rem; min-height: 60px; }
+  .ig-card-info .ig-handle { font-size: 0.65rem; }
+  .ig-card-info .ig-desc { font-size: 0.6rem; }
+}
+@media (max-width: 480px) {
+  .hero-slogan-circle { width: 180px; height: 180px; padding: 1rem; margin-bottom: 2rem; }
+  .hero-slogan-circle p { font-size: 0.6rem; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+  .ig-card img { height: 150px; }
+  .ig-card-info .ig-handle { font-size: 0.6rem; }
+  .ig-card-info .ig-desc { font-size: 0.55rem; -webkit-line-clamp: 1; }
+}
+
+
+/* Equal-height ig-cards */
+.ig-card { display: flex; flex-direction: column; }
+.ig-card-info { flex: 1; }
+.ig-card .grid-btn { margin-top: auto; }
+.ig-card video { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; cursor: pointer; }
 </style>
   <script defer src="https://stats-rufus.servegame.com/script.js" data-website-id="d6eb27fc-2d73-4469-8de6-720af789be46"></script>
 </head>
@@ -663,6 +838,13 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <span>#TheFootvolleyResistanceClub</span>
       </div>
     </div>
+  </div>
+  <!-- Slogan Circle -->
+  <div class="hero-slogan-circle">
+    <p>HUMANITY BEFORE EVERYTHING</p>
+    <p class="slogan-red">NO MORE SILENCE</p>
+    <p>NO MORE NEUTRALITY</p>
+    <p>NO MORE COMPLICITY</p>
   </div>
 </div>
 
@@ -704,22 +886,38 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   <a href="#join">Join FTVR</a>
   <a href="#support">Support</a>
   <a href="#" onclick="openModal('modal-policy');return false">Policy</a>
+  <a href="#" onclick="openModal('modal-faq');return false">FAQ</a>
 </div>
 
 <!-- ═══ SCROLLABLE CONTENT ═══ -->
 <div class="main">
 
+  <!-- Latest Updates (inline box, no modal) -->
+  <div class="latest-box">
+    <h3>📌 LATEST UPDATES</h3>
+    <ul>
+      <li><span class="date-tag">26 May 2026</span> Sections renamed: PROTECT / RESIST / EXPOSE</li>
+      <li><span class="date-tag">26 May 2026</span> EXPOSE rewritten — IFA, EFVL, sportswashing strategy, TAFC Connection highlight → <a href="#third" style="color:var(--red)">See Expose</a></li>
+      <li><span class="date-tag">26 May 2026</span> Hasbara: $730M propaganda machine section added → <a href="#third" style="color:var(--red)">See Expose</a></li>
+      <li><span class="date-tag">25 May 2026</span> New evidence: @mamaninio__, @oriya_malul1, @roy___levi, @tal_hay1, @halfonthefire, @yuval_aharfi + 6 more → <a href="#about" style="color:var(--red)">See Protect</a></li>
+      <li><span class="date-tag">25 May 2026</span> Politics × Sports evidence grid: IDF propaganda tours, TAFC Israel, @ronbenishai.fty → <a href="#third" style="color:var(--red)">See Expose</a></li>
+      <li><span class="date-tag">25 May 2026</span> Full Hebrew & Portuguese translations on all evidence</li>
+      <li><span class="date-tag">25 May 2026</span> Timeline expanded — IG stories, TAFC player documentation → <a href="#second" style="color:var(--red)">See Resist</a></li>
+      <li><span class="date-tag">25 May 2026</span> FAQ: Sportswashing & Hasbara explained → <a href="#" onclick="openModal('modal-faq');return false" style="color:var(--red)">See FAQ</a></li>
+    </ul>
+  </div>
 
+  <!-- ═══ ABOUT SECTION ═══ -->
   <div class="section" id="about">
     <h2 class="section-title">About</h2>
     <p><strong>Created in 2026</strong>, Footvolley Resistance was formed as an <strong>urgent initiative</strong> to <strong>protect</strong> our community, our players, and the spirit of the sport itself.</p>
-    
+
     <div class="collapse-content open"><div class="collapse-inner">
       <div style="background:#222;color:var(--yellow);padding:1.2rem 1.5rem;border-radius:8px;margin-bottom:1.5rem;font-style:italic;line-height:1.7;font-size:0.95rem">
         <p style="color:var(--yellow);font-weight:500;font-style:normal;line-height:1.7">Footvolley was built by passionate people, local communities, friendships, neighborhoods, training groups, and human connection. Across the world, it remains a deeply welcoming and kind environment where people from different cultures meet through sport. <strong style="color:var(--yellow)">That space must be protected!</strong></p>
       </div>
       <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem"><strong>Why did we create FTVR?</strong></p>
-      <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">FIRST</strong> Because the footvolley community can no longer ignore behaviors and realities that directly threaten the <strong>safety</strong>, <strong>dignity</strong>, and <strong>humanity</strong> of players and people around them. This includes <strong>death threats</strong> against players and their families, public and private harassment, open support for <strong>genocide</strong> and <strong>war crimes</strong>, normalization of hatred, and the growing acceptance of <strong>blood-money</strong> and political laundering inside the global footvolley environment. We must be absolutely clear about what is <strong>unacceptable</strong>. The overwhelming majority of these incidents have involved players from or associated with the <strong>apartheid ethno-supremacist state of Israel</strong> and their <strong>supporters</strong> — and in most cases the <strong>Israel Footvolley Association (IFA)</strong> was very well aware of, or even igniting them. It is important to state this <strong>clearly</strong> and <strong>honestly</strong>. At the same time, any similar behavior from any person, group, or country would be <strong>equally unacceptable</strong>.</p>
+      <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">PROTECT</strong> Because the footvolley community can no longer ignore behaviors and realities that directly threaten the <strong>safety</strong>, <strong>dignity</strong>, and <strong>humanity</strong> of players and people around them. This includes <strong>death threats</strong> against players and their families, public and private harassment, open support for <strong>genocide</strong> and <strong>war crimes</strong>, normalization of hatred, and the growing acceptance of <strong>blood-money</strong> and political laundering inside the global footvolley environment. We must be absolutely clear about what is <strong>unacceptable</strong>. The overwhelming majority of these incidents have involved players from or associated with the <strong>apartheid ethno-supremacist state of Israel</strong> and their <strong>supporters</strong> — and in most cases the <strong>Israel Footvolley Association (IFA)</strong> was very well aware of, or even igniting them. It is important to state this <strong>clearly</strong> and <strong>honestly</strong>. At the same time, any similar behavior from any person, group, or country would be <strong>equally unacceptable</strong>.</p>
 
       <!-- Featured pair: bomb photo + video side by side -->
       <div class="featured-pair">
@@ -742,162 +940,343 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         </div>
       </div>
 
-      <!-- 3x2 Evidence Grid -->
-      <div class="photo-grid-4">
-        <div class="grid-item">
-          <div class="photo-card"><img src="grid-1.webp" alt="Evidence: david_bpt"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-          <div class="collapse-content"><div class="collapse-inner"><p><strong>DavidBuz (@david_bpt)</strong> — Israeli footvolley player. Messages include: "Israeli Mossad hunts the people on the evil side, be careful what you say or do", "May all Gaza turns into hell after what they did to us, they deserve nothing more. Everyone there is involved. Stop being blind", "Israel will conquer it eventually. And then we will take care of Turkey (for you, the Greek people) because they host Hamas terrorist now."</p></div></div>
-        </div>
-        <div class="grid-item">
-          <div class="photo-card"><img src="grid-2.webp" alt="Evidence: liderfranko14"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-          <div class="collapse-content"><div class="collapse-inner"><p><strong>Lidor Franko (@liderfranko14)</strong> — Israeli footvolley player. Messages include: "From now on you are in trouble, no Jew will support you anymore, if you are all for them, go live in Gaza and Inshallah they will rape you there", "F**k you", "<strong>You are f**king dead</strong>" — direct death threats against a footvolley player for sharing information about civilian casualties in Gaza.</p></div></div>
-        </div>
-        <div class="grid-item">
-          <div class="photo-card"><img src="grid-3.webp" alt="Evidence: ronbenishai.ftv"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-          <div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.ftv)</strong> — Israeli footvolley player (verified account). Messages include: "I will personally take care no one from Israel will ever train/work/pay/collaborate anything with you. Good luck. Keep supporting terror organisations and delegitimise Israel people." — economic threats and intimidation against a player who posted about Palestinian casualties.</p></div></div>
-        </div>
-        <div class="grid-item">
-          <div class="photo-card"><img src="grid-4.webp" alt="Evidence: shahaflavi512"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-          <div class="collapse-content"><div class="collapse-inner"><p><strong>Shahaf Lavi (@shahaflavi512)</strong> — Account associated with Israel. Message: "<strong>We understand that you want to come to Israel, if we see you in Israel we will kill you! Don't go near the State of Israel, you anti-Semite, we will murder you like the children in Gaza.</strong>" — explicit death threats and a shocking admission referencing the killing of children in Gaza. (Hebrew account name: שחף לביא קוסמטיקה)</p></div></div>
-        </div>
-        <div class="grid-item">
-          <div class="photo-card"><img src="grid-5.webp" alt="Evidence: shaulinbal7"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-          <div class="collapse-content"><div class="collapse-inner"><p><strong>Shaul Inbal (@shaulinbal7)</strong> — Israeli footvolley player. Messages include: "This one is going to be like people in Palestine — Dead 💀", "I have my people in Greece that can help me cut down your business in a legal way", "Be careful on your business", "Retard", "Bitch" — death threats, business intimidation, and abusive language.</p></div></div>
-        </div>
-        <div class="grid-item">
-          <div class="photo-card"><img src="grid-6.webp" alt="Evidence: yinon.amir"></div>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-          <div class="collapse-content"><div class="collapse-inner"><p><strong>Yinon Amir (@yinon.amir)</strong> — Israeli footvolley player. Messages include death threats, rape threats against family members, and Holocaust references. English: "You f**king b**ch all you know it's thanks to us", "F**k you", "And f**k your family", "And I wish that your kids will be raped by terrorists like you", "Yanis sharmuta ben sharmuta" (Yanis, whore son of a whore).</p><p><strong>Hebrew messages translated:</strong></p><ul><li>"יא מקריח יא בן של שרמוטה שיאנסו את אמא שלך" — <em>"You baldy, you son of a whore, may they rape your mother"</em></li><li>"שיעשו לך שואה יבן שרמוטה" — <em>"May they give you a Holocaust, you son of a whore"</em></li><li>"שיאנסו את האמא הזונה שלך ימכוער בפנים" — <em>"May they rape your whore mother, you ugly face"</em></li><li>"אמא שלך שרמוטה" — <em>"Your mother is a whore"</em></li></ul></div></div>
-        </div>
-      </div>
+      <!-- ═══ FIRST: Full Evidence Grid (19 cards, 3×N) ═══ -->
+<div class="ig-grid" style="margin-top:1.5rem">
+<div class="ig-card">
+<img src="grid-1.webp" alt="Evidence: @david_bpt">
+<div class="ig-card-info"><span class="ig-handle">@david_bpt</span><span class="ig-desc">Israeli player. Mossad threats, wishes Gaza "turns into hell"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>DavidBuz (@david_bpt)</strong> — Israeli footvolley player. Messages include: “Israeli Mossad hunts the people on the evil side, be careful what you say or do”, “May all Gaza turns into hell after what they did to us, they deserve nothing more. Everyone there is involved. Stop being blind”, “Israel will conquer it eventually. And then we will take care of Turkey (for you, the Greek people) because they host Hamas terrorist now.”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="grid-2.webp" alt="Evidence: @liderfranko14">
+<div class="ig-card-info"><span class="ig-handle">@liderfranko14</span><span class="ig-desc">Death threats: "You are f**king dead"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Lidor Franko (@liderfranko14)</strong> — Israeli footvolley player. Messages include: “From now on you are in trouble, no Jew will support you anymore, if you are all for them, go live in Gaza and Inshallah they will rape you there”, “F**k you”, “<strong>You are f**king dead</strong>” — direct death threats against a footvolley player for sharing information about civilian casualties in Gaza.</p></div></div>
+</div>
+<div class="ig-card">
+<img src="grid-4.webp" alt="Evidence: @shahaflavi512">
+<div class="ig-card-info"><span class="ig-handle">@shahaflavi512</span><span class="ig-desc">Death threats: "We will murder you like the children in Gaza"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Shahaf Lavi (@shahaflavi512)</strong> — Account associated with Israel. Message: “<strong>We understand that you want to come to Israel, if we see you in Israel we will kill you! Don't go near the State of Israel, you anti-Semite, we will murder you like the children in Gaza.</strong>” — explicit death threats and a shocking admission referencing the killing of children in Gaza.</p></div></div>
+</div>
+<div class="ig-card">
+<img src="grid-5.webp" alt="Evidence: @shaulinbal7">
+<div class="ig-card-info"><span class="ig-handle">@shaulinbal7</span><span class="ig-desc">"This one is going to be like people in Palestine — Dead 💀"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Shaul Inbal (@shaulinbal7)</strong> — Israeli footvolley player. Messages include: “This one is going to be like people in Palestine — Dead 💀”, “I have my people in Greece that can help me cut down your business in a legal way”, “Be careful on your business”, “Retard”, “Bitch” — death threats, business intimidation, and abusive language.</p></div></div>
+</div>
+<div class="ig-card">
+<img src="grid-6.webp" alt="Evidence: @yinon.amir">
+<div class="ig-card-info"><span class="ig-handle">@yinon.amir</span><span class="ig-desc">Death &amp; rape threats, Holocaust references</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Yinon Amir (@yinon.amir)</strong> — Israeli footvolley player. Messages include death threats, rape threats against family members, and Holocaust references. English: “You f**king b**ch all you know it's thanks to us”, “F**k you”, “And f**k your family”, “And I wish that your kids will be raped by terrorists like you”.</p><p><strong>Hebrew messages translated:</strong></p><ul><li>“יא מקריח יא בן של שרמוטה שיאנסו את אמא שלך” — <em>“You baldy, you son of a whore, may they rape your mother”</em></li><li>“שיעשו לך שואה יבן שרמוטה” — <em>“May they give you a Holocaust, you son of a whore”</em></li><li>“שיאנסו את האמא הזונה שלך ימכוער בפנים” — <em>“May they rape your whore mother, you ugly face”</em></li><li>“אמא שלך שרמוטה” — <em>“Your mother is a whore”</em></li></ul></div></div>
+</div>
+<div class="ig-card">
+<img src="benel.mashiah.webp" alt="Evidence: @benel.mashiah">
+<div class="ig-card-info"><span class="ig-handle">@benel.mashiah</span><span class="ig-desc">Hasbara propaganda: "knock on roof", "Palestinians glorify martyrdom"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Ben El Mashiah (@benel.mashiah)</strong> — Hasbara propaganda. Messages: “Do you know that our army informs the Palestinian civilians ahead of almost all air strikes in a move called 'knock on roof' so they can evacuate?” “Did you know that a lot of the Palestinians refuse to evacuate due to their glorifying of the Shaheed-martyrdom?” “Did you know that Hamas intentionally places its weapon storages and tunnels underneath schools, kindergartens?”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="eyal.amran.webp" alt="Evidence: @eyal.amran ✓">
+<div class="ig-card-info"><span class="ig-handle">@eyal.amran ✓</span><span class="ig-desc">Verified (3.8K followers) — replied with 🖕🖕🖕🖕</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Eyal Amran (@eyal.amran)</strong> — Verified account, 3.8K followers. Replied to IG story about Gaza victims (“More than 65% of victims in Gaza are women, children, elderly”) with four middle finger emojis 🖕🖕🖕🖕</p></div></div>
+</div>
+<div class="ig-card">
+<img src="ftv-valley.webp" alt="Evidence: @ftv_valley (VALLEY)">
+<div class="ig-card-info"><span class="ig-handle">@ftv_valley (VALLEY)</span><span class="ig-desc">"Are u stupid brother?"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>VALLEY Footvolley Club (@ftv_valley)</strong> — Replied to Gaza story: “Are u stupid brother?”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="yahavmesika.webp" alt="Evidence: @yahavmesika">
+<div class="ig-card-info"><span class="ig-handle">@yahavmesika</span><span class="ig-desc">"As Jews and Israelis, we can only rely on ourselves"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Yahav Mesika (@yahavmesika)</strong> — Messages: “It's truly disheartening to hear that you hold such a strong opinion without having a deeper understanding of the situation.” “Thank you for the reminder that, as Jews and Israelis, we can only rely on ourselves.”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="yuvalahrafi.webp" alt="Evidence: @yuval_aharfi">
+<div class="ig-card-info"><span class="ig-handle">@yuval_aharfi</span><span class="ig-desc">DEATH THREATS: "You need to die"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Yuval Aharfi (@yuval_aharfi)</strong> — Death threats: “Go f**k yourself you are a piece of 💩”, “<strong>You need to die</strong>”, “If you stand with the terrorist you need to die”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="mamaninio.webp" alt="Evidence: @mamaninio__">
+<div class="ig-card-info"><span class="ig-handle">@mamaninio__</span><span class="ig-desc">Hebrew: "F**k you, you son of a whore" + "You're nothing, dog"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>@mamaninio__</strong> — Public Instagram comments in Hebrew:</p><ul><li>“זין עלייך יא בן של זונה” = “F**k you, you son of a whore”</li><li>“אפס כלב” = “You're nothing, dog”</li></ul><p>Also visible: @asaf.yakobi commented “טפייי בן זונה” = “Ugh, son of a whore”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="oriya-malul1.webp" alt="Evidence: @oriya_malul1">
+<div class="ig-card-info"><span class="ig-handle">@oriya_malul1</span><span class="ig-desc">Hebrew threats: deadly trouble, physical violence threats</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Oriya Malul (@oriya_malul1)</strong> — Direct messages in Hebrew:</p><ul><li>“תקשיב” = “Listen”</li><li>“יא חתיכת זין” = “You piece of d**k”</li><li>“אתה נופל לי בידיים אתה בבעיה קטלנית” = “You fall into my hands, you're in deadly trouble”</li><li>“מלכלך עלינו ועל המדינה שלנו אבל פרנסה אין לך בעיה לקבל מאיתנו” = “You bad-mouth us and our country but have no problem making a living from us”</li></ul></div></div>
+</div>
+<div class="ig-card">
+<img src="goldberg1of2.webp" alt="Evidence: @dandangoldberg">
+<div class="ig-card-info"><span class="ig-handle">@dandangoldberg</span><span class="ig-desc">Hasbara propaganda exchange (2 screenshots)</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Dan Goldberg (@dandangoldberg)</strong> — Hasbara propaganda exchange. Goldberg sent propaganda claiming casualties aren't real, IDF uses 'knock on roof' warnings, Palestinians “glorify martyrdom”. Yiannis responded respectfully: “I am trying to follow the situation in Middle East since 2005 quite deeply. I condemn Hamas attack on Oct 7th and consider it a war crime. Similarly, I condemn various actions of the IDF as regular and repeatedly committed war crimes.”</p><p style="margin-top:0.3rem;font-size:0.75rem;color:#888">(2 screenshots) <a href="#" onclick="document.getElementById('lightbox-img').src='goldberg2of2.webp';document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';return false;" style="color:var(--red)">[View second screenshot]</a></p></div></div>
+</div>
+<div class="ig-card">
+<img src="mayer1of2.webp" alt="Evidence: @reservandhhdhd (Mayer)">
+<div class="ig-card-info"><span class="ig-handle">@reservandhhdhd (Mayer)</span><span class="ig-desc">Intimidation: "Even if it means killing others. We call it self defence"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Mayer Careca (@reservandhhdhd)</strong> — Intimidation: “The Israeli Fv players see you in a bad way”, “Even if it means killing others. We call it self defence”, “80 years ago 6000000 Jews were killed. It will not happen again”, “Even if some people who do not deserve to be hurt get hurt. Sad and unfortunate. But we must defend ourselves”</p><p style="margin-top:0.3rem;font-size:0.75rem;color:#888">(2 screenshots) <a href="#" onclick="document.getElementById('lightbox-img').src='mayer2of2.webp';document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';return false;" style="color:var(--red)">[View second screenshot]</a></p></div></div>
+</div>
+<div class="ig-card">
+<img src="orentzubbery1of2.webp" alt="Evidence: @tzuberryftv (Oren)">
+<div class="ig-card-info"><span class="ig-handle">@tzuberryftv (Oren)</span><span class="ig-desc">"We are the most moral army in the world!" — gaslighting</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Oren Tzuberry (@tzuberryftv)</strong> — “Once again, I will say that everything you write, upload or publish stems from your lack of knowledge… we are the most moral army in the world! It is simply ridiculous what you write.” Yiannis responded: “My dear Oren, I have friends in Israel. Please, don't assume that I don't know what I am talking about. I am pro-humanitarian.”</p><p style="margin-top:0.3rem;font-size:0.75rem;color:#888">(2 screenshots) <a href="#" onclick="document.getElementById('lightbox-img').src='orentzuberry2of2.webp';document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';return false;" style="color:var(--red)">[View second screenshot]</a></p></div></div>
+</div>
+<div class="ig-card">
+<img src="ravivlankry1of2.webp" alt="Evidence: @ravivlankry">
+<div class="ig-card-info"><span class="ig-handle">@ravivlankry</span><span class="ig-desc">Hostile messaging toward players who spoke up</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Raviv Lankry (@ravivlankry)</strong> — Screenshots showing hostile communications and threatening language directed at footvolley community members who spoke against genocide.</p><p style="margin-top:0.3rem;font-size:0.75rem;color:#888">(2 screenshots) <a href="#" onclick="document.getElementById('lightbox-img').src='ravivlankry2of2.webp';document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';return false;" style="color:var(--red)">[View second screenshot]</a></p></div></div>
+</div>
+<div class="ig-card">
+<img src="halfonthefire.webp" alt="Evidence: @halfonthefire (Nadav)">
+<div class="ig-card-info"><span class="ig-handle">@halfonthefire (Nadav)</span><span class="ig-desc">"your terrorist friends hide behind them you stupid f**k"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Nadav Halfon (@halfonthefire)</strong> — Replied to Gaza story: “Because your terrorist friends hide behind them you stupid f**k”, “Wait you family gets kidnapped to tunnels”, “Wish it will happen to you”. Yiannis responded: “Nothing can justify crimes against humanity.”</p></div></div>
+</div>
+<div class="ig-card">
+<img src="roy-leviandtal-hai1.webp" alt="Evidence: @roy___levi + @tal_hay1">
+<div class="ig-card-info"><span class="ig-handle">@roy___levi + @tal_hay1</span><span class="ig-desc">DEATH THREAT AGAINST CHILD + racist slur</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Roy Levi (@roy___levi)</strong> — Public comment: “בעזרת השם אני אדליק סיגריה מהנר נשמה של הבן שלך אינשאללה” = “<strong>With God's help, I will light a cigarette from the memorial candle of your son, inshallah</strong>”</p><p><strong>Tal Hay (@tal_hay1)</strong> — “ברו חושב שאם הוא יזיין עיזים הוא יהפוך ל🐐” = “Bro thinks if he f**ks goats he'll become a GOAT” — racist dehumanizing slur.</p></div></div>
+</div>
+<div class="ig-card">
+<video src="israelireactiontoigstories.mp4" controls preload="metadata"></video>
+<div class="ig-card-info"><span class="ig-handle">Video: Israeli Reaction</span><span class="ig-desc">Video of Israeli community reaction to IG stories about Gaza</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p>Video showing Israeli footvolley community members reacting aggressively to the Instagram stories about Gaza posted by Yiannis Tsiouris.</p></div></div>
+</div>
+</div>
 
       <p style="margin-top:2.5rem;font-size:1.15rem;line-height:1.6;text-align:center;color:var(--red)"><strong>...this goes on and on, and this is just the tip of the iceberg.</strong> Similar incidents and <strong>threats of death and rape</strong> aimed at various footvolley players, their <strong>families</strong> and <strong>friends</strong> have been made both <strong>publicly</strong> and <strong>privately</strong>...</p>
 
-      <p style="margin-top:2.5rem;font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">SECOND</strong> To show that there are <strong>players</strong>, <strong>organizers</strong>, <strong>coaches</strong>, and <strong>communities</strong> who <strong>stand with humanity</strong> and <strong>stand with each other</strong>. People who refuse to normalize <strong>genocide</strong>, <strong>apartheid</strong>, <strong>war crimes</strong>, <strong>crimes against humanity</strong>, <strong>racism</strong>, <strong>intimidation</strong>, or the use of <strong>blood-money</strong> to buy silence and legitimacy — both on and off the footvolley court.</p>
+    </div></div><!-- end FIRST collapse -->
+  </div><!-- end about section -->
+  <!-- ═══ SECOND SECTION ═══ -->
+  <div class="section" id="second">
+    <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">RESIST</strong> To show that there are <strong>players</strong>, <strong>organizers</strong>, <strong>coaches</strong>, and <strong>communities</strong> who <strong>stand with humanity</strong> and <strong>stand with each other</strong>. People who refuse to normalize <strong>genocide</strong>, <strong>apartheid</strong>, <strong>war crimes</strong>, <strong>crimes against humanity</strong>, <strong>racism</strong>, <strong>intimidation</strong>, or the use of <strong>blood-money</strong> to buy silence and legitimacy — both on and off the footvolley court.</p>
 
-      <!-- Two photos with buttons -->
-      <div class="photo-grid" style="margin-top:1.5rem">
-        <div class="grid-item">
-          <div class="photo-card"><img src="palestine3athens.webp" alt="Palestine 3 Athens"></div>
-          <button class="collapsible" onclick="toggle(this)" style="margin-top:0.5rem">Voices from FTVR Community</button>
-          <div class="collapse-content"><div class="collapse-inner long-text">
-            <p>Footvolley taught me many things: respect, unity, connection, community. But in times like these, sport cannot exist outside society. "No politics" has never truly existed — especially when human lives are being destroyed in front of our eyes.</p>
-            <p>Across Europe and beyond, wars, occupation, forced displacement, and mass civilian suffering are realities of our time. And in Gaza, the Palestinian people continue to endure a brutal offensive that has already taken the lives of thousands of civilians, including athletes, coaches, journalists, medical personnel, humanitarian aid workers, and children.</p>
-            <p>Many people inside sports remain silent out of fear, pressure, or convenience. Others speak despite restrictions and consequences. From Pep Guardiola to Eric Cantona, Lamine Yamal, Karim Benzema, Lewis Hamilton, and many others, prominent voices in sports have publicly supported Palestine and reminded the world that humanity comes before politics.</p>
-            <blockquote>As Guardiola said: "When people are dying, you have to help. Never in human history have we had everything so clearly in front of our eyes."</blockquote>
-            <p>This post is not against people because of nationality, religion, or ethnicity. It is against genocide, apartheid, dehumanization, and the normalization of mass suffering. Some still want sport to be an escape from reality. But sport reflects society. And the values we speak about every day — respect, unity, dignity — must apply to everyone, including Palestinians.</p>
-            <p>Big respect and solidarity to all humanitarian initiatives, activists, and civilians raising their voices and taking action — including <a href="https://instagram.com/marchtogaza_greece" target="_blank" rel="noopener" style="color:var(--red)">@marchtogaza_greece</a> and organizations like <a href="https://instagram.com/gazasunbirds" target="_blank" rel="noopener" style="color:var(--red)">@gazasunbirds</a>, who continue to represent resilience, dignity, and humanity under unimaginable conditions.</p>
-            <p><strong>There is no more room for comfortable neutrality.<br>No more pretending not to know.<br>Humanity before everything.</strong></p>
-            <p>As a community, we continue our original statement clearly and publicly:</p>
-            <p><strong style="color:var(--red);font-size:1.05rem">🇵🇸 We stand against genocide. Always.</strong></p>
-            <p style="font-style:italic;font-size:0.88rem">Yiannis, Thodoris, Rufus,<br>Team FVA</p>
-          </div></div>
-        </div>
-        <div class="grid-item">
-          <div class="photo-card"><img src="me-yiannis.webp" alt="Standing with Yiannis Tsiouris"></div>
-          <button class="collapsible" onclick="toggle(this)" style="margin-top:0.5rem">Watch Video: No Time To Stay Silent</button>
-          <div class="collapse-content"><div class="collapse-inner">
-            <p>▶ <a href="https://odysee.com/@rufuswiena:4/no-time-to-stay-silent:7?r=Cq5sY9usG2UA1bsMTzrv8LmGubGHTzWL" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">Watch on Odysee</a></p>
-            <p style="margin-top:0.8rem">📄 <a href="rufus-article-nordic-champion.pdf" target="_blank" style="color:var(--red);font-weight:600">Read the full article (PDF)</a></p>
-            <h4 style="margin-top:1rem;font-family:'Oswald',sans-serif;font-size:0.95rem">Nordic &amp; Swedish Footvolley Champion 2025!<br><span style="font-weight:400;font-size:0.85rem">But what is this "achievement" worth? — right now, it's worth nothing.</span></h4>
-            <div style="max-height:350px;overflow-y:auto;padding:0.8rem;background:rgba(0,0,0,0.04);border-radius:8px;font-size:0.82rem;line-height:1.7;margin-top:0.5rem">
-              <p>2025 marks one of the darkest chapters in modern human history.</p>
-              <p>For 22 months now, the ongoing genocide and ethnic cleansing of Palestinians by Zionists of the Apartheid State of Israel — supported by the United States, the European Union, and several Arab oil states — have continued unabated.</p>
-              <p>Just a few days ago, Suleiman Al-Obeid, a star of the Palestinian national football team, was shot in the head while waiting for aid in Rafah. Murdered while standing in a bread line — searching for something to feed his family so they wouldn't starve to death.</p>
-              <p>The Footvolley player Yiannis Tsiouris from Footvolley Athens (@footvolley.athens) was not only harassed but also received death threats directed at him and his family after a post on Instagram, July 15, 2025, in which he simply stated that he stands with humanity.</p>
-              <p>These threats came from pro-genocide Zionists — many of them Footvolley players themselves — supported and protected by the Israeli Footvolley Community and its partners, including the EFVL (European Footvolley League).</p>
-              <p>My anger is also directed toward the global Footvolley Community, where ALMOST no one has dared to speak up or take a CLEAR stand AGAINST these atrocities — actions celebrated by Zionists, the Footvolley players of Israel, the former IDF soldiers and their "genocidal gangs" who cheer on the murder and rape of children and women in Occupied Palestine.</p>
-              <p><strong>Footvolley in the EU is currently the most "Pro-Genocidal" Sport on Earth</strong></p>
-              <p>Footvolley in Europe has, unfortunately, become the most pro-genocidal sport on Earth — second only to the IDF's "sport" of sniping children and raping women in Gaza. This is largely due to a spineless Footvolley Community that allowed the Zionist Propaganda Machine to infiltrate our sport.</p>
-              <p>Futevôlei, once born in Brazil — by and for the poor, the oppressed, and the marginalized — bringing peace, joy, and unity across classes — has been hijacked.</p>
-              <p>Now, this beautiful sport is being stained with children's blood by the involvement of the Israeli apartheid regime, the EU, and even some of the world's top Brazilian Footvolley players, who knowingly and "unknowingly" contribute to the sport's association with atrocities.</p>
-              <p>Mark my words — this is happening right now! And people won't forget that this sport is becoming connected with "children's blood money," funnelled through former IDF soldiers who now play Footvolley under the banner of the Israel Footvolley Association/Federation.</p>
-              <p>This is really disturbing to me because I love the true sport of origin, Futevôlei. And yes — there are still a FEW players who have stood up against this genocidal machine Israel, who dare to speak out and who want to play in a Humane Footvolley Community.</p>
-              <p>But when Israeli Footvolley players and their community openly share hateful, violent messages and threaten a Greek Footvolley player and his family with death and rape — without any consequences — and are actively backed and protected by both the Israel and European Footvolley communities, I must make my position absolutely clear: <strong>I want to take our sport of origin back!</strong></p>
-              <p style="margin-top:0.8rem"><strong>The messages below, sent via Instagram DM, are just a small collection — JUST A FRACTION:</strong></p>
-              <p><strong>Yuval Aharfi</strong> from labola_ftvschool: <em>"Go fuck yourself you are one piece of shit. You need to die!"</em></p>
-              <p><strong>Yinon Amir:</strong> <em>"Fuck you, Fuck your Family and wish that your kids will be raped by terrorists..."</em> Continuing in Hebrew: <em>"May they do a Holocaust to you. Son of a whore. May they rape your whore mother."</em></p>
-              <p><strong>@lidorfrank14:</strong> <em>"You are fucking dead! From now on you are in trouble... go and live in Gaza and inshallah they will rape you there."</em></p>
-              <p><strong>@Shaulinbal7:</strong> <em>"This one is going to be like people in Palestine, DEAD. I have my people in Greece that can help me cut down your business."</em></p>
-              <p><strong>@Shahaflavi512:</strong> <em>"If we see you in Israel we will kill you! We will murder you like the children in Gaza!"</em></p>
-              <p style="margin-top:0.8rem">In what world of sport are you allowed to threaten someone and their family with death and rape — without any repercussions? Well, in the EU Footvolley Community, apparently.</p>
-              <p><strong>— Where is the moral compass of the Footvolley Players?!</strong><br><strong>— Where is humanity?</strong><br><strong>— Are there only spineless cowards left out there?</strong></p>
-              <p style="margin-top:0.8rem">So yes, on paper, I may represent Sweden in Footvolley in the future. But my heart and soul will always, ALWAYS, represent Palestine.</p>
-              <p><strong>From now on, I play for the murdered children who never got a chance to live, to play, to dream.</strong></p>
-              <p style="margin-top:0.5rem;font-weight:700;color:var(--red)">#FREEPALESTINE</p>
-              <p style="font-style:italic;font-size:0.78rem;margin-top:0.5rem">Written 11/08/2025 — Rufus Wiena</p>
-            </div>
-          </div></div>
-        </div>
+    <!-- Two photos with buttons -->
+    <div class="photo-grid" style="margin-top:1.5rem">
+      <div class="grid-item">
+        <div class="photo-card"><img src="palestine3athens.webp" alt="Palestine 3 Athens"></div>
+        <button class="collapsible" onclick="toggle(this)" style="margin-top:0.5rem">Voices from FTVR Community</button>
+        <div class="collapse-content"><div class="collapse-inner long-text">
+          <p>Footvolley taught me many things: respect, unity, connection, community. But in times like these, sport cannot exist outside society. "No politics" has never truly existed — especially when human lives are being destroyed in front of our eyes.</p>
+          <p>Across Europe and beyond, wars, occupation, forced displacement, and mass civilian suffering are realities of our time. And in Gaza, the Palestinian people continue to endure a brutal offensive that has already taken the lives of thousands of civilians, including athletes, coaches, journalists, medical personnel, humanitarian aid workers, and children.</p>
+          <p>Many people inside sports remain silent out of fear, pressure, or convenience. Others speak despite restrictions and consequences. From Pep Guardiola to Eric Cantona, Lamine Yamal, Karim Benzema, Lewis Hamilton, and many others, prominent voices in sports have publicly supported Palestine and reminded the world that humanity comes before politics.</p>
+          <blockquote>As Guardiola said: "When people are dying, you have to help. Never in human history have we had everything so clearly in front of our eyes."</blockquote>
+          <p>This post is not against people because of nationality, religion, or ethnicity. It is against genocide, apartheid, dehumanization, and the normalization of mass suffering. Some still want sport to be an escape from reality. But sport reflects society. And the values we speak about every day — respect, unity, dignity — must apply to everyone, including Palestinians.</p>
+          <p>Big respect and solidarity to all humanitarian initiatives, activists, and civilians raising their voices and taking action — including <a href="https://instagram.com/marchtogaza_greece" target="_blank" rel="noopener" style="color:var(--red)">@marchtogaza_greece</a> and organizations like <a href="https://instagram.com/gazasunbirds" target="_blank" rel="noopener" style="color:var(--red)">@gazasunbirds</a>, who continue to represent resilience, dignity, and humanity under unimaginable conditions.</p>
+          <p><strong>There is no more room for comfortable neutrality.<br>No more pretending not to know.<br>Humanity before everything.</strong></p>
+          <p>As a community, we continue our original statement clearly and publicly:</p>
+          <p><strong style="color:var(--red);font-size:1.05rem">🇵🇸 We stand against genocide. Always.</strong></p>
+          <p style="font-style:italic;font-size:0.88rem">Yiannis, Thodoris, Rufus,<br>Team FVA</p>
+        </div></div>
       </div>
-
-      <!-- Timeline -->
-      <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;margin-top:2.5rem;color:var(--red)">Timeline of Events</h3>
-      <div class="timeline">
-        <div class="tl-item">
-          <h4>15 July 2025 — Yiannis Tsiouris posts on Instagram</h4>
-          <p>Shortly after three stories posted on Instagram about globally recognised war crimes and horrors in Gaza, the Greek footvolley player Yiannis (<strong>@footvolley.athens</strong>) posts: <em>"No Time to Stay Silent. In these dark and painful times, I feel a deep responsibility to speak up. What is happening in Gaza is not a conflict—it is devastation. I stand firmly against war crimes, the mass killing of civilians, and the forced starvation of a people under siege."</em></p>
-          <button class="collapsible grid-btn" onclick="toggle(this)">Read full post</button>
-          <div class="collapse-content"><div class="collapse-inner" style="font-size:0.82rem;line-height:1.6">
-            <p>"I have followed the situation in the Middle East closely since 2005, not from a position of ideology or government support—I am an anarchist—but from human connection. I have friends in both Tel Aviv and Palestine, including Greek doctors and humanitarian workers who witness and report the unimaginable suffering of the Palestinian people.</p>
-            <p>The last couple of months, I've been sharing my thoughts against the massacres happening in Gaza—calling out the war crimes and atrocities committed by the Israeli military. My message was simple: killing children, destroying hospitals, and starving civilians is not defense. It's not justice. It's not human.</p>
-            <p>For this, I've received a flood of hate: aggressive, sadistic, and even (life) threatening messages. Not just from strangers, but mostly from people within the footvolley community I've spent years helping to grow. And yet, I have never responded in the same tone. That can easily be proven—there are more than 150 conversations across Instagram and WhatsApp that show my approach.</p>
-            <p>Let me be clear: I do not support Hamas or any state or militia. My stance is rooted in the belief that no human being deserves to be treated as disposable.</p>
-            <p>Together with our local community, we've decided to take a stand. We will boycott any soldier or open supporter of this genocide. This is not about religion, ethnicity, or nationality. It's not about being against Israelis or Jews. It's about being against atrocities. Against oppression. And for humanity.</p>
-            <p>This is not the time for neutrality. Silence allows injustice to continue. We all must choose what kind of world we want to live in.</p>
-            <p>🇵🇸 Palestine will always be free and this has nothing to do with Hamas or any government. It's about the people."</p>
-            <p style="font-style:italic;font-size:0.78rem">— @footvolley.athens, 15 July 2025</p>
-          </div></div>
-          <span class="tl-tag">The post that started it all</span>
-        </div>
-        <div class="tl-item">
-          <h4>Death and rape threats from Israeli players</h4>
-          <p>Multiple dozens of Israeli footvolley players and their supporters send <strong>death threats</strong>, <strong>rape threats</strong> against him, his family and friends, Holocaust references, and business intimidation — just a fraction documented in the evidence grid above.</p>
-        </div>
-        <div class="tl-item">
-          <h4>11 August 2025 — Rufus shows support, publishes video and article</h4>
-          <p>Rufus Wiena publicly supports Yiannis in the community, releases the video <a href="https://odysee.com/@rufuswiena:4/no-time-to-stay-silent:7?r=Cq5sY9usG2UA1bsMTzrv8LmGubGHTzWL" target="_blank" rel="noopener">"No Time To Stay Silent"</a>, and writes the article <em>"Nordic &amp; Swedish Footvolley Champion 2025 — But what is this achievement worth?"</em></p>
-          <p><a href="rufus-article-nordic-champion.pdf" target="_blank">📄 Read the full article (PDF)</a></p>
-          <span class="tl-tag">Article + Video</span>
-        </div>
-        <div class="tl-item">
-          <h4>Israel files a complaint — EFVL (European Footvolley League) targets Yiannis</h4>
-          <p>Instead of addressing the death threats, the EFVL president wants to "discuss Yiannis' behaviour" — not the Israelis who made the threats. The complaint focuses on silencing the victim, not the aggressors.</p>
-          <p><a href="israel-complaint.pdf" target="_blank">📄 View the Israel complaint (PDF)</a></p>
-          <span class="tl-tag">Documented</span>
-        </div>
-        <div class="tl-item">
-          <h4>15 August 2025 — Rufus writes an urgent letter to the Swedish Footvolley Board</h4>
-          <p>A formal letter is sent to the Swedish footvolley federation. The response: <strong>no response, no communication, complete silence</strong>. Deeply disturbing — but sadly, not unexpected.</p>
-          <p><a href="urgent-letter-sweden.pdf" target="_blank">📄 Read the urgent letter to Sweden (PDF)</a></p>
-          <span class="tl-tag">No response</span>
-        </div>
-        <div class="tl-item">
-          <h4>Blood money enters the footvolley community</h4>
-          <p><strong>Blood money</strong> directly connected to the apartheid state of Israel and linked to the IDF is offered to various footvolley players globally — many accept, even though they know where it comes from.</p>
-          <span class="tl-tag">Blood money</span>
-        </div>
-        <div class="tl-item">
-          <h4>March 2026 — TAFC Israel is announced</h4>
-          <p>A footvolley tournament (TAFC World Cup Red Sea) is planned in Eilat, Israel — originally for March 19–21, 2026, then rescheduled to May 6–9, 2026 — later cancelled and postponed due to the US-Israel vs. Iran conflict. Many professional international footvolley players sign up without hesitation, accepting the money offered, showing no moral objection, and by participating openly endorsing the <strong>ethno-supremacist apartheid state of Israel</strong> which has its so-called "most moral army in the world" committing an <strong>active genocide</strong> in front of the eyes of the world.</p>
-        </div>
-        <div class="tl-item">
-          <h4 style="color:var(--red)">⚡ 15 May 2026 (Nakba Day) — The Footvolley Resistance Club is created</h4>
-          <p>With <strong>crystal clear</strong> guidelines to stand with humanity. In times like these, sport cannot exist outside society. <strong>"Do not mix politics with sport"</strong> has never truly existed — especially when human lives are being destroyed in front of our eyes. This is not even about politics anymore — it is about <strong>humanity</strong>. And unfortunately, the global footvolley community is now <strong>deeply involved</strong>.</p>
-          <span class="tl-tag">FTVR Founded · 15 May 2026 · Nakba Day</span>
-        </div>
+      <div class="grid-item">
+        <div class="photo-card"><img src="me-yiannis.webp" alt="Standing with Yiannis Tsiouris"></div>
+        <button class="collapsible" onclick="toggle(this)" style="margin-top:0.5rem">Watch Video: No Time To Stay Silent</button>
+        <div class="collapse-content"><div class="collapse-inner">
+          <p>▶ <a href="https://odysee.com/@rufuswiena:4/no-time-to-stay-silent:7?r=Cq5sY9usG2UA1bsMTzrv8LmGubGHTzWL" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">Watch on Odysee</a></p>
+          <p style="margin-top:0.8rem">📄 <a href="rufus-article-nordic-champion.pdf" target="_blank" style="color:var(--red);font-weight:600">Read the full article (PDF)</a></p>
+          <h4 style="margin-top:1rem;font-family:'Oswald',sans-serif;font-size:0.95rem">Nordic &amp; Swedish Footvolley Champion 2025!<br><span style="font-weight:400;font-size:0.85rem">But what is this "achievement" worth? — right now, it's worth nothing.</span></h4>
+          <div style="max-height:350px;overflow-y:auto;padding:0.8rem;background:rgba(0,0,0,0.04);border-radius:8px;font-size:0.82rem;line-height:1.7;margin-top:0.5rem">
+            <p>2025 marks one of the darkest chapters in modern human history.</p>
+            <p>For 22 months now, the ongoing genocide and ethnic cleansing of Palestinians by Zionists of the Apartheid State of Israel — supported by the United States, the European Union, and several Arab oil states — have continued unabated.</p>
+            <p>Just a few days ago, Suleiman Al-Obeid, a star of the Palestinian national football team, was shot in the head while waiting for aid in Rafah. Murdered while standing in a bread line — searching for something to feed his family so they wouldn't starve to death.</p>
+            <p>The Footvolley player Yiannis Tsiouris from Footvolley Athens (@footvolley.athens) was not only harassed but also received death threats directed at him and his family after a post on Instagram, July 15, 2025, in which he simply stated that he stands with humanity.</p>
+            <p>These threats came from pro-genocide Zionists — many of them Footvolley players themselves — supported and protected by the Israeli Footvolley Community and its partners, including the EFVL (European Footvolley League).</p>
+            <p>My anger is also directed toward the global Footvolley Community, where ALMOST no one has dared to speak up or take a CLEAR stand AGAINST these atrocities.</p>
+            <p><strong>Footvolley in the EU is currently the most "Pro-Genocidal" Sport on Earth</strong></p>
+            <p>Futevôlei, once born in Brazil — by and for the poor, the oppressed, and the marginalized — bringing peace, joy, and unity across classes — has been hijacked.</p>
+            <p>Mark my words — this is happening right now! And people won't forget that this sport is becoming connected with "children's blood money."</p>
+            <p>But when Israeli Footvolley players and their community openly share hateful, violent messages and threaten a Greek Footvolley player and his family with death and rape — without any consequences — I must make my position absolutely clear: <strong>I want to take our sport of origin back!</strong></p>
+            <p style="margin-top:0.8rem"><strong>The messages below, sent via Instagram DM, are just a small collection — JUST A FRACTION:</strong></p>
+            <p><strong>Yuval Aharfi</strong>: <em>"Go fuck yourself you are one piece of shit. You need to die!"</em></p>
+            <p><strong>Yinon Amir:</strong> <em>"Fuck you, Fuck your Family and wish that your kids will be raped by terrorists..."</em> Continuing in Hebrew: <em>"May they do a Holocaust to you."</em></p>
+            <p><strong>@lidorfrank14:</strong> <em>"You are fucking dead!"</em></p>
+            <p><strong>@Shaulinbal7:</strong> <em>"This one is going to be like people in Palestine, DEAD."</em></p>
+            <p><strong>@Shahaflavi512:</strong> <em>"If we see you in Israel we will kill you! We will murder you like the children in Gaza!"</em></p>
+            <p style="margin-top:0.8rem">So yes, on paper, I may represent Sweden in Footvolley in the future. But my heart and soul will always, ALWAYS, represent Palestine.</p>
+            <p><strong>From now on, I play for the murdered children who never got a chance to live, to play, to dream.</strong></p>
+            <p style="font-weight:700;color:var(--red)">#FREEPALESTINE</p>
+            <p style="font-style:italic;font-size:0.78rem;margin-top:0.5rem">Written 11/08/2025 — Rufus Wiena</p>
+          </div>
+        </div></div>
       </div>
-
-    </div></div>
+    </div>
   </div>
+  <!-- ═══ TIMELINE ═══ -->
+  <div class="section">
+    <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;margin-top:2.5rem;color:var(--red)">Timeline of Events</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <h4>15 July 2025 — Yiannis Tsiouris posts on Instagram</h4>
+        <p>Shortly after three stories posted on Instagram about globally recognised war crimes and horrors in Gaza, the Greek footvolley player Yiannis (<strong>@footvolley.athens</strong>) posts: <em>"No Time to Stay Silent. In these dark and painful times, I feel a deep responsibility to speak up. What is happening in Gaza is not a conflict—it is devastation. I stand firmly against war crimes, the mass killing of civilians, and the forced starvation of a people under siege."</em></p>
+        <button class="collapsible grid-btn" onclick="toggle(this)">Read full post</button>
+        <div class="collapse-content"><div class="collapse-inner" style="font-size:0.82rem;line-height:1.6">
+          <p>"I have followed the situation in the Middle East closely since 2005, not from a position of ideology or government support—I am an anarchist—but from human connection. I have friends in both Tel Aviv and Palestine, including Greek doctors and humanitarian workers who witness and report the unimaginable suffering of the Palestinian people.</p>
+          <p>The last couple of months, I've been sharing my thoughts against the massacres happening in Gaza—calling out the war crimes and atrocities committed by the Israeli military. My message was simple: killing children, destroying hospitals, and starving civilians is not defense. It's not justice. It's not human.</p>
+          <p>For this, I've received a flood of hate: aggressive, sadistic, and even (life) threatening messages. Not just from strangers, but mostly from people within the footvolley community I've spent years helping to grow.</p>
+          <p>Let me be clear: I do not support Hamas or any state or militia. My stance is rooted in the belief that no human being deserves to be treated as disposable.</p>
+          <p>Together with our local community, we've decided to take a stand. We will boycott any soldier or open supporter of this genocide. This is not about religion, ethnicity, or nationality. It's about being against atrocities. Against oppression. And for humanity.</p>
+          <p>This is not the time for neutrality. Silence allows injustice to continue.</p>
+          <p>🇵🇸 Palestine will always be free and this has nothing to do with Hamas or any government. It's about the people."</p>
+          <p style="font-style:italic;font-size:0.78rem">— @footvolley.athens, 15 July 2025</p>
+        </div></div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.8rem;flex-wrap:wrap">
+          <a href="img-1280.webp" target="_blank" style="flex:0 0 auto"><img src="img-1280.webp" alt="IG Story 1" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer"></a>
+          <a href="img-1281.webp" target="_blank" style="flex:0 0 auto"><img src="img-1281.webp" alt="IG Story 2" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer"></a>
+          <a href="img-1282.webp" target="_blank" style="flex:0 0 auto"><img src="img-1282.webp" alt="IG Story 3" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer"></a>
+        </div>
+        <p style="font-size:0.72rem;color:#888;margin-top:0.3rem">The three Instagram stories about globally recognised war crimes in Gaza that preceded the post</p>
+        <span class="tl-tag">The post that started it all</span>
+      </div>
+      <div class="tl-item">
+        <h4>Death and rape threats from Israeli players</h4>
+        <p>Multiple dozens of Israeli footvolley players and their supporters — including many people he had never met or interacted with personally — coordinated waves of <strong>death threats</strong>, <strong>rape threats</strong> against his family and friends, Holocaust references, harassment, and business intimidation. The pattern, timing, and scale of the attacks made it clear that this was not isolated behavior, but an organized and targeted campaign of intimidation, of which only a small fraction is documented in the evidence grid above.</p>
+      </div>
+      <div class="tl-item">
+        <h4>11 August 2025 — Rufus shows support, publishes video and article</h4>
+        <p>Rufus Wiena publicly supports Yiannis in the community, releases the video <a href="https://odysee.com/@rufuswiena:4/no-time-to-stay-silent:7?r=Cq5sY9usG2UA1bsMTzrv8LmGubGHTzWL" target="_blank" rel="noopener">"No Time To Stay Silent"</a>, and writes the article <em>"Nordic &amp; Swedish Footvolley Champion 2025 — But what is this achievement worth?"</em></p>
+        <p><a href="rufus-article-nordic-champion.pdf" target="_blank">📄 Read the full article (PDF)</a></p>
+        <span class="tl-tag">Article + Video</span>
+      </div>
+      <div class="tl-item">
+        <h4>Israel files a complaint — EFVL (European Footvolley League) targets Yiannis</h4>
+        <p>Instead of addressing the death threats, the EFVL president wants to "discuss Yiannis' behaviour" — not the Israelis who made the threats. The complaint focuses on silencing the victim, not the aggressors.</p>
+        <p><a href="israel-complaint.pdf" target="_blank">📄 View the Israel complaint (PDF)</a></p>
+        <span class="tl-tag">Documented</span>
+      </div>
+      <div class="tl-item">
+        <h4>15 August 2025 — Rufus writes an urgent letter to the Swedish Footvolley Board</h4>
+        <p>A formal letter is sent to the Swedish footvolley federation. The response: <strong>no response, no communication, complete silence</strong>. Deeply disturbing — but sadly, not unexpected.</p>
+        <p><a href="urgent-letter-sweden.pdf" target="_blank">📄 Read the urgent letter to Sweden (PDF)</a></p>
+        <span class="tl-tag">No response</span>
+      </div>
+      <div class="tl-item">
+        <h4>Blood money enters the footvolley community</h4>
+        <p><strong>Blood money</strong> directly connected to the apartheid state of Israel and linked to the IDF is offered to various footvolley players globally — many accept, even though they know where it comes from.</p>
+        <span class="tl-tag">Blood money</span>
+      </div>
+      <div class="tl-item">
+        <h4>March 2026 — TAFC Israel is announced</h4>
+        <p>A footvolley tournament (TAFC World Cup Red Sea) is planned in Eilat, Israel — originally for March 19–21, 2026, then rescheduled to May 6–9, 2026 — later cancelled and postponed due to the US-Israel vs. Iran conflict. Many professional and non-professional international footvolley players sign up without hesitation, accepting the money offered, showing no moral objection, and by participating openly endorsing the <strong>ethno-supremacist apartheid state of Israel</strong> which has its so-called "most moral army in the world" committing an <strong>active genocide</strong> in front of the eyes of the world.</p>
+        <div style="margin-top:0.8rem">
+          <a href="tafc-israelplayers.webp" target="_blank"><img src="tafc-israelplayers.webp" alt="TAFC Israel players" style="max-width:480px;width:100%;border-radius:8px;border:2px solid var(--red)"></a>
+          <p style="font-size:0.72rem;color:#888;margin-top:0.3rem">TAFC Israel participants with country of representation and player tags</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <h4 style="color:var(--red)">⚡ 15 May 2026 (Nakba Day) — The Footvolley Resistance Club is created</h4>
+        <p>With <strong>crystal clear</strong> guidelines to stand with humanity. In times like these, sport cannot exist outside society. <strong>"Do not mix politics with sport"</strong> has never truly existed — especially when human lives are being destroyed in front of our eyes. This is not even about politics anymore — it is about <strong>humanity</strong>. And unfortunately, the global footvolley community is now <strong>deeply involved</strong>.</p>
+        <span class="tl-tag">FTVR Founded · 15 May 2026 · Nakba Day</span>
+      </div>
+    </div>
+  </div>
+  <!-- ═══ THIRD SECTION ═══ -->
+  <div class="section" id="third">
+    <p style="font-size:1.05rem;margin-top:1.5rem"><strong style="display:inline-block;background:#222;color:var(--yellow);padding:0.15rem 0.6rem;border-radius:4px;font-size:1rem;margin-right:0.3rem">EXPOSE</strong> "No politics in sport" doesn't exist!</p>
 
-  <!-- LOGO KIT -->
+    <p style="margin-top:0.8rem">Sport has never been separate from society. Every major social movement in history has played out on the field, on the court, and in the arena. From Jesse Owens to Muhammad Ali, from Tommie Smith's raised fist to Colin Kaepernick's knee &mdash; sport is where injustice becomes visible and where courage becomes contagious.</p>
+    <p style="margin-top:0.8rem">Today, the footvolley community is no exception. While the <strong>Israel Footvolley Association (IFA)</strong> and its supporters aggressively demand &ldquo;no politics in sport&rdquo; from European players and organizers, they simultaneously engage in overt political sportswashing themselves &mdash; a stance that the <strong>European Footvolley League (EFVL)</strong> has largely normalized without critical judgement.</p>
+    <p style="margin-top:0.8rem">This strategy includes the use of <strong>footvolley events, international partnerships, influencer athletes, propaganda-style content, and guided tours connected to the October 7th attacks</strong> to build international sympathy, normalize the actions of the Israeli state, and strengthen its image within the global footvolley community. At the same time, players who speak out against genocide, apartheid, war crimes, intimidation, or dehumanization are attacked, threatened, or silenced.</p>
+    <p style="margin-top:0.8rem">When <strong>players accept money</strong> from a state accused of committing an <strong>active genocide</strong> &mdash; while federations ignore intimidation and death threats directed at those who object &mdash; sport itself becomes complicit. Silence is not neutrality. Neutrality is a political choice.</p>
 
+    <div class="third-box" style="margin-top:1.5rem">
+      <p style="color:var(--yellow)"><strong>The TAFC Connection:</strong> <strong>Anderson &Aacute;guia</strong>, a World Champion and arguably the most influential figure in global footvolley, has lent his brand and credibility to TAFC Israel by organizing tournaments in Eilat while the <strong>International Court of Justice (ICJ)</strong> has ruled Israel's occupation illegal and UN experts have called for Israel's suspension from international sport. At the same time, hundreds of Palestinian athletes have been killed and more than two hundred sports venues destroyed in Gaza alone. As the world's largest footvolley tournament series, TAFC has become one of the primary vehicles through which Israel gains international sporting legitimacy inside the footvolley community.</p>
+      <div style="margin-top:0.8rem;text-align:center"><img src="aguiaronmaorisrael.webp" alt="Anderson Águia with Ron Ben Ishai and Maor holding Israeli flag at TAFC" style="max-width:100%;border-radius:6px;cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden'"></div>
+    </div>
+
+    <p style="margin-top:1rem">The <strong>contradiction</strong> is obvious: <strong>politics are considered &ldquo;unacceptable&rdquo;</strong> only when players <strong>challenge oppression</strong> &mdash; never when sport is used to normalize it.</p>
+    <p style="margin-top:0.8rem">The material below documents examples of this broader strategy, the public positioning of the <strong>Israel Footvolley Association (IFA)</strong>, and the wider effort to <strong>politically instrumentalize footvolley</strong> while <strong>demanding silence</strong> from those who object.</p>
+
+    <!-- Politics x Sports Evidence Grid -->
+<div class="ig-grid" style="margin-top:1.5rem">
+<!-- 1. Politics × Sports (overview card) -->
+<div class="ig-card">
+<img src="936a2f72-7825-4d5b-bf6c-a55873ca2c1b.webp" alt="Evidence: Politics × Sports">
+<div class="ig-card-info"><span class="ig-handle">@ronbenishai.fty</span><span class="ig-desc">"I urge all Israelis not to respond to this page" + calls to eliminate Yiannis from EFVL</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.fty)</strong> — Israeli footvolley player. IG story titled "Politics &amp; Sport — The ugly side of our footvolley community".</p><p>Hebrew: "העמוד הכי לא רשמי ומנוהל על ידי בן אדם אחד קיצוני וצבוע" = "The most unofficial page, run by one extremist and hypocritical person"</p><p>Hebrew: "אני מפציר בכל הישראלים לא להתייחס/לנסות לקבוע/לשלוח הודעות לעמוד הזה" = "I urge all Israelis not to respond/engage/send messages to this page"</p><p>Hebrew: "באתונה יש עוד קהילה מדהימה של פוציוולי שישמחו לקבל אתכם" = "In Athens there is another amazing footvolley community that would be happy to welcome you"</p><p>The post also shows two DM screenshots where Yiannis Tsiouris (@footvolley.athens) responds to Israeli players wanting to visit Athens: "During the last period of active genocide in the Middle East we have decided to boycott people who explicitly or implicitly support it."</p><p>Bottom text directed at <strong>@europeanfootvolleyleague</strong>: "I hope this person is not taking part on EFVL decisions, and if so he should be eliminated immediately"</p><p style="font-size:0.78rem;color:#888">Posted by <strong>@ronbenishai.fty</strong></p></div></div>
+</div>
+<!-- 2. @ronbenishai.ftv -->
+<div class="ig-card">
+<img src="grid-3.webp" alt="Evidence: @ronbenishai.ftv">
+<div class="ig-card-info"><span class="ig-handle">@ronbenishai.ftv</span><span class="ig-desc">Economic threats: "I will personally take care no one from Israel will ever work with you"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.ftv)</strong> — Israeli footvolley player (verified account). Messages include: "I will personally take care no one from Israel will ever train/work/pay/collaborate anything with you. Good luck. Keep supporting terror organisations and delegitimise Israel people." — economic threats and intimidation against a player who posted about Palestinian casualties.</p></div></div>
+</div>
+<!-- 3. IDF × Footvolley × TAFC -->
+<div class="ig-card">
+<img src="idfftvtafc.webp" alt="Evidence: IDF × Footvolley × TAFC">
+<div class="ig-card-info"><span class="ig-handle">IDF × Footvolley × TAFC</span><span class="ig-desc">Hebrew: "טורניר גיבורים" = "Heroes Tournament"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>IDF "Heroes Tournament"</strong> — ~15 IDF soldiers in uniform posing for TAFC Israel poster.</p><p>Hebrew: "טורניר גיבורים" = "Heroes Tournament"</p><p>Location: חוף פרישמן תל אביב = Frishman Beach, Tel Aviv</p><p>Date: 03/10/25</p><p>Hebrew caption: "ב-03.10.25 כולנו ניפגש על חוף פרישמן בתל אביב, לטורניר מיוחד שמוקדש לגיבורים האמיתיים שלנו" = "On 03.10.25 we all meet at Frishman Beach in Tel Aviv, for a special tournament dedicated to our true heroes"</p><p>Posted by <strong>@tafc_israel</strong> and <strong>@stormo_official</strong></p><p style="font-size:0.78rem;color:#888">Source: <a href="https://www.instagram.com/p/DO5vBzbjBll/" target="_blank" rel="noopener" style="color:var(--red)">Instagram post</a></p></div></div>
+</div>
+<!-- 5. IDF Propaganda Tour -->
+<div class="ig-card">
+<img src="img-1887-1.webp" alt="Evidence: IDF Propaganda Tour">
+<div class="ig-card-info"><span class="ig-handle">IDF Propaganda Tour</span><span class="ig-desc">Hebrew: "With the Brazilians on an incredibly important tour"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>IDF propaganda tour with Brazilians</strong></p><p>Hebrew: "התחלנו. עם הברזילאים בסיור חשוב מאין כמוהו" = "We started. With the Brazilians on an incredibly important tour"</p><p>Hebrew: "ואמיר זוהר האגדי מדריך" = "And the legendary Amir Zohar as guide"</p><p>Image: Armed IDF soldier briefing Brazilian footvolley players.</p><p>Posted by <strong>@israel_footvolley</strong></p><p>Tagged: <strong>@nataly.rotem</strong></p></div></div>
+</div>
+<!-- 6. October 7 Propaganda Tour -->
+<div class="ig-card">
+<img src="img-1888-1.webp" alt="Evidence: October 7 Propaganda Tour">
+<div class="ig-card-info"><span class="ig-handle">October 7 Propaganda Tour</span><span class="ig-desc">Portuguese: "Opportunity to be inside history"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>October 7 propaganda tour</strong></p><p>Portuguese: "Tour - Atentado de 07/10/23" = "Tour - Attack of 07/10/23"</p><p>"Oportunidade de estar dentro da história e compreender por prismas diferentes" = "Opportunity to be inside history and understand through different perspectives"</p><p>Posted by <strong>@israel_footvolley</strong>, reshared by <strong>@marii_leo</strong></p><p>Tagged: @O9aninha @bruninhofutevolei @daviftv03 @paulinhoftv @nataly.rotem @futilina.il</p></div></div>
+</div>
+<!-- 7. Kibbutz Nir Oz Memorial -->
+<div class="ig-card">
+<img src="img-1889-1.webp" alt="Evidence: Kibbutz Nir Oz Memorial">
+<div class="ig-card-info"><span class="ig-handle">Kibbutz Nir Oz Memorial</span><span class="ig-desc">Hebrew: "From the family of Nir Oz" — "Kidnapped!" — "Murdered"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Kibbutz Nir Oz memorial</strong></p><p>Hebrew: "ממשפחת ניר עוז" = "From the family of Nir Oz" | "חטוף!" = "Kidnapped!" | "נרצחה" = "Murdered"</p><p>Portuguese: "Esse vilarejo foi o mais atingido pelo Hamas no dia 07/10, das 220 casas dessa pequena e tranquila comunidade somente 6 não foram atingidas. Os terroristas destruíram famílias inteiras nesse lugar!" = "This village was the most affected by Hamas on 07/10, of the 220 houses only 6 were not hit. The terrorists destroyed entire families!"</p><p>Reshared by <strong>Gabriel Martins</strong></p></div></div>
+</div>
+<!-- 8. Sportswashing evidence -->
+<div class="ig-card">
+<img src="img-1890-1.webp" alt="Evidence: Sportswashing">
+<div class="ig-card-info"><span class="ig-handle">IDF Propaganda Tour — Nova Festival</span><span class="ig-desc">Hebrew: "Uri Harpaz · The sand will remember"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>IDF Propaganda Tour — Nova Festival memorial site</strong></p><p>Brazilian footvolley players taken on a guided propaganda tour of the Nova Festival memorial site.</p><p>Hebrew: "אורי הרפז · החול יזכור" = "Uri Harpaz · The sand will remember"</p><p>Tagged: <strong>@nataly.rotem</strong></p><p style="font-size:0.78rem;color:#888">Posted by <strong>@israel_footvolley</strong></p></div></div>
+</div>
+<!-- 9. Blood money -->
+<div class="ig-card">
+<img src="img-1891-1.webp" alt="Evidence: Blood Money">
+<div class="ig-card-info"><span class="ig-handle">IDF Propaganda Tour — Gaza Border</span><span class="ig-desc">Hebrew: "Tour with our Brazilians to the Gaza border, to the war"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>IDF Propaganda Tour — Gaza Border Area</strong></p><p>Hebrew: "סיור עם התיירים שלנו, הברזילאים לעוטף עזה, למלחמה. המדריך, השחקן הלוחם, אמיר זוהר." = "Tour with our tourists, the Brazilians to the Gaza border area, to the war. The guide, the player-fighter, Amir Zohar."</p><p>#bringthemhomenow 🎗️</p><p>Tagged: <strong>@nataly.rotem</strong>, <strong>@amirzoha1</strong></p><p style="font-size:0.78rem;color:#888">Posted by <strong>@israel_footvolley</strong></p></div></div>
+</div>
+<!-- 10. Complicit silence -->
+<div class="ig-card">
+<img src="img-1892-1.webp" alt="Evidence: Complicit Silence">
+<div class="ig-card-info"><span class="ig-handle">"The King of Footvolley" in IDF Uniform</span><span class="ig-desc">Hebrew: "The king of footvolley guards us at the Gaza border"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Amir Zohar (@amirzoha1) in full IDF uniform with rifle</strong></p><p>Hebrew: "מלך הפוצ'י שומר עלינו בעוטף" = "The king of footvolley guards us at the Gaza border area"</p><p>Amir Zohar — described by @israel_footvolley as the "legendary guide" and "player-fighter" — photographed in full IDF military uniform with an assault rifle, sitting at a military position near the Gaza border. The same person who leads propaganda tours for international footvolley players.</p><p>Tagged: <strong>@amirzoha1</strong></p><p style="font-size:0.78rem;color:#888">Posted by <strong>@israel_footvolley</strong></p></div></div>
+</div>
+
+    
+</div>
+    <p style="margin-top:2rem;font-weight:600;color:var(--red);font-size:1.05rem">Hasbara: The $730 Million Propaganda Machine</p>
+    <p style="margin-top:0.4rem">Israel's 2026 public diplomacy budget &mdash; known as <strong>Hasbara</strong> (Hebrew for &ldquo;explanation&rdquo;) &mdash; has been approved at approximately <strong>$730 million</strong>, a massive increase from $150 million in 2025. This state-funded propaganda campaign is designed to justify Israeli policies, improve the image of the occupation, and counter growing international backlash over accusations of genocide. The funding supports social media campaigns, influencer outreach, official trips, and partnerships aimed at shaping international opinion.</p>
+    <p style="margin-top:0.4rem">Despite this enormous investment, the campaign has struggled to contain global criticism &mdash; also with western countries such as Italy, France, and Spain summoning Israeli ambassadors following the treatment of Global Sumud Flotilla activists and inflammatory public messaging from Israeli officials in 2026.</p>
+    <p style="margin-top:0.4rem">Footvolley's relatively small size makes it an especially effective <strong>sportswashing vehicle</strong>: less media scrutiny, a tightly connected community where dissent can be marginalized, and the ability to buy legitimacy through a handful of influential figures rather than lobbying massive federations like FIFA.</p>
+
+  </div>
+  <!-- ═══ JOIN FTVR ═══ -->
   <div class="section" id="join">
     <h2 class="section-title">Join FTVR</h2>
 
@@ -953,8 +1332,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     </div>
   </div>
 
-  <!-- ABOUT -->
-
+  <!-- ═══ LOGO KIT ═══ -->
   <div class="section" id="logokit">
     <h2 class="section-title">Logo Kit</h2>
     <p>The official FTVR logo for your clothes, social media, or branch materials. Free for all members and supporters.</p>
@@ -972,8 +1350,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     </div>
   </div>
 
-  <!-- SUPPORT<!-- SUPPORT -->
-
+  <!-- ═══ SUPPORT ═══ -->
   <div class="section" id="support">
     <h2 class="section-title">Support</h2>
     <p>Donate to Gaza and the Oppressed or show support by <strong>spreading the word</strong>, <strong>standing with humanity</strong>, and <strong>speaking out</strong> about the disturbing realities inside and outside the global footvolley community — both on and off the court. Do what you can, do your best!</p>
@@ -990,10 +1367,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     </div>
   </div>
 
-</div>
-
+</div><!-- end .main -->
 <!-- Footer -->
-
 <div class="footer">
   <div class="footer-links">
     <a onclick="openModal('modal-policy')">Policy</a>
@@ -1041,9 +1416,9 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       <p><strong>Where do we stand?</strong></p>
       <p>Against the current government of Israel. Against the ongoing genocide in Gaza. For equal human rights. For peace. We do not promote violence or hate — but we <strong>strongly encourage</strong> everyone in FTVR to <strong>defend and protect</strong> themselves and others in any justifiable way. We advocate only for <strong>lawful</strong> self-defense and protection.</p>
       <p style="margin-top:0.4rem"><strong>Have you served IDF?</strong> The IDF — founded in 1948 from organisations classified as terrorist (Irgun, Lehi/Stern Gang) and the paramilitary Haganah — has current and former soldiers under investigation for war crimes. Some "soldiers" have chosen not to participate. Where do you stand?</p>
-    <div style="margin-top:1.2rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.03);border-radius:6px;font-size:0.78rem;line-height:1.6;font-style:italic;color:#555">
-      <p>All claims on this website are supported by documented evidence including screenshots, public social media posts, and official correspondence. FTVR reserves the right to update or correct any information. This website expresses the opinions and documented experiences of the FTVR community.</p>
-    </div>
+      <div style="margin-top:1.2rem;padding:0.6rem 1rem;background:rgba(0,0,0,0.03);border-radius:6px;font-size:0.78rem;line-height:1.6;font-style:italic;color:#555">
+        <p>All claims on this website are supported by documented evidence including screenshots, public social media posts, and official correspondence. FTVR reserves the right to update or correct any information. This website expresses the opinions and documented experiences of the FTVR community.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -1088,14 +1463,14 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         </ul>
         <p style="margin-top:0.8rem"><strong>Some key concepts and terms:</strong></p>
         <ul style="font-size:0.85rem;line-height:1.7">
-          <li><strong>Theodor Herzl (1860–1904)</strong> — Founder of political Zionism, the nationalist ideology advocating for a Jewish homeland in Palestine</li>
-          <li><strong>Balfour Declaration (1917)</strong> — A letter from British Foreign Secretary Arthur Balfour to Lord Walter Rothschild (honorary president of the Zionist Federation of Great Britain and Ireland), promising British support for a "national home for the Jewish people" in Palestine — issued without consulting the indigenous Palestinian population</li>
-          <li><strong>Haavara Agreement (1933)</strong> — Transfer agreement between Nazi Germany and Zionist German Jews facilitating Jewish emigration to Palestine; a controversial and debated collaboration</li>
-          <li><strong>Plan Dalet (1948)</strong> — Zionist military plan that included operations of ethnic cleansing and resulting in killings and the expulsion of Palestinian civilians</li>
+          <li><strong>Theodor Herzl (1860–1904)</strong> — Founder of political Zionism</li>
+          <li><strong>Balfour Declaration (1917)</strong> — British promise for a "national home for the Jewish people" in Palestine — issued without consulting the indigenous Palestinian population</li>
+          <li><strong>Haavara Agreement (1933)</strong> — Transfer agreement between Nazi Germany and Zionist German Jews</li>
+          <li><strong>Plan Dalet (1948)</strong> — Zionist military plan that included operations of ethnic cleansing</li>
           <li><strong>Nakba (1948)</strong> — "The Catastrophe": Ethnic cleansing and displacement of more than 750,000 Palestinians</li>
-          <li><strong>IDF Origins (1948)</strong> — Founded May 26, 1948, incorporating the Haganah and elements of Irgun and Lehi (groups that had conducted attacks against British and Arab targets during the Mandate period)</li>
-          <li><strong>Sabra and Shatila Massacre (1982)</strong> — Mass killing of Palestinian and Lebanese civilians by Phalangist militias in Beirut refugee camps while Israeli military forces surrounded the area; estimates of casualties range from 2,000 to 3,500</li>
-          <li><strong>AIPAC</strong> — A prominent pro-Israel lobbying organization in the United States that advocates for U.S. military and diplomatic support for Israel</li>
+          <li><strong>IDF Origins (1948)</strong> — Founded May 26, 1948, incorporating the Haganah and elements of Irgun and Lehi</li>
+          <li><strong>Sabra and Shatila Massacre (1982)</strong> — Mass killing of Palestinian and Lebanese civilians; estimates of 2,000 to 3,500 casualties</li>
+          <li><strong>AIPAC</strong> — A prominent pro-Israel lobbying organization in the United States</li>
         </ul>
         <p style="margin-top:0.8rem"><strong>Other things to understand and research:</strong></p>
         <ul style="font-size:0.85rem;line-height:1.7">
@@ -1104,8 +1479,25 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <li>"Epstein Network &amp; Files"</li>
           <li>...</li>
         </ul>
-        <p style="margin-top:0.8rem">For in-depth education and third-party resources: <a href="https://masjidalaqsa.com/" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">masjidalaqsa.com</a> — an excellent resource covering the history of occupied Palestine, key concepts, and documented facts.</p>
+        <p style="margin-top:0.8rem">For in-depth education: <a href="https://masjidalaqsa.com/" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">masjidalaqsa.com</a></p>
         <p style="margin-top:0.5rem;font-style:italic;font-size:0.82rem">...the list goes on and on. Educate yourself. The truth is available to anyone willing to look.</p>
+      </div></div>
+      <br>
+      <!-- NEW: Sportswashing & Hasbara FAQ -->
+      <button class="collapsible" onclick="toggle(this)">Sportswashing &amp; Hasbara Propaganda</button>
+      <div class="collapse-content"><div class="collapse-inner">
+        <p><strong>What is sportswashing?</strong></p>
+        <p>Sportswashing is the practice of using sport to improve a tarnished reputation — typically by governments accused of human rights abuses. It works by associating a state's image with the positive emotions of athletic competition, distracting from atrocities and building international legitimacy.</p>
+        <p style="margin-top:0.8rem"><strong>How does Israel use sportswashing?</strong></p>
+        <p>Israel has systematically used sport as a tool to normalize its occupation and improve its international image. Through events like TAFC Israel (organized in Eilat), IDF "Heroes Tournaments," and propaganda tours for international athletes, Israel leverages the footvolley community to project an image of normalcy while committing genocide in Gaza.</p>
+        <p style="margin-top:0.8rem"><strong>The $730 Million Hasbara Budget</strong></p>
+        <p>Israel's 2026 public diplomacy budget — known as <strong>Hasbara</strong> (Hebrew for "explanation") — has been approved at approximately <strong>$730 million</strong>, a massive increase from $150 million in 2025. This state-funded propaganda campaign covers social media campaigns, influencer outreach, trips for officials, and partnerships with NGOs. Despite this investment, the campaign has struggled to contain global backlash.</p>
+        <p style="margin-top:0.8rem"><strong>Why footvolley?</strong></p>
+        <p>Footvolley's small size makes it an <strong>ideal sportswashing vehicle</strong>. Unlike FIFA or the Olympics, footvolley has less media scrutiny, a tighter community where dissent is punished, and it's easier to buy legitimacy through a single influential figure (like Anderson Águia and TAFC) rather than lobbying massive international federations.</p>
+        <p style="margin-top:0.8rem"><strong>The AIPAC connection</strong></p>
+        <p><strong>AIPAC</strong> (American Israel Public Affairs Committee) is one of the most powerful lobbying organizations in the United States, advocating for U.S. military and diplomatic support for Israel. The broader Hasbara network — of which AIPAC is a key player — works to shape public opinion globally, fund pro-Israel narratives, and silence criticism of Israeli policies by labeling it as antisemitism.</p>
+        <p style="margin-top:0.8rem"><strong>Why does this matter?</strong></p>
+        <p>When athletes accept money from a state committing genocide — ruled illegal by the International Court of Justice — they become complicit in sportswashing. When federations look the other way while players send death threats to those who speak up, sport itself becomes a weapon. Silence is complicity. Neutrality is a choice — and it is the wrong one.</p>
       </div></div>
     </div>
   </div>
@@ -1113,7 +1505,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="Zoomed photo">
 </div>
 
@@ -1140,12 +1532,16 @@ function openLightbox(src) {
 }
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
+  document.getElementById('lightbox-img').src = '';
   document.body.style.overflow = '';
 }
-// Make all grid and featured photo-card images clickable
+// Make all photo-card images and ig-card images clickable for lightbox
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.photo-card img').forEach(function(img) {
-    img.addEventListener('click', function() { openLightbox(this.src); });
+  document.querySelectorAll('.photo-card img, .ig-card img').forEach(function(img) {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openLightbox(this.src);
+    });
   });
 });
 </script>
