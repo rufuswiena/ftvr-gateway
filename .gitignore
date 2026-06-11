@@ -1,0 +1,33 @@
+# === SENSITIVE / INVESTIGATION FILES ===
+idf-guy-*
+*-translation.webp
+*.secret
+*.env
+*.key
+wallet*.json
+
+# === Documents that should NOT be in repo ===
+# (legal documents, investigations, drafts)
+# Only keep PDFs that are actually linked in index.html:
+#   israel-complaint.pdf ✅ (linked)
+#   rufus-article-nordic-champion.pdf ✅ (linked)
+#   urgent-letter-sweden.pdf ✅ (linked)
+
+# === OS / Editor files ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# === Node / Build ===
+node_modules/
+package-lock.json
+*.log
+
+# === Archives ===
+*.zip
+*.tar.gz
+*.rar

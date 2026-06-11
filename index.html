@@ -812,6 +812,42 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 .ig-card-info { flex: 1; }
 .ig-card .grid-btn { margin-top: auto; }
 .ig-card video { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; cursor: pointer; }
+
+/* ═══ INFO SECTION: TWO-TIER BUTTON STYLES ═══ */
+.btn-ftvr {
+  background: var(--yellow) !important;
+  color: #111 !important;
+  border: 2px solid #111 !important;
+  font-weight: 700 !important;
+}
+.btn-ftvr:hover { background: var(--yellow-dark) !important; }
+.btn-ftvr::after { border-top-color: #111 !important; }
+.btn-ftvr.open::after { border-top-color: #111 !important; }
+
+.btn-info {
+  background: #1a1a1a !important;
+  color: var(--yellow) !important;
+  border: 2px solid var(--yellow) !important;
+  font-weight: 700 !important;
+}
+.btn-info:hover { background: #222 !important; }
+.btn-info::after { border-top-color: var(--yellow) !important; }
+.btn-info.open::after { border-top-color: var(--yellow) !important; }
+
+.info-divider {
+  margin: 2rem 0 1.5rem;
+  padding: 0.6rem 0;
+  border-top: 2px solid rgba(255,195,0,0.3);
+  text-align: center;
+}
+.info-divider span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  opacity: 0.6;
+}
 </style>
   <script defer src="https://stats-rufus.servegame.com/script.js" data-website-id="d6eb27fc-2d73-4469-8de6-720af789be46"></script>
 
@@ -921,8 +957,17 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   <div class="latest-box">
     <h3>📌 LATEST UPDATES</h3>
     <p style="margin-bottom:0.8rem;font-weight:600;color:var(--yellow)">WOW, thank you all worldwide for your support! 🌍</p>
+    <div style="margin:0.8rem 0 1rem;padding:0.8rem 1rem;background:rgba(255,195,0,0.15);border:2px solid var(--yellow);border-radius:8px">
+      <p style="font-size:0.95rem;font-weight:800;color:var(--yellow);letter-spacing:1px">🔥 BIG NEWS — FTVR GOES GLOBAL!</p>
+      <p style="font-size:0.85rem;color:#fff;margin-top:0.3rem"><strong>Dublin 🇮🇪 · Rio de Janeiro 🇧🇷 · Tirana 🇦🇱</strong> — Three new hubs now active for executing current and future <strong>legal</strong> operations both on and off the court. You can't silence a movement that's everywhere.</p>
+    </div>
     <p style="margin-bottom:0.8rem"><span style="color:#fff">And in response to your most frequent questions:</span> <a href="#" onclick="openModal('modal-contact');return false" style="color:var(--red);text-decoration:underline">see contact</a> →</p>
     <ul>
+      <li><span class="date-tag">9 Jun 2026</span> ⚖️ <strong>FORMAL COMPLAINT FILED:</strong> FTVR-Formal-Complaint-EFVL-Code-of-Ethics-2026 → <a href="#second" style="color:var(--red)">See Timeline</a></li>
+      <li><span class="date-tag">9 Jun 2026</span> 🔴 <strong>GRAZ EVIDENCE:</strong> Timeline updated — Graz LoC Tournament documented, LoC tags @israel_footvolley → <a href="#second" style="color:var(--red)">See Timeline</a></li>
+      <li><span class="date-tag">9 Jun 2026</span> New evidence cards: racist anti-Arab comments + Ron's story threatening comments with Hebrew translations → <a href="#about" style="color:var(--red)">See Protect</a></li>
+      <li><span class="date-tag">3 Jun 2026</span> 🌍 <strong>NEW HUBS:</strong> Dublin, Rio de Janeiro, Tirana — FTVR goes global</li>
+      <li><span class="date-tag">3 Jun 2026</span> INFO section redesigned — two-tier layout, merged sections, tightened titles</li>
       <li><span class="date-tag">27 May 2026</span> FAQ updated — <strong>Who are we?</strong> section added</li>
       <li><span class="date-tag">27 May 2026</span> Contact section expanded with message to global community</li>
       <li><span class="date-tag">26 May 2026</span> Sections renamed: PROTECT / RESIST / EXPOSE</li>
@@ -1085,6 +1130,18 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
 <div class="collapse-content"><div class="collapse-inner"><p>Video showing Israeli footvolley community members reacting aggressively to the Instagram stories about Gaza posted by Yiannis Tsiouris.</p></div></div>
 </div>
+<div class="ig-card">
+<img src="racistcomments.webp" alt="Racist comments on @footvolley.athens Palestine post">
+<div class="ig-card-info"><span class="ig-handle">@tal_hay1 + @mamaninio__</span><span class="ig-desc">Racist anti-Arab comments + abuse: "F**k you, son of a whore"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p>Public comments on <strong>@footvolley.athens</strong> Palestine flag post:</p><ul><li><strong>@tal_hay1:</strong> "Mr player why do you support Palestinians don't you see that they are... Arabs ????" 🤮🤮🤮 — racist dehumanization of Arab people with vomit emojis</li><li><strong>@mamaninio__:</strong> "Fuck you, son of a whore" (4 likes) — direct abuse</li><li><strong>@mamaninio__:</strong> "Zero dog" (3 likes) — dehumanizing slur</li></ul><p>These public comments reveal the racist mentality behind the threats — not just political disagreement, but deep-rooted dehumanization of Arab people and anyone who stands with Palestine.</p></div></div>
+</div>
+<div class="ig-card">
+<img src="ronstorycomments.webp" alt="Ron Ben Ishai story comments — violent threats in Hebrew">
+<div class="ig-card-info"><span class="ig-handle">@ronbenis... story comments</span><span class="ig-desc">Graz 2026: "Send his picture, we'll take care of him"</span></div>
+<button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Graz LoC Tournament, June 2026:</strong> Ron Ben Ishai (@ronbenishai.ftv) posted a video to his ~25,000 Instagram followers calling FTVR co-founder Rufus Wiena a "pro-antisemite" and asking: <em>"What would you suggest we do?"</em></p><p>His followers responded with violent threats:</p><ul><li><strong>@shuce_:</strong> "פרק לו תתחת" — <em>"Tear his ass apart"</em></li><li><strong>@volleylabtlv:</strong> Partially censored violent response from a Tel Aviv volleyball account</li><li><strong>@roy___levi:</strong> "שלח תמונה שלו נטפל בו" — <strong>"Send his picture, we'll take care of him"</strong> — the same Roy Levi who previously threatened Yiannis's future child</li></ul><p>Ron then posted a <strong>follow-up video thanking his followers</strong> for their <em>"very creative ideas for what to do — NOT during the match"</em> — explicitly endorsing the violent suggestions as off-court actions.</p><p style="font-size:0.75rem;color:#888;margin-top:0.5rem">Note: "Comments on this story have been limited" — visible at the bottom of the screenshot</p></div></div>
+</div>
 </div>
 
       <p style="margin-top:2.5rem;font-size:1.15rem;line-height:1.6;text-align:center;color:var(--red)"><strong>...this goes on and on, and this is just the tip of the iceberg.</strong> Similar incidents and <strong>threats of death and rape</strong> aimed at various footvolley players, their <strong>families</strong> and <strong>friends</strong> have been made both <strong>publicly</strong> and <strong>privately</strong>...</p>
@@ -1165,11 +1222,11 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <p style="font-style:italic;font-size:0.78rem">— @footvolley.athens, 15 July 2025</p>
         </div></div>
         <div style="display:flex;gap:0.5rem;margin-top:0.8rem;flex-wrap:wrap">
-          <img src="img-1280.webp" alt="IG Story 1" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';">
-          <img src="img-1281.webp" alt="IG Story 2" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';">
-          <img src="img-1282.webp" alt="IG Story 3" style="height:120px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';">
+          <img src="img-1280.webp" alt="IG Story 1" style="height:280px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="openLightbox(this.src)">
+          <img src="img-1281.webp" alt="IG Story 2" style="height:280px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="openLightbox(this.src)">
+          <img src="img-1282.webp" alt="IG Story 3" style="height:280px;border-radius:6px;border:2px solid var(--red);cursor:pointer" onclick="openLightbox(this.src)">
         </div>
-        <p style="font-size:0.72rem;color:#888;margin-top:0.3rem">The three Instagram stories about globally recognised war crimes in Gaza that preceded the post</p>
+        <p style="font-size:0.72rem;color:#000;margin-top:0.3rem">The three Instagram stories about globally recognised war crimes in Gaza that preceded the post</p>
         <span class="tl-tag">The post that started it all</span>
       </div>
       <div class="tl-item">
@@ -1204,13 +1261,86 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <p>A footvolley tournament (TAFC World Cup Red Sea) is planned in Eilat, Israel — originally for March 19–21, 2026, then rescheduled to May 6–9, 2026 — later cancelled and postponed due to the US-Israel vs. Iran conflict. Many professional and non-professional international footvolley players sign up without hesitation, accepting the money offered, showing no moral objection, and by participating openly endorsing the <strong>ethno-supremacist apartheid state of Israel</strong> which has its so-called "most moral army in the world" committing an <strong>active genocide</strong> in front of the eyes of the world.</p>
         <div style="margin-top:0.8rem">
           <a href="tafc-israelplayers.webp" target="_blank"><img src="tafc-israelplayers.webp" alt="TAFC Israel players" style="max-width:480px;width:100%;border-radius:8px;border:2px solid var(--red)"></a>
-          <p style="font-size:0.72rem;color:#888;margin-top:0.3rem">TAFC Israel participants with country of representation and player tags</p>
+          <p style="font-size:0.72rem;color:#000;margin-top:0.3rem">TAFC Israel participants with country of representation and player tags</p>
         </div>
       </div>
       <div class="tl-item">
         <h4 style="color:var(--red)">⚡ 15 May 2026 (Nakba Day) — The Footvolley Resistance Club is created</h4>
         <p>With <strong>crystal clear</strong> guidelines to stand with humanity. In times like these, sport cannot exist outside society. <strong>"Do not mix politics with sport"</strong> has never truly existed — especially when human lives are being destroyed in front of our eyes. This is not even about politics anymore — it is about <strong>humanity</strong>. And unfortunately, the global footvolley community is now <strong>deeply involved</strong>.</p>
         <span class="tl-tag">FTVR Founded · 15 May 2026 · Nakba Day</span>
+      </div>
+      <div style="height:2rem"></div>
+      <div class="tl-item">
+        <h4 style="color:var(--red)">4–8 June 2026 — Graz, League of Champions Tournament</h4>
+        <p>FTVR co-founder Rufus Wiena competes at the League of Champions tournament in Graz. Behind the scenes, the website and documented threats are the talk of the community — <strong>everyone knows</strong>. Yet no one acts.</p>
+        <p>During the tournament, <strong>Ron Ben Ishai</strong> posts a video to <strong>~25,000 followers</strong> calling Rufus a "pro-antisemite" and asking: <em>"What would you suggest we do?"</em> Followers respond with: <strong>"Send his picture, we'll take care of him"</strong> (@roy___levi). Ron follows up <strong>thanking them</strong> for <em>"very creative ideas for what to do — NOT during the match."</em></p>
+        <div class="ig-grid" style="margin-top:1rem;margin-bottom:1rem">
+          <div class="ig-card">
+            <video controls style="width:100%;height:280px;object-fit:cover;border-radius:8px 8px 0 0" preload="metadata">
+              <source src="ronstorygraz-web.mp4" type="video/mp4">
+            </video>
+            <div class="ig-card-body" style="padding:0.6rem 0.8rem;min-height:180px;display:flex;flex-direction:column">
+              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">@ronbenishai.fty</p>
+              <p class="ig-desc">Ron Ben Ishai's Instagram story — calls Rufus Wiena a "pro-antisemite" to ~25,000 followers and asks: <strong>"What would you suggest we do?"</strong></p>
+              <button class="collapsible" onclick="toggle(this)">▼ Full transcript</button>
+              <div class="collapse-content"><div class="collapse-inner"><p>"What if I told you there's a guy here in Europe, a player who is a pro-antisemite, and his entire purpose, everything he's trying to do, is to make sure that we Israelis don't play in the European tournaments — because of the whole situation and the genocide and <strong>all that nonsense</strong>."</p><p>"He's even submitted a request to the European federation with a demand that we shouldn't participate, and that his country, Sweden, also shouldn't participate."</p><p><strong>"And what if I told you that this guy — we're playing against him in our very first match?"</strong></p></div></div>
+            </div>
+          </div>
+          <div class="ig-card">
+            <img src="ronstorycomments.webp" alt="Violent comments on Ron's story" style="width:100%;height:280px;object-fit:cover;border-radius:8px 8px 0 0;cursor:pointer" onclick="openLightbox(this.src)">
+            <div class="ig-card-body" style="padding:0.6rem 0.8rem;min-height:180px;display:flex;flex-direction:column">
+              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">Comments on @ronbenishai.fty story</p>
+              <p class="ig-desc">Followers respond with violent threats:</p>
+              <button class="collapsible" onclick="toggle(this)">▼ Translations</button>
+              <div class="collapse-content"><div class="collapse-inner"><p><strong>@roy___levi:</strong> "שלח תמונה שלו נטפל בו" — <strong>"Send his picture, we'll take care of him"</strong></p><p><strong>@shuce_:</strong> "פרק לו תתחת" — "Tear his ass apart"</p><p><strong>@volleylabtlv:</strong> Censored violent response</p><p style="margin-top:0.5rem;font-size:0.8rem;color:var(--red);font-weight:600">"Comments on this story have been limited"</p><p style="margin-top:0.3rem;font-size:0.78rem;color:#999">Based on the documented track record of threats from IFVA-affiliated accounts, one can only imagine why this comment section was restricted.</p></div></div>
+            </div>
+          </div>
+          <div class="ig-card">
+            <video controls style="width:100%;height:280px;object-fit:cover;border-radius:8px 8px 0 0" preload="metadata">
+              <source src="ronthankingcomments-web.mp4" type="video/mp4">
+            </video>
+            <div class="ig-card-body" style="padding:0.6rem 0.8rem;min-height:180px;display:flex;flex-direction:column">
+              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">@ronbenishai.fty — Follow-up</p>
+              <p class="ig-desc">Ron <strong>thanks his followers</strong> for their "very creative ideas for what to do — <strong>NOT during the match</strong>."</p>
+              <button class="collapsible" onclick="toggle(this)">▼ Full transcript</button>
+              <div class="collapse-content"><div class="collapse-inner"><p>"OK so, after many <strong>very creative ideas</strong>, very creative, that you gave me for what to do — <strong>not during the match</strong>. We just played and beat them 18-4. And that's it. Moving on to the next matches."</p><p style="margin-top:0.5rem;font-size:0.8rem;color:var(--red)"><strong>He acknowledged the violent suggestions, called them "creative", and noted they were about off-court actions.</strong></p></div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin:1rem 0;padding:1.2rem 1.5rem;background:#222;border-radius:8px">
+          <p style="color:var(--yellow);font-size:0.88rem;font-weight:500"><strong style="color:var(--yellow)">This completes a three-part evidentiary chain:</strong></p>
+          <p style="color:var(--yellow);font-size:0.85rem;margin-top:0.4rem">(1) <strong>Incitement</strong> → "What should we do?" → (2) <strong>Violent responses</strong> → "Send his picture" → (3) <strong>Endorsement</strong> → "Very creative ideas for what to do NOT during the match."</p>
+          <p style="color:var(--yellow);font-size:0.85rem;margin-top:0.4rem">In most European jurisdictions, this sequence constitutes <strong style="color:var(--yellow)">criminal incitement to violence</strong>.</p>
+        </div>
+        <p>Players openly wear <strong>IFVA-branded clothing</strong> in the players' area at Freiheitsplatz — choosing to represent and normalize the very association whose <strong>affiliated members and supporters</strong> send <strong>death threats</strong> and <strong>incite violence</strong>. If <strong>you choose to wear their brand</strong>, you choose to <strong>stand behind their conduct</strong>. It is worth noting that IFVA was clearly tagged on the @mikasa.tu.kasa bomb casing post — and as far as our research has been able to find, <strong>no condemnation was ever made</strong> by IFVA, nor by any of the other tagged accounts, nor by any official footvolley organisation. The <strong>EFVL President</strong> serves as <strong>referee</strong>. An <strong>EFVL Executive Committee member organises</strong> the event. Both fully aware of the documented evidence at ftvresistance.com previous to this League of Champions tournament in Graz, Austria.</p>
+        <p>After the tournament, <strong>League of Champions tags @israel_footvolley</strong> on their Instagram — the very association whose affiliated members and supporters have been documented sending death threats and inciting violence against fellow players.</p>
+        <div style="margin-top:0.8rem">
+          <div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap">
+            <div style="flex:0 0 180px">
+              <img src="grazloctagisraelfootvolley.webp" alt="LoC Instagram tagging @israel_footvolley" style="width:100%;border-radius:8px;border:2px solid var(--red);cursor:pointer" onclick="openLightbox(this.src)">
+              <p style="font-size:0.72rem;color:#000;margin-top:0.3rem">LoC tags @israel_footvolley</p>
+            </div>
+            <div style="flex:1 1 300px;max-width:500px">
+              <img src="loc-rules-screenshot.webp" alt="LoC website rules" style="width:100%;border-radius:8px;border:2px solid var(--red);cursor:pointer" onclick="openLightbox(this.src)">
+              <p style="font-size:0.72rem;color:#000;margin-top:0.3rem">LoC’s own rules — “cannot host players who threaten, intimidate, or compromise safety”</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:1rem;font-weight:600;color:#000">From LoC's own <a href="https://www.footvolleyleagueofchampions.com/loc-organisation" target="_blank" rel="noopener" style="color:var(--red)">website</a>:</p>
+        <blockquote style="border-left:3px solid var(--red);margin:0.8rem 0;font-style:italic;color:#000;padding:0 0 0 1rem">"League of Champions cannot host players who threaten, intimidate, or engage in behaviour that compromises the safety, dignity, or wellbeing of other players, organisers, volunteers, or spectators at any tournament."</blockquote>
+        <p style="margin-top:0.8rem;color:#000">League of Champions was informed — in person and through the documented evidence at ftvresistance.com — about the conduct of IFVA-affiliated players <strong>well before</strong> this tournament. Despite this, after the tournament, LoC chose to <strong>tag @israel_footvolley</strong> on their Instagram.</p>
+        <p style="margin-top:0.6rem;color:#000">We find this a <strong>deeply concerning signal</strong> from an organisation that was fully aware of the documented threats, incitement, and violent harassment connected to this association. We are not claiming that LoC violated their own policy. We are asking a simple question: <strong>Is this the stance you want to take?</strong></p>
+        <p style="margin-top:0.8rem;color:#000">The tournament itself was well organised and we want to give credit where it is due. We hope that meaningful action will be taken regarding the serious matters both inside and outside the sport — not just words, but <strong>accountability</strong>.</p>
+        <p style="margin-top:0.8rem;font-style:italic;color:#000">"Despite everything, I had a wonderful time with many players on the side courts — people from all over the world. A few came up, encouraged me, and appreciated what FTVR is doing. Not just for standing up for a friend, but for humanity. There are people in this community who want justice — just like us. That warmth will <strong>fuel our movement</strong>. We will <strong>never stop fighting for justice</strong>. We will <strong>never forget</strong>, and <strong>everyone accountable</strong> will have to answer for their actions — or <strong>their silence</strong>." — Rufus Wiena</p>
+        <span class="tl-tag">Graz · League of Champions · June 2026</span>
+      </div>
+      <div style="height:2rem"></div>
+      <div class="tl-item">
+        <h4 style="color:var(--red)">⚖️ 9 June 2026 — Formal Complaint Filed Against EFVL</h4>
+        <p><strong>FTVR files a formal complaint</strong> against the European Footvolley League under <strong>EFVL Code of Ethics Sections 2.1 and 2.3</strong> — the same provisions cited by IFVA in their retaliatory complaint against Ioannis Tsiouris. The complaint documents <strong>systematic threats, intimidation, defamation, incitement to violence, and institutional failure</strong> involving IFVA-affiliated individuals, including new evidence.</p>
+        
+        <p style="margin-top:0.6rem;font-weight:600">The mirror argument: we invoke the same rules. Applied equally.</p>
+        <span class="tl-tag">FTVR-Formal-Complaint-EFVL-Code-of-Ethics-2026 · Filed 9 June 2026</span>
       </div>
     </div>
   </div>
@@ -1485,22 +1615,19 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       </p>
     </div>
     <div style="margin-top:0.5rem">
-      <button class="collapsible" onclick="toggle(this)">How do I join?</button>
+      <button class="collapsible btn-ftvr" onclick="toggle(this)">JOIN THE MOVEMENT</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p>Simply stand with humanity, follow our policy, and represent FTVR. That's it. No registration, no fees. Anyone, anywhere, anytime. That is why FTVR is a <strong>decentralized</strong> footvolley club! 🙂</p>
       </div></div>
-      <br>
-      <button class="collapsible" onclick="toggle(this)">Can I compete under FTVR?</button>
+      <button class="collapsible btn-ftvr" onclick="toggle(this)">REPRESENT FTVR</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p>Yes, if your local rules allow it. If not, you can still represent FTVR through our tags, logo, and community presence. You choose what place you want to represent.</p>
       </div></div>
-      <br>
-      <button class="collapsible" onclick="toggle(this)">Can I start my own branch?</button>
+      <button class="collapsible btn-ftvr" onclick="toggle(this)">START A LOCAL BRANCH</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p>Yes! Feel free to start a branch in your city or country — e.g. "Footvolley Resistance Helsinki" or "FTVR Brazil". Download our logo and use our hashtags. The beauty of this decentralised club.</p>
       </div></div>
-      <br>
-      <button class="collapsible" onclick="toggle(this)">Who are we?</button>
+      <button class="collapsible btn-ftvr" onclick="toggle(this)">WHO WE ARE</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p><strong>OUR TEAM</strong> — For one year, FTVR has been in closed-door meetings across borders.</p>
         <p style="margin-top:0.8rem">We are now a <strong>fully decentralized footvolley club</strong> — linked to government entities, investigative journalists, cybersecurity experts, hackers, and human rights advocates working inside and outside the global footvolley community. Many of them. Everywhere.</p>
@@ -1516,8 +1643,9 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <p style="margin-top:0.8rem"><strong>Which side of history — and humanity — do you stand on?</strong></p>
         <p style="margin-top:0.8rem"><a href="#join" onclick="closeModalById('modal-faq')" style="color:var(--red);font-weight:600">Join Footvolley Resistance</a></p>
       </div></div>
-      <br>
-      <button class="collapsible" onclick="toggle(this)">What is the difference between Zionism and Judaism?</button>
+      <div style="height:0.8rem"></div>
+      <div class="info-divider" style="margin-bottom:0.5rem"><span style="color:var(--red);font-weight:700">▼ EDUCATE YOURSELF ▼</span></div>
+      <button class="collapsible btn-info" onclick="toggle(this)">ZIONISM, JUDAISM &amp; THE WEAPONIZATION OF "ANTISEMITISM"</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p><strong>Zionism is a political ideology, not a religion.</strong> Judaism is a faith; Zionism is a nationalist movement founded by Theodor Herzl in the late 19th century. Many Jewish scholars, rabbis, and activists around the world voice their criticism of Zionism and Israeli government policies.</p>
         <p style="margin-top:0.6rem"><strong>Important facts:</strong></p>
@@ -1545,12 +1673,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         </ul>
         <p style="margin-top:0.8rem">For in-depth education: <a href="https://masjidalaqsa.com/" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">masjidalaqsa.com</a></p>
         <p style="margin-top:0.5rem;font-style:italic;font-size:0.82rem">...the list goes on and on. Educate yourself. The truth is available to anyone willing to look.</p>
-      </div></div>
-      <br>
-      <!-- NEW: Sportswashing & Hasbara FAQ -->
-      <!-- Understanding Antisemitism FAQ -->
-      <button class="collapsible" onclick="toggle(this)">Understanding "Antisemitism" — The Weaponization of a Word</button>
-      <div class="collapse-content"><div class="collapse-inner">
+      <hr style="margin:1.5rem 0;border:none;border-top:1px solid rgba(255,255,255,0.15)">
+      <h3 style="font-family:'Oswald',sans-serif;font-size:1rem;margin-bottom:0.8rem;color:var(--yellow)">THE WEAPONIZATION OF "ANTISEMITISM"</h3>
         <p><strong>Does opposing genocide make you antisemitic?</strong></p>
         <p style="margin-top:0.6rem">No. And a former Israeli Minister of Education said so herself.</p>
         <p style="margin-top:0.8rem"><strong>Shulamit Aloni</strong>, former Israeli Minister of Education, admitted on Democracy Now (14 August 2002):</p>
@@ -1589,17 +1713,15 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <li>The Holocaust is being exploited to justify another genocide</li>
         </ul>
       </div></div>
-      <br>
       <!-- Resistance Movements FAQ -->
-      <button class="collapsible" onclick="toggle(this)">Resistance did not exist before the oppression</button>
+      <button class="collapsible btn-info" onclick="toggle(this)">RESISTANCE IS A RESPONSE TO OPPRESSION</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p><strong>Hamas and Hezbollah</strong> were formed as <strong>direct responses to Israeli aggression</strong> — specifically after the <strong>Sabra and Shatila Massacre (1982)</strong>, in which Israeli forces facilitated the killing of over 3,000 Palestinian refugees in Beirut camps.</p>
         <p style="margin-top:0.8rem">The <strong>IDF itself</strong> has its origins in organizations internationally classified as terrorist groups — <strong>Irgun, Lehi, and Haganah</strong> — responsible for massacres including <strong>Deir Yassin (1948)</strong> where 107 Palestinian villagers were killed.</p>
         <p style="margin-top:0.8rem">The history from 1948 to today is filled with resistance, resilience, and the unyielding spirit of a people striving for their rights and dignity. Resistance movements do not emerge in a vacuum — they are born from decades of occupation, displacement, and systematic violence.</p>
       </div></div>
-      <br>
       <!-- What Israeli Officials Say FAQ -->
-      <button class="collapsible" onclick="toggle(this)">What Israeli officials say — in their own words</button>
+      <button class="collapsible btn-info" onclick="toggle(this)">IN THEIR OWN WORDS — ISRAELI OFFICIALS</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p>These are <strong>direct quotes from senior Israeli government officials</strong>. Note: These statements come from <strong>Israel's own media</strong> including Jerusalem Post, Haaretz, and official government press conferences — not third-party sources.</p>
         <div style="margin:1rem 0;text-align:center"><img src="genocidal-intent-statements.webp" alt="Documented genocidal intent statements by Israeli officials" style="max-width:100%;border-radius:8px;cursor:pointer" onclick="openLightbox(this.src)"></div>
@@ -1613,6 +1735,11 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <li><strong>Amichai Eliyahu</strong> (Heritage Minister): Suggested <strong>striking the Gaza Strip with a nuclear bomb</strong></li>
           <li><strong>Yitzhak Wasserlauf</strong> (Minister, Otzma Yehudit Party): Called on Israeli soldiers to <strong>"smash Palestinian babies on rocks"</strong></li>
           <li><strong>Itamar Ben Gvir</strong> (National Security Minister): Described Zionist settlers spitting on Christians inside Jerusalem as "an ancient Jewish custom" and "not a criminal case"</li>
+          <li><strong>Itamar Ben Gvir</strong> (National Security Minister): <strong>"Imprison their women and children"</strong> — called on Israeli troops to abduct Lebanese civilians (<a href="https://thecradle.co/articles-id/38143" target="_blank" rel="noopener" style="color:var(--red)">source</a>)</li>
+        </ul>
+        <div style="margin:1rem 0;text-align:center"><img src="bengvir.webp" alt="Israeli National Security Minister Itamar Ben Gvir" style="max-width:50%;border-radius:8px;cursor:pointer" onclick="openLightbox(this.src)"></div>
+        <p style="font-size:0.85rem;color:#000;text-align:center;margin-top:0.3rem">Israeli National Security Minister Itamar Ben-Gvir reportedly urged the political-security cabinet to detain Lebanese women and children as part of a psychological pressure strategy.</p>
+        <ul style="font-size:0.85rem;line-height:1.9;margin-top:0.6rem">
         </ul>
         <p style="margin-top:0.8rem"><strong>Norman Finkelstein on Israeli society:</strong></p>
         <p style="margin-top:0.4rem;font-style:italic;border-left:3px solid var(--red);padding-left:12px">"47% of Israeli Jews support a genocide in Gaza. They were asked: When the IDF enters a city, should they kill everybody? 47% said yes. Then: Are there any innocents in Gaza? 62% said no. If you factor out the 20% of Israelis who are not Jewish, it's 70% who say there are no innocents in Gaza from age zero on up."</p>
@@ -1620,9 +1747,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <p style="margin-top:0.4rem;font-style:italic;border-left:3px solid var(--red);padding-left:12px">"A leader of the opposition in Israel said: 'Our soldiers killed children as a hobby.' The genocide is a national project."</p>
         <div style="margin:1rem 0"><iframe width="100%" height="250" src="https://www.youtube.com/embed/hvL9mTMULz0" frameborder="0" allowfullscreen style="border-radius:8px"></iframe></div>
       </div></div>
-      <br>
       <!-- Timeline of Massacres FAQ -->
-      <button class="collapsible" onclick="toggle(this)">Timeline of massacres and key events (1917–2026)</button>
+      <button class="collapsible btn-info" onclick="toggle(this)">TIMELINE: 1917–2026</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p><strong>A partial timeline of documented atrocities:</strong></p>
         <ul style="font-size:0.82rem;line-height:2;margin-top:0.6rem">
@@ -1653,9 +1779,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <p style="margin-top:0.8rem;font-weight:600;color:#111">This is a partial list. The full history is far more extensive. Educate yourself.</p>
         <p style="margin-top:0.6rem">For comprehensive history: <a href="https://masjidalaqsa.com/" target="_blank" rel="noopener" style="color:var(--red);font-weight:600">masjidalaqsa.com</a></p>
       </div></div>
-      <br>
       <!-- Silence in the Community FAQ -->
-      <button class="collapsible" onclick="toggle(this)">Silence in the community — what FTV players say when asked</button>
+      <button class="collapsible btn-info" onclick="toggle(this)">SILENCE &amp; SOLIDARITY — VOICES FROM THE FTV COMMUNITY</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p style="margin-bottom:1rem;color:#111">The following are real responses from footvolley players when asked about the documented threats, the genocide, and the silence in our community.</p>
 
@@ -1681,11 +1806,8 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <p style="margin-top:0.6rem">So let us ask you this: Why don't you find some courage and at least do the right thing? Start to speak up. Protect the innocent children, the women, your family and your friends. Start to believe in something bigger than the Zionist Hasbara propaganda filling the west with blood money laundered through central banks.</p>
           <p style="margin-top:0.8rem;font-weight:700;color:var(--red)">Only the universe and God will judge you. But history will remember where you stood.</p>
         </div>
-      </div></div>
-      <br>
-      <!-- Voices of Support -->
-      <button class="collapsible" onclick="toggle(this)">After FTVR — players worldwide dare to show support</button>
-      <div class="collapse-content"><div class="collapse-inner">
+      <hr style="margin:1.5rem 0;border:none;border-top:1px solid rgba(255,255,255,0.15)">
+      <h3 style="font-family:'Oswald',sans-serif;font-size:1rem;margin:1rem 0 0.8rem;color:var(--green)">BREAKING THE SILENCE — PLAYERS WHO DARE TO SPEAK</h3>
         <p style="margin-bottom:1rem;color:#111">Not everyone chose silence. These are real messages from players across the world coming into light after the creation of FTVR.</p>
 
         <p style="margin:0.6rem 0;padding-left:12px;border-left:3px solid var(--green, #4CAF50)">"What you guys are doing is so good and brave! I want to speak up as well."<br><span style="font-size:0.8rem;color:#888">— Austrian FTV player</span></p>
@@ -1699,8 +1821,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <p style="margin:0.6rem 0;padding-left:12px;border-left:3px solid var(--green, #4CAF50)">"Of course I condemn my own government, state and IDF's actions. Actually, I see myself as a Palestinian more than Israeli."<br><span style="font-size:0.8rem;color:#888">— Israeli FTV player</span></p>
 
       </div></div>
-      <br>
-      <button class="collapsible" onclick="toggle(this)">Sportswashing &amp; Hasbara Propaganda</button>
+      <button class="collapsible btn-info" onclick="toggle(this)">SPORTSWASHING &amp; HASBARA</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p><strong>What is sportswashing?</strong></p>
         <p>Sportswashing is the practice of using sport to improve a tarnished reputation — typically by governments accused of human rights abuses. It works by associating a state's image with the positive emotions of athletic competition, distracting from atrocities and building international legitimacy.</p>
@@ -1717,23 +1838,30 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       </div></div>
       <br>
       <!-- Recommended Sources & Links -->
-      <button class="collapsible" onclick="toggle(this)">Recommended sources, links &amp; independent media</button>
+      <button class="collapsible btn-info" onclick="toggle(this)">RECOMMENDED SOURCES &amp; MEDIA</button>
       <div class="collapse-content"><div class="collapse-inner">
         <p style="margin-bottom:0.8rem"><strong>Educate yourself. The truth is available — but you won't find it on mainstream western media.</strong></p>
         <p style="margin-top:1rem;font-weight:700;color:var(--red)">Independent journalists &amp; voices</p>
         <ul style="font-size:0.85rem;line-height:2;margin-top:0.4rem">
           <li><strong>Francesca Albanese</strong> — UN Special Rapporteur on Palestinian rights</li>
-          <li><strong>George Galloway</strong> — British politician, host of MOATS — <a href="https://www.youtube.com/@GeorgeGallowayOfficial" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
-          <li><strong>Norman Finkelstein</strong> — Holocaust scholar, son of concentration camp survivors — <a href="https://www.youtube.com/@NormanFinkelstein" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
-          <li><strong>Max Blumenthal</strong> — Jewish-American journalist, The Grayzone — <a href="https://www.youtube.com/@thegaborone" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
-          <li><strong>Glenn Greenwald</strong> — Jewish-American journalist — <a href="https://www.youtube.com/@GlennGreenwald" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
-          <li><strong>Prof. John Mearsheimer</strong> — Political scientist, co-author of <em>The Israel Lobby</em> — <a href="https://www.youtube.com/@JohnMearsheimer" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
-          <li><strong>Prof. Jeffrey Sachs</strong> — Economist, Columbia University — <a href="https://www.youtube.com/@JeffreySachs" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
+          <li><strong>George Galloway</strong> — British politician, host of MOATS</li>
+          <li><strong>Norman Finkelstein</strong> — Holocaust scholar, son of concentration camp survivors</li>
+          <li><strong>Max Blumenthal</strong> — Jewish-American journalist, The Grayzone</li>
+          <li><strong>Glenn Greenwald</strong> — Jewish-American journalist</li>
+          <li><strong>Prof. John Mearsheimer</strong> — Political scientist, co-author of <em>The Israel Lobby</em></li>
+          <li><strong>Prof. Jeffrey Sachs</strong> — Economist, Columbia University</li>
           <li><strong>Prof. Seyed Mohammad Marandi</strong> — Iranian academic — <a href="https://x.com/s_m_marandi" target="_blank" rel="noopener" style="color:var(--red)">X/Twitter</a></li>
           <li><strong>Laith Marouf</strong> — Media analyst — <a href="https://x.com/LaithMarouf" target="_blank" rel="noopener" style="color:var(--red)">X/Twitter</a></li>
-          <li><strong>Judge Napolitano</strong> — Judging Freedom — <a href="https://www.youtube.com/@JudgingFreedom" target="_blank" rel="noopener" style="color:var(--red)">YouTube</a></li>
+          <li><strong>Judge Napolitano</strong> — Judging Freedom</li>
           <li><strong>Electronic Intifada</strong> — Independent Palestinian news — <a href="https://electronicintifada.net/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
           <li><strong>Mondoweiss</strong> — Independent journalism on Palestine — <a href="https://mondoweiss.net/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>The Cradle</strong> — Geopolitical news from West Asia — <a href="https://thecradle.co/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>The Grayzone</strong> — Independent investigative journalism — <a href="https://thegrayzone.com/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>MintPress News</strong> — Independent journalism — <a href="https://www.mintpressnews.com/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>Middle East Eye</strong> — News and analysis — <a href="https://www.middleeasteye.net/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>Al Jazeera English</strong> — International news — <a href="https://www.aljazeera.com/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>Democracy Now!</strong> — Daily independent news — <a href="https://www.democracynow.org/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
+          <li><strong>Scottish Sport for Palestine</strong> — Investigating Zionism in sport — <a href="https://www.scottishsportforpalestine.co.uk/" target="_blank" rel="noopener" style="color:var(--red)">Website</a></li>
         </ul>
         <p style="margin-top:1.2rem;font-weight:700;color:var(--red)">Our supporters &amp; allies</p>
         <ul style="font-size:0.85rem;line-height:2;margin-top:0.4rem">
@@ -1741,7 +1869,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <li><strong>Masjid Al-Aqsa</strong> — Education and history — <a href="https://masjidalaqsa.com" target="_blank" rel="noopener" style="color:var(--red)">masjidalaqsa.com</a></li>
           <li><strong>Watermelon Crimes</strong> — Documenting Israeli crimes — <a href="https://watermeloncrimes.com" target="_blank" rel="noopener" style="color:var(--red)">watermeloncrimes.com</a></li>
           <li><strong>Global Sumud Flotilla</strong> — Breaking the siege — <a href="https://globalsumudflotilla.org" target="_blank" rel="noopener" style="color:var(--red)">globalsumudflotilla.org</a></li>
-          <li><strong>Gaza Sunbirds</strong> — Palestinian para-athletes — <a href="https://instagram.com/gazasunbirds" target="_blank" rel="noopener" style="color:var(--red)">@gazasunbirds</a></li>
+          <li><strong>Gaza Sunbirds</strong> — Palestinian para-athletes — <a href="https://www.gazasunbirds.com/" target="_blank" rel="noopener" style="color:var(--red)">gazasunbirds.com</a> · <a href="https://instagram.com/gazasunbirds" target="_blank" rel="noopener" style="color:var(--red)">@gazasunbirds</a></li>
         </ul>
         <p style="margin-top:1rem;font-style:italic;color:#999">The truth does not need a $730 million Hasbara budget. It just needs people willing to look.</p>
       </div></div>
