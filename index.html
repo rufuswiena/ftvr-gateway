@@ -737,6 +737,9 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   color: var(--black);
   display: block;
   margin-bottom: 0.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .ig-card-info .ig-desc {
   font-size: 0.68rem;
@@ -752,6 +755,34 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   padding: 0.3rem 0.6rem;
   margin: 0 0.5rem 0.5rem;
   width: calc(100% - 1rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ig-card {
+  overflow: hidden;
+  max-width: 100%;
+}
+.ig-card-info {
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+/* Timeline Ron cards overflow fix */
+.ig-card-body {
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.ig-card-body .ig-handle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  max-width: 100%;
 }
 .ig-card .collapse-content {
   max-width: 100%;
@@ -802,8 +833,82 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
   .hero-slogan-circle p { font-size: 0.6rem; }
   .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
   .ig-card img { height: 150px; }
-  .ig-card-info .ig-handle { font-size: 0.6rem; }
-  .ig-card-info .ig-desc { font-size: 0.55rem; -webkit-line-clamp: 1; }
+  .ig-card-info .ig-handle { font-size: 0.55rem; }
+  .ig-card-info .ig-desc { font-size: 0.5rem; -webkit-line-clamp: 1; }
+  .ig-card .grid-btn { font-size: 0.55rem; padding: 0.25rem 0.3rem; margin: 0 0.3rem 0.4rem; width: calc(100% - 0.6rem); }
+  .ig-card-body { padding: 0.4rem !important; overflow: hidden !important; }
+  .ig-card-body .ig-handle { font-size: 0.6rem !important; }
+  .ig-card-body .grid-btn { font-size: 0.55rem; padding: 0.25rem 0.3rem; }
+  /* Fix ALL collapsible buttons at 480px */
+  .ig-card .collapsible,
+  .ig-card-body .collapsible {
+    font-size: 0.55rem !important;
+    padding: 0.25rem 0.4rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    width: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .ig-card-body p.ig-handle {
+    font-size: 0.6rem !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 425px) {
+  .ig-grid { gap: 0.3rem; }
+  .ig-card .grid-btn { font-size: 0.5rem; padding: 0.2rem 0.2rem; letter-spacing: -0.02em; }
+  .ig-card-info .ig-handle { font-size: 0.5rem; }
+  .ig-card-body .ig-handle { font-size: 0.55rem !important; }
+  .ig-card-body .grid-btn { font-size: 0.5rem; padding: 0.2rem 0.2rem; }
+  /* Fix collapsible buttons overflow on mobile */
+  .ig-card .collapsible,
+  .ig-card-body .collapsible {
+    font-size: 0.5rem !important;
+    padding: 0.25rem 0.3rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    display: block !important;
+    width: calc(100% - 0.4rem) !important;
+    margin: 0.3rem auto !important;
+  }
+  /* Fix ig-handle inline font-size override */
+  .ig-card-body p.ig-handle {
+    font-size: 0.55rem !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+  }
+  .ig-card-body { overflow: hidden !important; padding: 0.4rem 0.5rem !important; }
+  .ig-card-body .ig-desc { font-size: 0.5rem !important; }
+}
+@media (max-width: 375px) {
+  .ig-card .grid-btn { font-size: 0.45rem; padding: 0.2rem 0.15rem; }
+  .ig-card-info .ig-handle { font-size: 0.45rem; }
+  .ig-card-body .ig-handle { font-size: 0.5rem !important; }
+  .ig-card-body .grid-btn { font-size: 0.45rem; }
+  .ig-card .collapsible,
+  .ig-card-body .collapsible {
+    font-size: 0.45rem !important;
+    padding: 0.2rem 0.2rem !important;
+    width: calc(100% - 0.3rem) !important;
+  }
+  .ig-card-body p.ig-handle {
+    font-size: 0.5rem !important;
+  }
+  .ig-card-body { padding: 0.3rem 0.4rem !important; }
+  .ig-card-body .ig-desc { font-size: 0.45rem !important; }
 }
 
 
@@ -974,7 +1079,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
       <li><span class="date-tag">26 May 2026</span> EXPOSE rewritten — IFA, EFVL, sportswashing strategy, TAFC Connection highlight → <a href="#third" style="color:var(--red)">See Expose</a></li>
       <li><span class="date-tag">26 May 2026</span> Hasbara: $730M propaganda machine section added → <a href="#third" style="color:var(--red)">See Expose</a></li>
       <li><span class="date-tag">25 May 2026</span> New evidence: @mamaninio__, @oriya_malul1, @roy___levi, @tal_hay1, @halfonthefire, @yuval_aharfi + 6 more → <a href="#about" style="color:var(--red)">See Protect</a></li>
-      <li><span class="date-tag">25 May 2026</span> Politics × Sports evidence grid: IDF propaganda tours, TAFC Israel, @ronbenishai.fty → <a href="#third" style="color:var(--red)">See Expose</a></li>
+      <li><span class="date-tag">25 May 2026</span> Politics × Sports evidence grid: IDF propaganda tours, TAFC Israel, @ronbenishai.ftv → <a href="#third" style="color:var(--red)">See Expose</a></li>
       <li><span class="date-tag">25 May 2026</span> Full Hebrew & Portuguese translations on all evidence</li>
       <li><span class="date-tag">25 May 2026</span> Timeline expanded — IG stories, TAFC player documentation → <a href="#second" style="color:var(--red)">See Resist</a></li>
       <li><span class="date-tag">25 May 2026</span> FAQ: Sportswashing & Hasbara explained → <a href="#" onclick="openModal('modal-faq');return false" style="color:var(--red)">See FAQ</a></li>
@@ -1260,7 +1365,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
         <h4>March 2026 — TAFC Israel is announced</h4>
         <p>A footvolley tournament (TAFC World Cup Red Sea) is planned in Eilat, Israel — originally for March 19–21, 2026, then rescheduled to May 6–9, 2026 — later cancelled and postponed due to the US-Israel vs. Iran conflict. Many professional and non-professional international footvolley players sign up without hesitation, accepting the money offered, showing no moral objection, and by participating openly endorsing the <strong>ethno-supremacist apartheid state of Israel</strong> which has its so-called "most moral army in the world" committing an <strong>active genocide</strong> in front of the eyes of the world.</p>
         <div style="margin-top:0.8rem">
-          <a href="tafc-israelplayers.webp" target="_blank"><img src="tafc-israelplayers.webp" alt="TAFC Israel players" style="max-width:480px;width:100%;border-radius:8px;border:2px solid var(--red)"></a>
+          <img src="tafc-israelplayers.webp" alt="TAFC Israel players" style="max-width:480px;width:100%;border-radius:8px;border:2px solid var(--red);cursor:pointer" onclick="openLightbox(this.src)">
           <p style="font-size:0.72rem;color:#000;margin-top:0.3rem">TAFC Israel participants with country of representation and player tags</p>
         </div>
       </div>
@@ -1280,7 +1385,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
               <source src="ronstorygraz-web.mp4" type="video/mp4">
             </video>
             <div class="ig-card-body" style="padding:0.6rem 0.8rem;min-height:180px;display:flex;flex-direction:column">
-              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">@ronbenishai.fty</p>
+              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">@ronbenishai.ftv</p>
               <p class="ig-desc">Ron Ben Ishai's Instagram story — calls Rufus Wiena a "pro-antisemite" to ~25,000 followers and asks: <strong>"What would you suggest we do?"</strong></p>
               <button class="collapsible" onclick="toggle(this)">▼ Full transcript</button>
               <div class="collapse-content"><div class="collapse-inner"><p>"What if I told you there's a guy here in Europe, a player who is a pro-antisemite, and his entire purpose, everything he's trying to do, is to make sure that we Israelis don't play in the European tournaments — because of the whole situation and the genocide and <strong>all that nonsense</strong>."</p><p>"He's even submitted a request to the European federation with a demand that we shouldn't participate, and that his country, Sweden, also shouldn't participate."</p><p><strong>"And what if I told you that this guy — we're playing against him in our very first match?"</strong></p></div></div>
@@ -1289,7 +1394,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
           <div class="ig-card">
             <img src="ronstorycomments.webp" alt="Violent comments on Ron's story" style="width:100%;height:280px;object-fit:cover;border-radius:8px 8px 0 0;cursor:pointer" onclick="openLightbox(this.src)">
             <div class="ig-card-body" style="padding:0.6rem 0.8rem;min-height:180px;display:flex;flex-direction:column">
-              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">Comments on @ronbenishai.fty story</p>
+              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">Comments on @ronbenishai.ftv story</p>
               <p class="ig-desc">Followers respond with violent threats:</p>
               <button class="collapsible" onclick="toggle(this)">▼ Translations</button>
               <div class="collapse-content"><div class="collapse-inner"><p><strong>@roy___levi:</strong> "שלח תמונה שלו נטפל בו" — <strong>"Send his picture, we'll take care of him"</strong></p><p><strong>@shuce_:</strong> "פרק לו תתחת" — "Tear his ass apart"</p><p><strong>@volleylabtlv:</strong> Censored violent response</p><p style="margin-top:0.5rem;font-size:0.8rem;color:var(--red);font-weight:600">"Comments on this story have been limited"</p><p style="margin-top:0.3rem;font-size:0.78rem;color:#999">Based on the documented track record of threats from IFVA-affiliated accounts, one can only imagine why this comment section was restricted.</p></div></div>
@@ -1300,7 +1405,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
               <source src="ronthankingcomments-web.mp4" type="video/mp4">
             </video>
             <div class="ig-card-body" style="padding:0.6rem 0.8rem;min-height:180px;display:flex;flex-direction:column">
-              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">@ronbenishai.fty — Follow-up</p>
+              <p class="ig-handle" style="font-weight:700;color:var(--red);font-size:0.82rem">@ronbenishai.ftv — Follow-up</p>
               <p class="ig-desc">Ron <strong>thanks his followers</strong> for their "very creative ideas for what to do — <strong>NOT during the match</strong>."</p>
               <button class="collapsible" onclick="toggle(this)">▼ Full transcript</button>
               <div class="collapse-content"><div class="collapse-inner"><p>"OK so, after many <strong>very creative ideas</strong>, very creative, that you gave me for what to do — <strong>not during the match</strong>. We just played and beat them 18-4. And that's it. Moving on to the next matches."</p><p style="margin-top:0.5rem;font-size:0.8rem;color:var(--red)"><strong>He acknowledged the violent suggestions, called them "creative", and noted they were about off-court actions.</strong></p></div></div>
@@ -1366,9 +1471,9 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
 <!-- 1. Politics × Sports (overview card) -->
 <div class="ig-card">
 <img src="936a2f72-7825-4d5b-bf6c-a55873ca2c1b.webp" alt="Evidence: Politics × Sports">
-<div class="ig-card-info"><span class="ig-handle">@ronbenishai.fty</span><span class="ig-desc">"I urge all Israelis not to respond to this page" + calls to eliminate Yiannis from EFVL</span></div>
+<div class="ig-card-info"><span class="ig-handle">@ronbenishai.ftv</span><span class="ig-desc">"I urge all Israelis not to respond to this page" + calls to eliminate Yiannis from EFVL</span></div>
 <button class="collapsible grid-btn" onclick="toggle(this)">Read more</button>
-<div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.fty)</strong> — Israeli footvolley player. IG story titled "Politics &amp; Sport — The ugly side of our footvolley community".</p><p>Hebrew: "העמוד הכי לא רשמי ומנוהל על ידי בן אדם אחד קיצוני וצבוע" = "The most unofficial page, run by one extremist and hypocritical person"</p><p>Hebrew: "אני מפציר בכל הישראלים לא להתייחס/לנסות לקבוע/לשלוח הודעות לעמוד הזה" = "I urge all Israelis not to respond/engage/send messages to this page"</p><p>Hebrew: "באתונה יש עוד קהילה מדהימה של פוציוולי שישמחו לקבל אתכם" = "In Athens there is another amazing footvolley community that would be happy to welcome you"</p><p>The post also shows two DM screenshots where Yiannis Tsiouris (@footvolley.athens) responds to Israeli players wanting to visit Athens: "During the last period of active genocide in the Middle East we have decided to boycott people who explicitly or implicitly support it."</p><p>Bottom text directed at <strong>@europeanfootvolleyleague</strong>: "I hope this person is not taking part on EFVL decisions, and if so he should be eliminated immediately"</p><p style="font-size:0.78rem;color:#888">Posted by <strong>@ronbenishai.fty</strong></p></div></div>
+<div class="collapse-content"><div class="collapse-inner"><p><strong>Ron Ben Ishai (@ronbenishai.ftv)</strong> — Israeli footvolley player. IG story titled "Politics &amp; Sport — The ugly side of our footvolley community".</p><p>Hebrew: "העמוד הכי לא רשמי ומנוהל על ידי בן אדם אחד קיצוני וצבוע" = "The most unofficial page, run by one extremist and hypocritical person"</p><p>Hebrew: "אני מפציר בכל הישראלים לא להתייחס/לנסות לקבוע/לשלוח הודעות לעמוד הזה" = "I urge all Israelis not to respond/engage/send messages to this page"</p><p>Hebrew: "באתונה יש עוד קהילה מדהימה של פוציוולי שישמחו לקבל אתכם" = "In Athens there is another amazing footvolley community that would be happy to welcome you"</p><p>The post also shows two DM screenshots where Yiannis Tsiouris (@footvolley.athens) responds to Israeli players wanting to visit Athens: "During the last period of active genocide in the Middle East we have decided to boycott people who explicitly or implicitly support it."</p><p>Bottom text directed at <strong>@europeanfootvolleyleague</strong>: "I hope this person is not taking part on EFVL decisions, and if so he should be eliminated immediately"</p><p style="font-size:0.78rem;color:#888">Posted by <strong>@ronbenishai.ftv</strong></p></div></div>
 </div>
 <!-- 2. @ronbenishai.ftv -->
 <div class="ig-card">
