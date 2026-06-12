@@ -1068,11 +1068,7 @@ h1,h2,h3,.nav a,.section-title { font-family: 'Oswald', sans-serif; }
     </div>
     <p style="margin-bottom:0.8rem"><span style="color:#fff">And in response to your most frequent questions:</span> <a href="#" onclick="openModal('modal-contact');return false" style="color:var(--red);text-decoration:underline">see contact</a> →</p>
     <ul>
-      <li><span class="date-tag">9 Jun 2026</span> ⚖️ <strong>FORMAL COMPLAINT FILED:</strong> FTVR-Formal-Complaint-EFVL-Code-of-Ethics-2026 → <a href="#second" style="color:var(--red)">See Timeline</a>
-        <div id="efvl-countdown" style="margin-top:0.5rem;padding:0.5rem 0.8rem;background:rgba(255,102,102,0.15);border:1px solid var(--red);border-radius:6px;display:inline-block">
-          <span style="font-size:0.78rem;color:var(--red);font-weight:600">⏱ EFVL deadline to respond: </span><span id="countdown-clock" style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--yellow);font-weight:700;letter-spacing:1px"></span>
-        </div>
-      </li>
+      <li><span class="date-tag">9 Jun 2026</span> ⚖️ <strong>FORMAL COMPLAINT FILED:</strong> FTVR-Formal-Complaint-EFVL-Code-of-Ethics-2026 → <a href="#second" style="color:var(--red)">See Timeline</a></li>
       <li><span class="date-tag">9 Jun 2026</span> 🔴 <strong>GRAZ TOURNAMENT:</strong> Timeline updated — Graz LoC Tournament documented, LoC tags @israel_footvolley → <a href="#graz-timeline" style="color:var(--red)">See Timeline</a></li>
       <li><span class="date-tag">9 Jun 2026</span> New evidence cards: racist anti-Arab comments + Ron's story threatening comments with Hebrew translations → <a href="#about" style="color:var(--red)">See Protect</a></li>
       <li><span class="date-tag">3 Jun 2026</span> 🌍 <strong>NEW HUBS:</strong> Dublin, Rio de Janeiro, Tirana — FTVR goes global</li>
@@ -2076,33 +2072,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-/* EFVL Deadline Countdown Timer */
-(function() {
-  var deadline = new Date('2026-06-19T12:57:00+02:00').getTime();
-  var clockEl = document.getElementById('countdown-clock');
-  var boxEl = document.getElementById('efvl-countdown');
-  if (!clockEl || !boxEl) return;
-  function tick() {
-    var now = Date.now();
-    var diff = deadline - now;
-    if (diff <= 0) {
-      boxEl.style.display = 'none';
-      return;
-    }
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    var parts = [];
-    if (d > 0) parts.push(d + 'd');
-    parts.push(('0'+h).slice(-2) + 'h');
-    parts.push(('0'+m).slice(-2) + 'm');
-    parts.push(('0'+s).slice(-2) + 's');
-    clockEl.textContent = parts.join(' : ');
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
 </script>
 
 </body>
