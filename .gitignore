@@ -31,3 +31,6 @@ package-lock.json
 *.zip
 *.tar.gz
 *.rar
+
+# === v6 build notes (NOT for GitHub) ===
+_v6-notes/
