@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ZNetwork icon">
+  <rect width="128" height="128" rx="24" fill="#111111"/>
+  <path d="M28 33h72L51 95h51v16H26L75 49H28z" fill="#ffffff"/>
+  <path d="M28 33h72" stroke="#ffc300" stroke-width="8" stroke-linecap="round"/>
+</svg>

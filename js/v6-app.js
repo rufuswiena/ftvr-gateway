@@ -5,11 +5,12 @@
     about:'story', evidence:'story', third:'story', second:'story',
     logokit:'home', support:'home',
     'dn-article':'timeline', 'graz-timeline':'timeline',
-    'efvl-non-response':'timeline', 'institutional-escalation':'timeline'
+    'efvl-non-response':'timeline', 'institutional-escalation':'timeline',
+    'kleine-zeitung':'timeline', 'international-coverage':'timeline'
   };
 
   function parseHash(){
-    var raw = (location.hash || '#home').slice(1);
+    var raw = (location.hash || '').slice(1);
     var parts = raw.split('/');
     var first = parts[0];
     var anchor = parts[1] || '';
@@ -129,7 +130,7 @@
     var img = e.target.closest('img');
     if (!img) return;
     // Skip supporter logos and non-evidence images
-    if (img.closest('.supporters, .header, .header-logo, nav, .dn-feature-media')) return;
+    if (img.closest('.supporters, .header, .header-logo, .hero, .hero-logo, nav, .dn-feature-media')) return;
     // Skip images that already have inline onclick
     if (img.getAttribute('onclick')) return;
     // Skip images inside elements with onclick
@@ -143,7 +144,7 @@
   window.addEventListener('hashchange', showRoute);
 
   document.addEventListener('DOMContentLoaded', function(){
-    if (!location.hash) history.replaceState(null, '', '#home');
+    // v8: do not force #home on first visit; keep the clean root URL and show the hero.
 
     // Delegated image click — single handler, no conflicts
     document.addEventListener('click', handleImageClick);
