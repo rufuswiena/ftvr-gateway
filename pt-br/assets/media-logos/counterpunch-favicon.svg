@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="CounterPunch icon">
+  <rect width="128" height="128" rx="24" fill="#7a1111"/>
+  <circle cx="64" cy="64" r="44" fill="#ffffff" opacity="0.96"/>
+  <path d="M83 36H53c-16 0-28 12-28 28s12 28 28 28h30V75H55c-6 0-11-5-11-11s5-11 11-11h28z" fill="#7a1111"/>
+  <path d="M67 57h35l-12 14H67z" fill="#111111"/>
+</svg>
