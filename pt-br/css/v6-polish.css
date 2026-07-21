@@ -150,7 +150,8 @@ body[data-route="story"] #second .category-header{display:block}
   .timeline{padding-left:1rem}
   .tl-item{padding:.8rem}
   .tl-item h4{font-size:.9rem!important;width:100%}
-  .modal-box{width:100vw!important;max-height:92vh!important;border-radius:20px 20px 0 0!important;margin-top:auto}
+  .modal-box{width:100vw!important;max-height:92vh!important;border-radius:20px 20px 0 0!important;margin-top:auto;padding-bottom:3.5rem!important}
+  .modal-box .section-title{font-size:clamp(1.05rem,4.5vw,1.45rem)!important;line-height:1.15!important;letter-spacing:-.02em!important}
   .lightbox img{max-width:96vw!important;max-height:76vh!important}
   .supporters{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch}
   .dn-feature-card,.home-cta-strip{grid-template-columns:1fr!important}
