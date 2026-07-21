@@ -105,7 +105,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;back
 .lightbox{display:none!important;z-index:10000}
 .lightbox.active{display:flex!important;z-index:10000;backdrop-filter:blur(12px)}
 .lightbox img{border-radius:14px;box-shadow:0 30px 90px rgba(0,0,0,.55);max-width:92vw;max-height:82vh}
-.lightbox-close{width:48px;height:48px;border-radius:999px;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.6rem;cursor:pointer;z-index:10001}
+.lightbox-close{position:fixed!important;top:1rem;right:1rem;width:48px;height:48px;border-radius:999px;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.6rem;cursor:pointer;z-index:20001!important;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+body:has(.lightbox.active) .language-switch{display:none!important}
 
 /* ═══ Join section: positive panel ═══ */
 .positive-panel{background:linear-gradient(135deg,rgba(46,125,50,.08),rgba(255,195,0,.05));border:1px solid rgba(46,125,50,.15);border-radius:18px;padding:1.5rem;margin-bottom:1.5rem}
